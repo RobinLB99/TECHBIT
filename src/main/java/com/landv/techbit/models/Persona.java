@@ -9,6 +9,8 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
 import java.io.Serializable;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 
@@ -22,9 +24,11 @@ import javax.persistence.InheritanceType;
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 public class Persona implements Serializable {
 
+    private static final long serialVersionUID = 1L;
     @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     @Basic(optional = false)
-    @Column(nullable = false)
+    @Column(nullable = false, name = "ID")
     private Long id;
 
     @Basic(optional = false)
@@ -47,10 +51,11 @@ public class Persona implements Serializable {
 
     @Basic(optional = false)
     @NotNull
-    @Size(min = 1, max = 50)
+    @Size(min = 5, max = 50)
     @Column(nullable = false, length = 50, name = "Nombres")
     private String nombres;
 
+    @Basic(optional = false)
     @Size(max = 10)
     @Column(length = 10, name = "Telefono")
     private String telefono;
@@ -58,13 +63,21 @@ public class Persona implements Serializable {
     public Persona() {
     }
 
-    public Persona(/*Long id,*/String apellidos, String cedula, String email, String nombres, String telefono) {
-//        this.id = id;
+    public Persona(Long id, String apellidos, String cedula, String email, String nombres, String telefono) {
+        this.id = id;
         this.apellidos = apellidos;
         this.cedula = cedula;
         this.email = email;
         this.nombres = nombres;
         this.telefono = telefono;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getApellidos() {
@@ -109,7 +122,7 @@ public class Persona implements Serializable {
 
     @Override
     public String toString() {
-        return "Persona{" + "apellidos=" + apellidos + ", cedula=" + cedula + ", email=" + email + ", nombres=" + nombres + ", telefono=" + telefono + '}';
+        return "Persona{" + "id=" + id + ", apellidos=" + apellidos + ", cedula=" + cedula + ", email=" + email + ", nombres=" + nombres + ", telefono=" + telefono + '}';
     }
 
 }
