@@ -14,5 +14,6 @@ public class PersistenceController {
     
     ClientePersonaJpaController pclienteJpa = new ClientePersonaJpaController(emf);
     EmpleadoJpaController empleadoJpa = new EmpleadoJpaController(emf);
+    ClienteEmpresaJpaController eclienteJpa = new ClienteEmpresaJpaController(emf);
     
 }
