@@ -1,6 +1,6 @@
-package com.landv.techbit.logic;
+package com.landv.techbit.controllers;
 
-import com.landv.techbit.persistence.PersistenceController;
+import com.landv.techbit.persistenceDrivers.PersistenceController;
 
 /**
  *

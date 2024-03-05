@@ -1,4 +1,4 @@
-package com.landv.techbit.persistence.exceptions;
+package com.landv.techbit.persistenceDrivers.exceptions;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,4 +1,4 @@
-package com.landv.techbit.models;
+package com.landv.techbit.model;
 
 import java.io.Serializable;
 import javax.persistence.Basic;

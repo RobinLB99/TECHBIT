@@ -1,6 +1,6 @@
-package com.landv.techbit.servellets;
+package com.landv.techbit.servelets;
 
-import com.landv.techbit.logic.LogicController;
+import com.landv.techbit.controllers.LogicController;
 import java.io.IOException;
 import java.io.PrintWriter;
 import jakarta.servlet.ServletException;

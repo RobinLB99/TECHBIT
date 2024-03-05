@@ -1,4 +1,4 @@
-package com.landv.techbit.models;
+package com.landv.techbit.model;
 
 import javax.persistence.Basic;
 import javax.persistence.Column;

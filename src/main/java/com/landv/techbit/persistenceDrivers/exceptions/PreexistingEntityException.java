@@ -1,4 +1,4 @@
-package com.landv.techbit.persistence.exceptions;
+package com.landv.techbit.persistenceDrivers.exceptions;
 
 public class PreexistingEntityException extends Exception {
     public PreexistingEntityException(String message, Throwable cause) {
