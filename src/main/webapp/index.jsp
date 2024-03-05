@@ -13,8 +13,5 @@
     </head>
     <body>
         <h1>Hello World!</h1>
-        <form action="SvMain" method="post">
-            <button type="submit">Crear tablas</button>
-        </form>
     </body>
 </html>
