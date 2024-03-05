@@ -1,9 +1,3 @@
-<%-- 
-    Document   : index
-    Created on : 4 mar 2024, 0:00:00
-    Author     : Robin
---%>
-
 <%@page contentType="text/html" language="java" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
