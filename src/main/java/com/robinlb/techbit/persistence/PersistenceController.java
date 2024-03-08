@@ -68,7 +68,7 @@ public class PersistenceController {
         }
     }
 
-    public void updateUuser(Usuario usuario) {
+    public void updateUser(Usuario usuario) {
         try {
             usuarioJpa.edit(usuario);
         } catch (Exception ex) {
