@@ -19,15 +19,15 @@ public class PersistenceController {
 
     EmpleadoJpaController empleadoJpa = new EmpleadoJpaController(emf);
     UsuarioJpaController usuarioJpa = new UsuarioJpaController(emf);
-    
+
     /**
-     * 
-     * @param empleado 
+     *
+     * @param empleado
      */
     public void createEmploy(Empleado empleado) {
         empleadoJpa.create(empleado);
     }
-    
+
     public void destroyEmploy(Long id) {
         try {
             empleadoJpa.destroy(id);
@@ -35,7 +35,7 @@ public class PersistenceController {
             Logger.getLogger(PersistenceController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
+
     public void updateEmploy(Empleado empleado) {
         try {
             empleadoJpa.edit(empleado);
@@ -43,20 +43,23 @@ public class PersistenceController {
             Logger.getLogger(PersistenceController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
+
     public Empleado viewEmploy(Long id) {
         return empleadoJpa.findEmpleado(id);
     }
-    
+
     public Collection<Empleado> employList() {
         return empleadoJpa.findEmpleadoEntities();
     }
 
-    
+    /**
+     *
+     * @param usuario
+     */
     public void createUser(Usuario usuario) {
         usuarioJpa.create(usuario);
     }
-    
+
     public void destroyUsuario(Long id) {
         try {
             usuarioJpa.destroy(id);
@@ -64,7 +67,7 @@ public class PersistenceController {
             Logger.getLogger(PersistenceController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
+
     public void updateUuser(Usuario usuario) {
         try {
             usuarioJpa.edit(usuario);
@@ -72,11 +75,11 @@ public class PersistenceController {
             Logger.getLogger(PersistenceController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
+
     public Usuario viewUser(Long id) {
         return usuarioJpa.findUsuario(id);
     }
-    
+
     public Collection<Usuario> usersList() {
         return usuarioJpa.findUsuarioEntities();
     }
