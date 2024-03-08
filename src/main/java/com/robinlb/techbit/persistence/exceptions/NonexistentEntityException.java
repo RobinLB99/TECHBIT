@@ -1,4 +1,4 @@
-package com.landv.techbit.persistenceDrivers.exceptions;
+package com.robinlb.techbit.persistence.exceptions;
 
 public class NonexistentEntityException extends Exception {
     public NonexistentEntityException(String message, Throwable cause) {

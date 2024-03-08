@@ -1,4 +1,4 @@
-package com.landv.techbit.persistenceDrivers;
+package com.robinlb.techbit.persistence;
 
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;

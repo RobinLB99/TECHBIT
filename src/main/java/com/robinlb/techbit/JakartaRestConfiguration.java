@@ -1,4 +1,4 @@
-package com.landv.techbit;
+package com.robinlb.techbit;
 
 import jakarta.ws.rs.ApplicationPath;
 import jakarta.ws.rs.core.Application;

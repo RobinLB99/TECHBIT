@@ -1,4 +1,4 @@
-package com.landv.techbit.resources;
+package com.robinlb.techbit.resources;
 
 import jakarta.ws.rs.GET;
 import jakarta.ws.rs.Path;
