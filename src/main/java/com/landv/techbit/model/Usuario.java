@@ -56,7 +56,7 @@ public class Usuario implements Serializable {
     private int tipoCredencial;
 
     @JoinColumn(name = "empresa", referencedColumnName = "cliente_e_id")
-    @OneToMany(mappedBy = "id")
+    @OneToOne
     private ClienteEmpresarial clienteEmpresarial;
 
     @JoinColumn(name = "clienteNatural", referencedColumnName = "id")
