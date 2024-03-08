@@ -1,6 +1,7 @@
 package com.robinlb.techbit.persistence;
 
 import com.robinlb.techbit.model.Empleado;
+import com.robinlb.techbit.model.Usuario;
 import com.robinlb.techbit.persistence.exceptions.NonexistentEntityException;
 import java.util.Collection;
 import java.util.logging.Level;
@@ -51,4 +52,32 @@ public class PersistenceController {
         return empleadoJpa.findEmpleadoEntities();
     }
 
+    
+    public void createUser(Usuario usuario) {
+        usuarioJpa.create(usuario);
+    }
+    
+    public void destroyUsuario(Long id) {
+        try {
+            usuarioJpa.destroy(id);
+        } catch (NonexistentEntityException ex) {
+            Logger.getLogger(PersistenceController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    public void updateUuser(Usuario usuario) {
+        try {
+            usuarioJpa.edit(usuario);
+        } catch (Exception ex) {
+            Logger.getLogger(PersistenceController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    public Usuario viewUser(Long id) {
+        return usuarioJpa.findUsuario(id);
+    }
+    
+    public Collection<Usuario> usersList() {
+        return usuarioJpa.findUsuarioEntities();
+    }
 }
