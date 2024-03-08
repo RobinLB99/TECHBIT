@@ -2,6 +2,17 @@
 <persistence version="2.2" xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence           http://xmlns.jcp.org/xml/ns/persistence/persistence_2_2.xsd">
   <persistence-unit name="com.landv_TechBit_war_1.0PU" transaction-type="RESOURCE_LOCAL">
     <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
+    <class>com.landv.techbit.model.ArchivoAdjunto</class>
+    <class>com.landv.techbit.model.Empleado</class>
+    <class>com.landv.techbit.model.Persona</class>
+    <class>com.landv.techbit.model.SolucionRespuesta</class>
+    <class>com.landv.techbit.model.UnidadAdquirida</class>
+    <class>com.landv.techbit.model.ClienteNatural</class>
+    <class>com.landv.techbit.model.ClienteEmpresarial</class>
+    <class>com.landv.techbit.model.Factura</class>
+    <class>com.landv.techbit.model.Catalogo</class>
+    <class>com.landv.techbit.model.Usuario</class>
+    <class>com.landv.techbit.model.TicketSoporte</class>
     <exclude-unlisted-classes>false</exclude-unlisted-classes>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/db_techbit?serverTimezone=UTC"/>
