@@ -52,7 +52,7 @@ public class Factura implements Serializable {
 
     @JoinColumn(name = "lista", referencedColumnName = "unidad_id")
     @NotNull
-    @OneToMany(mappedBy = "unidad_id")
+    @OneToMany
     private Collection<UnidadAdquirida> unidadAdquirida;
 
     public Factura() {
