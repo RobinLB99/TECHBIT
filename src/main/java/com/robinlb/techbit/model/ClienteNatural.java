@@ -30,7 +30,7 @@ public class ClienteNatural extends Persona implements Serializable {
     private String estado;
 
     @JoinColumn(name = "servicios_activos_id", referencedColumnName = "catalogo_id")
-    @OneToMany(mappedBy = "catalogo_id")
+    @OneToMany
     private Collection<Catalogo> catalogo;
 
     public ClienteNatural() {
