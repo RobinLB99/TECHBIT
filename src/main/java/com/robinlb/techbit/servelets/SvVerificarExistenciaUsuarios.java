@@ -11,8 +11,9 @@ import jakarta.servlet.http.HttpServletResponse;
 import java.util.Collection;
 
 /**
- *
- * @author Robin
+ *  Verifica si existe algún usuario registrado.
+ *  Si existe uno o mas usuarios registrados, redirige a la pagina de login
+ *  Si no existe ningun usuario, redirige a la pagina de registro de usuario root
  */
 @WebServlet(name = "SvVerificarExistenciaUsuarios", urlPatterns = {"/SvVerificarExistenciaUsuarios"})
 public class SvVerificarExistenciaUsuarios extends HttpServlet {
