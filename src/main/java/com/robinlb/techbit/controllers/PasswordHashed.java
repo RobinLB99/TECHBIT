@@ -8,10 +8,15 @@ import org.mindrot.jbcrypt.BCrypt;
  */
 public class PasswordHashed {
 
-    public String hashedPassword(String password) {
+    public String encrypt(String password) {
         String hashedPassword = BCrypt.hashpw(password, BCrypt.gensalt());
         System.out.println("Contraseña hasheada: " + hashedPassword);
         return hashedPassword;
+    }
+    
+    public String decrypt(String password) {
+        String PasswordUnhashed = "";
+        return PasswordUnhashed;
     }
 
 }
