@@ -1,7 +1,7 @@
 package com.robinlb.techbit.servelets;
 
 import com.robinlb.techbit.controllers.LogicController;
-import com.robinlb.techbit.controllers.PasswordHashed;
+import com.robinlb.techbit.controllers.PasswordSecurityService;
 import com.robinlb.techbit.model.Usuario;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -41,10 +41,10 @@ public class SvLogin extends HttpServlet {
 
         try {
             Usuario usuario = control.verUsuarioPorNombreUsuario(username);
-            PasswordHashed passwordhashed = new PasswordHashed();
-            boolean passwordMatched = passwordhashed.match(password, usuario.getContraseña());
+            PasswordSecurityService passwordSecure = new PasswordSecurityService();
+            boolean match = passwordSecure.matches(password, usuario.getContraseña());
 
-            if (passwordMatched) {
+            if (match) {
                 response.sendRedirect("dashboard.jsp");
             } else {
                 response.sendRedirect("page-login.jsp?password=incorrect");

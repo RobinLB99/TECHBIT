@@ -8,7 +8,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
  * @author Robin
  *
  */
-public class PasswordHashed {
+public class PasswordSecurityService {
 
     BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
 
@@ -29,7 +29,7 @@ public class PasswordHashed {
      * @return true o false según coincida la contraseña ingresada con la
      * contraseña encriptada almacenada.
      */
-    public boolean match(String password, String hashedPassword) {
+    public boolean matches(String password, String hashedPassword) {
         return encoder.matches(password, hashedPassword);
 //        return BCrypt.checkpw(password, hashedPassword);
     }

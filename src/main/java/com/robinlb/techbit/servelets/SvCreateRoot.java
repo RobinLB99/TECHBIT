@@ -1,7 +1,7 @@
 package com.robinlb.techbit.servelets;
 
 import com.robinlb.techbit.controllers.LogicController;
-import com.robinlb.techbit.controllers.PasswordHashed;
+import com.robinlb.techbit.controllers.PasswordSecurityService;
 import com.robinlb.techbit.model.Usuario;
 import java.io.IOException;
 import jakarta.servlet.ServletException;
@@ -17,7 +17,7 @@ import jakarta.servlet.http.HttpServletResponse;
 @WebServlet(name = "SvCreateRoot", urlPatterns = {"/SvCreateRoot"})
 public class SvCreateRoot extends HttpServlet {
     
-    PasswordHashed passwordHashed = new PasswordHashed();
+    PasswordSecurityService passwordSecure = new PasswordSecurityService();
     LogicController control = new LogicController();
     
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
@@ -38,7 +38,7 @@ public class SvCreateRoot extends HttpServlet {
         processRequest(request, response);
         
         String password = (String) request.getParameter("contraseña");
-        String encryptedPassword = passwordHashed.encrypt(password);
+        String encryptedPassword = passwordSecure.encrypt(password);
         
         try {
             Usuario usuario = new Usuario();
