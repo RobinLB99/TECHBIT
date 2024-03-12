@@ -12,8 +12,9 @@ import java.util.Collection;
 
 /**
  *  Verifica si existe algún usuario registrado.
- *  Si existe uno o mas usuarios registrados, redirige a la pagina de login
- *  Si no existe ningun usuario, redirige a la pagina de registro de usuario root
+ *  Si existe uno o mas usuarios registrados, redirige a la pagina de login.
+ *  Si no existe ningun usuario, redirige a la pagina de registro de usuario root.
+ *  Se ejecuta al iniciar la aplicación.
  */
 @WebServlet(name = "SvVerificarExistenciaUsuarios", urlPatterns = {"/SvVerificarExistenciaUsuarios"})
 public class SvVerificarExistenciaUsuarios extends HttpServlet {
