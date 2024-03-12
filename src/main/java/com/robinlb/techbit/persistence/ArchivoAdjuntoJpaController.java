@@ -12,7 +12,8 @@ import javax.persistence.criteria.Root;
 import java.util.List;
 
 /**
- *
+ * Proporciona servicio de persistencia con la base de datos para la entidad
+ * ArchivoAdjunto.
  * @author Robin
  */
 public class ArchivoAdjuntoJpaController implements Serializable {
