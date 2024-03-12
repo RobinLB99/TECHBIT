@@ -11,8 +11,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
 /**
- *
- * @author Robin
+ * Registra un usuario root para el primer inicio de sesión de la aplicación 
  */
 @WebServlet(name = "SvCreateRoot", urlPatterns = {"/SvCreateRoot"})
 public class SvCreateRoot extends HttpServlet {
