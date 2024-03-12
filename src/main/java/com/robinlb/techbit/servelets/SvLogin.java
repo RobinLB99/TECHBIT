@@ -4,7 +4,6 @@ import com.robinlb.techbit.controllers.LogicController;
 import com.robinlb.techbit.controllers.PasswordSecurityService;
 import com.robinlb.techbit.model.Usuario;
 import java.io.IOException;
-import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -12,8 +11,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
 /**
- *
- * @author Robin
+ *  Servicio de inicio de sesión
  */
 @WebServlet(name = "SvLogin", urlPatterns = {"/SvLogin"})
 public class SvLogin extends HttpServlet {
