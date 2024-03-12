@@ -5,18 +5,28 @@ import org.mindrot.jbcrypt.BCrypt;
 /**
  *
  * @author Robin
+ *
  */
 public class PasswordHashed {
 
+    /**
+     *
+     * @param password
+     * @return contraseña encriptada
+     */
     public String encrypt(String password) {
-        String hashedPassword = BCrypt.hashpw(password, BCrypt.gensalt());
-        System.out.println("Contraseña hasheada: " + hashedPassword);
-        return hashedPassword;
+        return BCrypt.hashpw(password, BCrypt.gensalt());
     }
-    
-    public String decrypt(String password) {
-        String PasswordUnhashed = "";
-        return PasswordUnhashed;
+
+    /**
+     *
+     * @param password
+     * @param hashedPassword
+     * @return true o false según coincida la contraseña ingresada con la
+     * contraseña encriptada almacenada.
+     */
+    public boolean match(String password, String hashedPassword) {
+        return BCrypt.checkpw(password, hashedPassword);
     }
 
 }
