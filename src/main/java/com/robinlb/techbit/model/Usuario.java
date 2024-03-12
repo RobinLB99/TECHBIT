@@ -46,13 +46,8 @@ public class Usuario implements Serializable {
 
     @Basic(optional = false)
     @NotNull
-    @Column(name = "administrador")
-    private boolean administrador;
-
-    @Basic(optional = false)
-    @NotNull
-    @Column(name = "tipo_credencial")
-    private int tipoCredencial;
+    @Column(name = "privilegios")
+    private String privilegios;
 
     @JoinColumn(name = "empresa", referencedColumnName = "cliente_e_id")
     @OneToOne
@@ -69,16 +64,11 @@ public class Usuario implements Serializable {
     public Usuario() {
     }
 
-    public Usuario(Long usuarioId) {
-        this.usuarioId = usuarioId;
-    }
-
-    public Usuario(Long usuarioId, String nombreUsuario, String contraseña, boolean administrador, int tipoCredencial, ClienteEmpresarial clienteEmpresarial, ClienteNatural clienteNatural, Empleado empleado) {
+    public Usuario(Long usuarioId, String nombreUsuario, String contraseña, String administrador, ClienteEmpresarial clienteEmpresarial, ClienteNatural clienteNatural, Empleado empleado) {
         this.usuarioId = usuarioId;
         this.nombreUsuario = nombreUsuario;
         this.contraseña = contraseña;
-        this.administrador = administrador;
-        this.tipoCredencial = tipoCredencial;
+        this.privilegios = privilegios;
         this.clienteEmpresarial = clienteEmpresarial;
         this.clienteNatural = clienteNatural;
         this.empleado = empleado;
@@ -108,20 +98,12 @@ public class Usuario implements Serializable {
         this.contraseña = contraseña;
     }
 
-    public boolean getAdministrador() {
-        return administrador;
+    public String getPrivilegios() {
+        return privilegios;
     }
 
-    public void setAdministrador(boolean administrador) {
-        this.administrador = administrador;
-    }
-
-    public int getTipoCredencial() {
-        return tipoCredencial;
-    }
-
-    public void setTipoCredencial(int tipoCredencial) {
-        this.tipoCredencial = tipoCredencial;
+    public void setPrivilegios(String privilegios) {
+        this.privilegios = privilegios;
     }
 
     public ClienteEmpresarial getClienteEmpresarial() {
@@ -170,7 +152,7 @@ public class Usuario implements Serializable {
 
     @Override
     public String toString() {
-        return "Usuario{" + "usuarioId=" + usuarioId + ", nombreUsuario=" + nombreUsuario + ", contrase\u00f1a=" + contraseña + ", administrador=" + administrador + ", tipoCredencial=" + tipoCredencial + ", clienteEmpresarial=" + clienteEmpresarial + ", clienteNatural=" + clienteNatural + ", empleado=" + empleado + '}';
+        return "Usuario{" + "usuarioId=" + usuarioId + ", nombreUsuario=" + nombreUsuario + ", contrase\u00f1a=" + contraseña + ", privilegios=" + privilegios + ", clienteEmpresarial=" + clienteEmpresarial + ", clienteNatural=" + clienteNatural + ", empleado=" + empleado + '}';
     }
 
 }
