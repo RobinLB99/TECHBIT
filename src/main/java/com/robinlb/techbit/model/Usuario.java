@@ -49,6 +49,11 @@ public class Usuario implements Serializable {
     @Column(name = "privilegios")
     private String privilegios;
 
+    @Basic(optional = false)
+    @NotNull
+    @Column(name = "sesion_activa")
+    private boolean sesionActiva;
+
     @JoinColumn(name = "empresa", referencedColumnName = "cliente_e_id")
     @OneToOne
     private ClienteEmpresarial clienteEmpresarial;
@@ -64,11 +69,12 @@ public class Usuario implements Serializable {
     public Usuario() {
     }
 
-    public Usuario(Long usuarioId, String nombreUsuario, String contraseña, String administrador, ClienteEmpresarial clienteEmpresarial, ClienteNatural clienteNatural, Empleado empleado) {
+    public Usuario(Long usuarioId, String nombreUsuario, String contraseña, String privilegios, boolean sesionActiva, ClienteEmpresarial clienteEmpresarial, ClienteNatural clienteNatural, Empleado empleado) {
         this.usuarioId = usuarioId;
         this.nombreUsuario = nombreUsuario;
         this.contraseña = contraseña;
         this.privilegios = privilegios;
+        this.sesionActiva = sesionActiva;
         this.clienteEmpresarial = clienteEmpresarial;
         this.clienteNatural = clienteNatural;
         this.empleado = empleado;
@@ -104,6 +110,14 @@ public class Usuario implements Serializable {
 
     public void setPrivilegios(String privilegios) {
         this.privilegios = privilegios;
+    }
+
+    public boolean isSesionActiva() {
+        return sesionActiva;
+    }
+
+    public void setSesionActiva(boolean sesionActiva) {
+        this.sesionActiva = sesionActiva;
     }
 
     public ClienteEmpresarial getClienteEmpresarial() {
