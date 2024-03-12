@@ -12,8 +12,7 @@ import javax.persistence.criteria.Root;
 import java.util.List;
 
 /**
- *
- * @author Robin
+ * Servicio de persistencia de base de datos para la entidad Usuario.
  */
 public class UsuarioJpaController implements Serializable {
 
@@ -129,5 +128,5 @@ public class UsuarioJpaController implements Serializable {
             em.close();
         }
     }
-
+    
 }
