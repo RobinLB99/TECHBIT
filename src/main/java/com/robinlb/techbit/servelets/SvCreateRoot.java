@@ -37,7 +37,7 @@ public class SvCreateRoot extends HttpServlet {
             throws ServletException, IOException {
         processRequest(request, response);
         
-        String password = (String) request.getAttribute("contraseña");
+        String password = (String) request.getParameter("contraseña");
         String encryptedPassword = passwordHashed.encrypt(password);
         
         try {
