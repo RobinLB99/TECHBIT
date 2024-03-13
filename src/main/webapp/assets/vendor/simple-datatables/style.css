@@ -6,22 +6,17 @@
 	border-bottom: 1px solid #d9d9d9;
 }
 
-.datatable-top,
-.datatable-bottom {
+.datatable-top, .datatable-bottom {
 	padding: 8px 10px;
 }
 
-.datatable-top > nav:first-child,
-.datatable-top > div:first-child,
-.datatable-bottom > nav:first-child,
-.datatable-bottom > div:first-child {
+.datatable-top>nav:first-child, .datatable-top>div:first-child,
+	.datatable-bottom>nav:first-child, .datatable-bottom>div:first-child {
 	float: left;
 }
 
-.datatable-top > nav:last-child,
-.datatable-top > div:not(first-child),
-.datatable-bottom > nav:last-child,
-.datatable-bottom > div:last-child {
+.datatable-top>nav:last-child, .datatable-top>div:not(first-child),
+	.datatable-bottom>nav:last-child, .datatable-bottom>div:last-child {
 	float: right;
 }
 
@@ -49,11 +44,10 @@
 }
 
 .datatable-pagination li.datatable-hidden {
-    visibility: hidden;
+	visibility: hidden;
 }
 
-.datatable-pagination a,
-.datatable-pagination button {
+.datatable-pagination a, .datatable-pagination button {
 	border: 1px solid transparent;
 	float: left;
 	margin-left: 2px;
@@ -61,48 +55,41 @@
 	position: relative;
 	text-decoration: none;
 	color: #333;
-    cursor: pointer;
+	cursor: pointer;
 }
 
-.datatable-pagination a:hover,
-.datatable-pagination button:hover {
+.datatable-pagination a:hover, .datatable-pagination button:hover {
 	background-color: #d9d9d9;
 }
 
-.datatable-pagination .datatable-active a,
-.datatable-pagination .datatable-active a:focus,
-.datatable-pagination .datatable-active a:hover,
-.datatable-pagination .datatable-active button,
-.datatable-pagination .datatable-active button:focus,
-.datatable-pagination .datatable-active button:hover {
+.datatable-pagination .datatable-active a, .datatable-pagination .datatable-active a:focus,
+	.datatable-pagination .datatable-active a:hover, .datatable-pagination .datatable-active button,
+	.datatable-pagination .datatable-active button:focus,
+	.datatable-pagination .datatable-active button:hover {
 	background-color: #d9d9d9;
 	cursor: default;
 }
 
-.datatable-pagination .datatable-ellipsis a,
-.datatable-pagination .datatable-disabled a,
-.datatable-pagination .datatable-disabled a:focus,
-.datatable-pagination .datatable-disabled a:hover,
-.datatable-pagination .datatable-ellipsis button,
-.datatable-pagination .datatable-disabled button,
-.datatable-pagination .datatable-disabled button:focus,
-.datatable-pagination .datatable-disabled button:hover {
-    pointer-events: none;
-    cursor: default;
+.datatable-pagination .datatable-ellipsis a, .datatable-pagination .datatable-disabled a,
+	.datatable-pagination .datatable-disabled a:focus,
+	.datatable-pagination .datatable-disabled a:hover,
+	.datatable-pagination .datatable-ellipsis button, .datatable-pagination .datatable-disabled button,
+	.datatable-pagination .datatable-disabled button:focus,
+	.datatable-pagination .datatable-disabled button:hover {
+	pointer-events: none;
+	cursor: default;
 }
 
-.datatable-pagination .datatable-disabled a,
-.datatable-pagination .datatable-disabled a:focus,
-.datatable-pagination .datatable-disabled a:hover,
-.datatable-pagination .datatable-disabled button,
-.datatable-pagination .datatable-disabled button:focus,
-.datatable-pagination .datatable-disabled button:hover {
+.datatable-pagination .datatable-disabled a, .datatable-pagination .datatable-disabled a:focus,
+	.datatable-pagination .datatable-disabled a:hover,
+	.datatable-pagination .datatable-disabled button, .datatable-pagination .datatable-disabled button:focus,
+	.datatable-pagination .datatable-disabled button:hover {
 	cursor: not-allowed;
 	opacity: 0.4;
 }
 
-.datatable-pagination .datatable-pagination a,
-.datatable-pagination .datatable-pagination button {
+.datatable-pagination .datatable-pagination a, .datatable-pagination .datatable-pagination button
+	{
 	font-weight: bold;
 }
 
@@ -114,23 +101,20 @@
 	border-collapse: separate;
 }
 
-.datatable-table > tbody > tr > td,
-.datatable-table > tbody > tr > th,
-.datatable-table > tfoot > tr > td,
-.datatable-table > tfoot > tr > th,
-.datatable-table > thead > tr > td,
-.datatable-table > thead > tr > th {
+.datatable-table>tbody>tr>td, .datatable-table>tbody>tr>th,
+	.datatable-table>tfoot>tr>td, .datatable-table>tfoot>tr>th,
+	.datatable-table>thead>tr>td, .datatable-table>thead>tr>th {
 	vertical-align: top;
 	padding: 8px 10px;
 }
 
-.datatable-table > thead > tr > th {
+.datatable-table>thead>tr>th {
 	vertical-align: bottom;
 	text-align: left;
 	border-bottom: 1px solid #d9d9d9;
 }
 
-.datatable-table > tfoot > tr > th {
+.datatable-table>tfoot>tr>th {
 	vertical-align: bottom;
 	text-align: left;
 	border-top: 1px solid #d9d9d9;
@@ -146,15 +130,14 @@
 	color: inherit;
 }
 
-.datatable-table th button,
-.datatable-pagination-list button {
-    color: inherit;
-    border: 0;
-    background-color: inherit;
-    cursor: pointer;
-    text-align: inherit;
-    font-weight: inherit;
-    font-size: inherit;
+.datatable-table th button, .datatable-pagination-list button {
+	color: inherit;
+	border: 0;
+	background-color: inherit;
+	cursor: pointer;
+	text-align: inherit;
+	font-weight: inherit;
+	font-size: inherit;
 }
 
 .datatable-sorter, .datatable-filter {
@@ -164,8 +147,7 @@
 	width: 100%;
 }
 
-.datatable-sorter::before,
-.datatable-sorter::after {
+.datatable-sorter::before, .datatable-sorter::after {
 	content: "";
 	height: 0;
 	width: 0;
@@ -175,7 +157,6 @@
 	border-right: 4px solid transparent;
 	opacity: 0.2;
 }
-
 
 .datatable-sorter::before {
 	border-top: 4px solid #000;
@@ -188,29 +169,28 @@
 	top: 0px;
 }
 
-.datatable-ascending .datatable-sorter::after,
-.datatable-descending .datatable-sorter::before,
-.datatable-ascending .datatable-filter::after,
-.datatable-descending .datatable-filter::before {
+.datatable-ascending .datatable-sorter::after, .datatable-descending .datatable-sorter::before,
+	.datatable-ascending .datatable-filter::after, .datatable-descending .datatable-filter::before
+	{
 	opacity: 0.6;
 }
 
 .datatable-filter::before {
-    content: "";
-    position: absolute;
-    right: 4px;
-    opacity: 0.2;
-    width: 0;
-    height: 0;
-    border-left: 7px solid transparent;
-    border-right: 7px solid transparent;
+	content: "";
+	position: absolute;
+	right: 4px;
+	opacity: 0.2;
+	width: 0;
+	height: 0;
+	border-left: 7px solid transparent;
+	border-right: 7px solid transparent;
 	border-radius: 50%;
-    border-top: 10px solid #000;
-    top: 25%;
+	border-top: 10px solid #000;
+	top: 25%;
 }
 
 .datatable-filter-active .datatable-filter::before {
-    opacity: 0.6;
+	opacity: 0.6;
 }
 
 .datatable-empty {
@@ -223,11 +203,11 @@
 	display: table;
 }
 
-table.datatable-table:focus tr.datatable-cursor > td:first-child {
+table.datatable-table:focus tr.datatable-cursor>td:first-child {
 	border-left: 3px blue solid;
 }
 
 table.datatable-table:focus {
 	outline: solid 1px black;
-    outline-offset: -1px;
+	outline-offset: -1px;
 }
