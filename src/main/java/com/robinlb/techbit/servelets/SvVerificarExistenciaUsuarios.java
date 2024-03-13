@@ -26,8 +26,8 @@ public class SvVerificarExistenciaUsuarios extends HttpServlet {
         Collection<Usuario> usuarios = control.listaUsuarios();
         
         if (usuarios.isEmpty()) {
-            response.sendRedirect("page-register.jsp");
-        } else response.sendRedirect("page-login.jsp");
+            response.sendRedirect("RegisterRoot.jsp");
+        } else response.sendRedirect("Login.jsp");
     }
 
     @Override
