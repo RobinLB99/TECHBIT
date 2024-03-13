@@ -1,3 +1,4 @@
 /target/
 /src/main/resources/META-INF/persistence.xml
 /.idea
+/doc
