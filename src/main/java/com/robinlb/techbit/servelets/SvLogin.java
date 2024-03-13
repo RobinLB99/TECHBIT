@@ -11,7 +11,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
 /**
- *  Servicio de inicio de sesión
+ * Servicio de inicio de sesión
  */
 @WebServlet(name = "SvLogin", urlPatterns = {"/SvLogin"})
 public class SvLogin extends HttpServlet {
@@ -45,16 +45,16 @@ public class SvLogin extends HttpServlet {
             if (match) {
                 usuario.setSesionActiva(true);
                 control.actualizarUsuario(usuario);
-                
-                response.sendRedirect("dashboard.jsp");
-                
+
+                response.sendRedirect("Dashboard.jsp");
+
             } else {
-                response.sendRedirect("page-login.jsp?password=incorrect");
+                response.sendRedirect("Login.jsp?password=incorrect");
             }
 
         } catch (Exception e) {
             System.out.println(e.getMessage());
-            response.sendRedirect("page-login.jsp?user=false");
+            response.sendRedirect("Login.jsp?user=false");
         }
 
     }
