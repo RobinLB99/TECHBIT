@@ -47,7 +47,7 @@ public class SvCreateRoot extends HttpServlet {
             
             control.crearUsuario(usuario);
             
-            response.sendRedirect("page-login.jsp");
+            response.sendRedirect("Login.jsp?rootRegistred=true");
             
         } catch (Exception e) {
             System.out.println(e.getMessage());
