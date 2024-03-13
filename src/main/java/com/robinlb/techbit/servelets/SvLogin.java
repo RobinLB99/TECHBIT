@@ -43,7 +43,11 @@ public class SvLogin extends HttpServlet {
             boolean match = passwordSecure.matches(password, usuario.getContraseña());
 
             if (match) {
+                usuario.setSesionActiva(true);
+                control.actualizarUsuario(usuario);
+                
                 response.sendRedirect("dashboard.jsp");
+                
             } else {
                 response.sendRedirect("page-login.jsp?password=incorrect");
             }
