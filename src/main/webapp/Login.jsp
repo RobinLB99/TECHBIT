@@ -11,7 +11,7 @@
         <meta content="" name="description">
         <meta content="" name="keywords">
 
-        <%@include file="./components/header.jsp"%>
+        <%@include file="./components/head.jsp"%>
     </head>
 
     <body>
