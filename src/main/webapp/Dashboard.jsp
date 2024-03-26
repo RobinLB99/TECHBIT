@@ -2,7 +2,9 @@
 <%@page contentType="text/html" language="java" pageEncoding="UTF-8"%>
 <%@include file="/components/ServicioComprobaciónSesionActiva.jsp" %>
 <%  Usuario usuario = (Usuario) request.getSession().getAttribute("logUser");
-    String username = (usuario.getNombreUsuario().equals("root")) ? "Administrador" : usuario.getNombreUsuario();
+    String username = (usuario.getNombreUsuario().equals("root"))
+            ? "Administrador"
+            : usuario.getNombreUsuario();
 %>
 <!DOCTYPE html>
 <html lang="en">
@@ -30,7 +32,7 @@
                 <h1>Dashboard</h1>
                 <nav>
                     <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                        <li class="breadcrumb-item"><a href="SvGoToDashboard">Home</a></li>
                         <li class="breadcrumb-item active">Dashboard</li>
                     </ol>
                 </nav>
