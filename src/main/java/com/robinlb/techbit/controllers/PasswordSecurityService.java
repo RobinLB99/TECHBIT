@@ -1,6 +1,5 @@
 package com.robinlb.techbit.controllers;
 
-//import org.mindrot.jbcrypt.BCrypt;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 /**
@@ -18,7 +17,6 @@ public class PasswordSecurityService {
      */
     public String encrypt(String password) {
         return encoder.encode(password);
-//        return BCrypt.hashpw(password, BCrypt.gensalt());
     }
 
     /**
@@ -31,7 +29,6 @@ public class PasswordSecurityService {
      */
     public boolean matches(String password, String hashedPassword) {
         return encoder.matches(password, hashedPassword);
-//        return BCrypt.checkpw(password, hashedPassword);
     }
 
 }
