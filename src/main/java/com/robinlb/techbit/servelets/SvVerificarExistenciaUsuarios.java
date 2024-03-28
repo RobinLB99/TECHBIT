@@ -18,18 +18,6 @@ import java.util.Collection;
 public class SvVerificarExistenciaUsuarios extends HttpServlet {
 
     LogicController control = new LogicController();
-
-    /**
-    * Si existe uno o mas usuarios registrados, redirige a la pagina de login.
-    * Si no existe ningún usuario, redirige a la pagina de registro de usuario root.
-    * Si iniciada una sesión, se establece la URI raiz, este servelet redirigira al Dashboard inmediatamente.
-    * Si no existe una sesión activa y se establece la URI raiz, este servelet redirigira a la pagina Login.
-    * 
-    * @param request
-    * @param response
-    * @throws ServletException
-    * @throws IOException 
-    */
     
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -45,7 +33,7 @@ public class SvVerificarExistenciaUsuarios extends HttpServlet {
 
         Collection<Usuario> usuarios = control.listaUsuarios();
 
-        if (usuarios.isEmpty()) {
+        if (usuarios.isEmpty() || usuarios == null) {
             response.sendRedirect("RegisterRoot.jsp");
         } else if (log.equals("logon")) {
             response.sendRedirect("Dashboard.jsp");
