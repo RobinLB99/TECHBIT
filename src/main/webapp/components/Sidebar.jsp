@@ -22,8 +22,8 @@
                     </a>
                 </li>
                 <li>
-                    <a href="components-accordion.html">
-                        <i class="bi bi-circle"></i><span>Accordion</span>
+                    <a href="SvGoToEmployesList">
+                        <i class="bi bi-circle"></i><span>Lista de empleados</span>
                     </a>
                 </li>
                 <li>
