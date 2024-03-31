@@ -17,21 +17,30 @@ public class SvGoToEmployesList extends HttpServlet {
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
+
     }
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
-        
+
         LogicController control = new LogicController();
-        Collection<Empleado> listaEmpleados = control.listaEmpleados();
+
+        try {
+            Collection<Empleado> listaEmpleados = control.listaEmpleados();
+
+            HttpSession es = request.getSession();
+            es.setAttribute("listaEmpleados", listaEmpleados);
         
-        HttpSession es = request.getSession();
-        es.setAttribute("listaEmpleados", listaEmpleados);
+            response.sendRedirect("Empleados.jsp");
+            
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            
+        }
+
         
-        response.sendRedirect("Empleados.jsp");
     }
 
     @Override
