@@ -27,12 +27,6 @@ public class SvIngresarEmpleado extends HttpServlet {
     }
 
     @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        processRequest(request, response);
-    }
-
-    @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
@@ -61,17 +55,12 @@ public class SvIngresarEmpleado extends HttpServlet {
         
         try {
             control.crearEmpleado(employ);
-            response.sendRedirect("Dashboard.jsp?employ=create");
+            response.sendRedirect("Empleados.jsp?employ=create");
         } catch (Exception e) {
             System.out.println(e.getMessage());
             response.sendRedirect("SvIngresarEmpleado?error=true");
         }
         
     }
-
-    @Override
-    public String getServletInfo() {
-        return "Short description";
-    }// </editor-fold>
 
 }
