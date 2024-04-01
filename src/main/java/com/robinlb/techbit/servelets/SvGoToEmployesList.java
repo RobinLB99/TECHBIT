@@ -36,15 +36,8 @@ public class SvGoToEmployesList extends HttpServlet {
             
         } catch (Exception e) {
             System.out.println(e.getMessage());
-            
         }
 
-        
     }
-
-    @Override
-    public String getServletInfo() {
-        return "Short description";
-    }// </editor-fold>
 
 }
