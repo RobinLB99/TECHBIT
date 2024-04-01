@@ -21,6 +21,17 @@
 <link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet">
 <link href="assets/vendor/simple-datatables/style.css" rel="stylesheet">
 
+<!-- WebFonts for Fontsawesome -->
+<link href="assets/webfonts/fa-brands-400.ttf" rel="stylesheet">
+<link href="assets/webfonts/fa-regular-400.ttf" rel="stylesheet">
+<link href="assets/webfonts/fa-solid-900.ttf" rel="stylesheet">
+<link href="assets/webfonts/fa-v4compatibility.ttf" rel="stylesheet">
+
+<!-- Fontsawesome -->
+<link href="assets/css/all.css" rel="stylesheet">
+<link href="assets/css/fontawesome.css" rel="stylesheet">
+<link href="assets/css/v5-font-face.css" rel="stylesheet">
+
 <!-- Template Main CSS File -->
 <link href="assets/css/style.css" rel="stylesheet">
 
