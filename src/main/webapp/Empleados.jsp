@@ -40,7 +40,31 @@
                         <div class="card" id="card-datatable-empleados">
                             <div class="card-body">
                                 <h5 class="card-title">Registro de empleados</h5>
-                                <p>Add lightweight datatables to your project with using the <a href="https://github.com/fiduswriter/Simple-DataTables" target="_blank">Simple DataTables</a> library. Just add <code>.datatable</code> class name to any table you wish to conver to a datatable. Check for <a href="https://fiduswriter.github.io/simple-datatables/demos/" target="_blank">more examples</a>.</p>
+                                
+                                <hr>
+
+                                <div class="actions d-flex flex-row gap-3">
+                                    <a href="SvGoToIngresarEmpleado" class="btn btn-primary d-flex flex-row gap-2 align-items-center">
+                                        <i class="fa-solid fa-floppy-disk"></i>
+                                        <span>Ingresar</span>
+                                    </a>
+                                    <form action="SvBorrarEmpleado" method="post" id="borrarRegistrosEmpleados">
+                                        <input type="text" name="idForDelete" id="idForDelete" hidden>
+                                        <button type="submit" class="btn btn-danger d-flex flex-row gap-2 align-items-center">
+                                            <i class="fa-solid fa-trash"></i>
+                                            <span>Borrar</span>
+                                        </button>
+                                    </form>
+                                    <form action="SvGoToActualizarEmpleado" method="post">
+                                        <input type="text" name="idEmpleadoModificar" id="idEmpleadoModificar" hidden>
+                                        <button type="submit" class="btn btn-warning d-flex flex-row gap-2 align-items-center">
+                                            <i class="fa-solid fa-pen-to-square"></i>
+                                            <span>Actualizar</span>
+                                        </button>
+                                    </form>
+                                </div>
+
+                                <hr>
 
                                 <!-- Table with stripped rows -->
                                 <table class="table datatable table-hover">
@@ -58,7 +82,7 @@
                                                 <b>A</b>pellidos
                                             </th>
                                             <th>Cédula</th>
-                                            <th>teléfono</th>
+                                            <th>Teléfono</th>
                                             <th>Correo Electronico</th>
                                             <th data-type="date" data-format="YYYY/MM/DD">Fecha Nacimiento</th>
                                             <th>Cargo</th>
@@ -71,7 +95,7 @@
                                         %>
                                         <tr>
                                             <td class="form-cheack">
-                                                <input class="form-check-input" type="checkbox" value="<%= emp.getId()%>" id="flexCheckDefault" style="width: 20px; height: 20px">
+                                                <input class="form-check-input" type="checkbox" value="<%= emp.getId()%>" name="checkbox" id="flexCheckDefault" style="width: 20px; height: 20px">
                                             </td>
                                             <td><%= emp.getNombres()%></td>
                                             <td><%= emp.getApellidos()%></td>
@@ -102,5 +126,6 @@
         <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
         <%@include file="/components/scripts.jsp" %>
+        <script src="./assets/js/seleccionarRegistro.js"></script>
     </body>
 </html>
