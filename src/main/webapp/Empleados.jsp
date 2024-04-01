@@ -43,25 +43,36 @@
                                 
                                 <hr>
 
-                                <div class="actions d-flex flex-row gap-3">
-                                    <a href="SvGoToIngresarEmpleado" class="btn btn-primary d-flex flex-row gap-2 align-items-center">
-                                        <i class="fa-solid fa-floppy-disk"></i>
-                                        <span>Ingresar</span>
-                                    </a>
-                                    <form action="SvBorrarEmpleado" method="post" id="borrarRegistrosEmpleados">
-                                        <input type="text" name="idForDelete" id="idForDelete" hidden>
-                                        <button type="submit" class="btn btn-danger d-flex flex-row gap-2 align-items-center">
-                                            <i class="fa-solid fa-trash"></i>
-                                            <span>Borrar</span>
+                                <div class="d-flex justify-content-between">
+                                    <div class="actions d-flex flex-row gap-3">
+                                        <a href="SvGoToIngresarEmpleado" class="btn btn-primary d-flex flex-row gap-2 align-items-center" title="Ingresar registro">
+                                            <i class="fa-solid fa-floppy-disk"></i>
+                                        </a>
+                                        <form action="SvBorrarEmpleado" method="post" id="borrarRegistrosEmpleados">
+                                            <input type="text" name="idForDelete" id="idForDelete" hidden>
+                                            <button type="submit" class="btn btn-danger d-flex flex-row gap-2 align-items-center" id="btnBorrarRegistro" title="Borrar registro" disabled>
+                                                <i class="fa-solid fa-trash"></i>
+                                            </button>
+                                        </form>
+                                        <form action="SvGoToActualizarEmpleado" method="post">
+                                            <input type="text" name="idEmpleadoModificar" id="idEmpleadoModificar" hidden>
+                                            <button type="submit" class="btn btn-warning d-flex flex-row gap-2 align-items-center" id="btnActualizarRegistro" title="Actualizar registro" disabled>
+                                                <i class="fa-solid fa-pen-to-square"></i>
+                                            </button>
+                                        </form>
+                                    </div>
+
+                                    <div class="actions d-flex flex-row gap-3">
+                                        <button class="btn btn-primary d-flex flex-row gap-2 align-items-center" id="btnMarcarRegistros" title="Marcar todos los registros">
+                                            <i class="fa-solid fa-square-check"></i>
                                         </button>
-                                    </form>
-                                    <form action="SvGoToActualizarEmpleado" method="post">
-                                        <input type="text" name="idEmpleadoModificar" id="idEmpleadoModificar" hidden>
-                                        <button type="submit" class="btn btn-warning d-flex flex-row gap-2 align-items-center">
-                                            <i class="fa-solid fa-pen-to-square"></i>
-                                            <span>Actualizar</span>
+                                        <button class="btn btn-primary d-flex flex-row gap-2 align-items-center" id="btnDesmarcarRegistros" title="Desmarcar todos los registros">
+                                            <i class="fa-regular fa-square-check"></i>
                                         </button>
-                                    </form>
+                                        <a href="SvGoToEmployesList" class="btn btn-success d-flex flex-row gap-2 align-items-center" title="Actualizar tabla">
+                                            <i class="fa-solid fa-rotate-right"></i>
+                                        </a>
+                                    </div>
                                 </div>
 
                                 <hr>
