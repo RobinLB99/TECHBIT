@@ -10,6 +10,7 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 import java.util.Date;
 
 @WebServlet(name = "SvModificarEmpleado", urlPatterns = {"/SvModificarEmpleado"})
@@ -19,7 +20,16 @@ public class SvModificarEmpleado extends HttpServlet {
             throws ServletException, IOException {
 
     }
-
+    
+    /**
+     * 
+     * @param request
+     * @param response
+     * @throws ServletException
+     * @throws IOException
+     * 
+     * Metodo Post para la modificación del registro de empleado.
+     */
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -39,6 +49,7 @@ public class SvModificarEmpleado extends HttpServlet {
         String depart = (String) request.getParameter("inputDepartamento");
 
         Date fecha =  dateControl.formatToDate(stringFecha);
+        HttpSession mod = request.getSession();
         
         try {
             Empleado empleado = control.verEmpleado(Long.parseLong(stringID));
@@ -52,11 +63,15 @@ public class SvModificarEmpleado extends HttpServlet {
             
             control.actualizarEmpleado(empleado);
             
-            response.sendRedirect("SvGoToEmployesList?modify=true");
+            mod.setAttribute("empModificado", true);
+            
+            response.sendRedirect("SvGoToEmployesList");
             
         }
         catch (Exception e) {
             System.out.println(e.getMessage());
+            mod.setAttribute("empModificado", false);
+            response.sendRedirect("SvGoToEmployesList");
         }
 
     }
