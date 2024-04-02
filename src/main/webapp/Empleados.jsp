@@ -23,12 +23,12 @@
         <%@include file="/components/Sidebar.jsp" %>
         <main id="main" class="main">
             <div class="pagetitle">
-                <h1>Empleados</h1>
+                <h1>Personal</h1>
                 <nav>
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href="SvGoToDashboard">Home</a></li>
-                        <li class="breadcrumb-item"><a href="#">Empleados</a></li>
-                        <li class="breadcrumb-item active">Lista de empleados</li>
+                        <li class="breadcrumb-item"><a href="#">Personal</a></li>
+                        <li class="breadcrumb-item active">Enlistar personal</li>
                     </ol>
                 </nav>
             </div><!-- End Page Title -->
@@ -43,6 +43,7 @@
                                 
                                 <hr>
 
+                                <!-- Botones de modificacion de entrada de la tabla -->
                                 <div class="d-flex justify-content-between">
                                     <div class="actions d-flex flex-row gap-3">
                                         <a href="SvGoToIngresarEmpleado" class="btn btn-primary d-flex flex-row gap-2 align-items-center" title="Ingresar registro">
@@ -50,18 +51,19 @@
                                         </a>
                                         <form action="SvBorrarEmpleado" method="post" id="borrarRegistrosEmpleados">
                                             <input type="text" name="idForDelete" id="idForDelete" hidden>
-                                            <button type="submit" class="btn btn-danger d-flex flex-row gap-2 align-items-center" id="btnBorrarRegistro" title="Borrar registro" disabled>
+                                            <button type="submit" class="btn btn-secondary d-flex flex-row gap-2 align-items-center" id="btnBorrarRegistro" title="Borrar registro" disabled>
                                                 <i class="fa-solid fa-trash"></i>
                                             </button>
                                         </form>
-                                        <form action="SvGoToActualizarEmpleado" method="post">
-                                            <input type="text" name="idEmpleadoModificar" id="idEmpleadoModificar" hidden>
-                                            <button type="submit" class="btn btn-warning d-flex flex-row gap-2 align-items-center" id="btnActualizarRegistro" title="Actualizar registro" disabled>
+                                        <form action="SvGoToModifyEmploy" method="post" id="employModForm">
+                                            <input type="text" name="inIdEmMod" id="inIdEmMod" hidden>
+                                            <button type="submit" class="btn btn-secondary d-flex flex-row gap-2 align-items-center" id="btnActualizarRegistro" title="Actualizar registro" disabled>
                                                 <i class="fa-solid fa-pen-to-square"></i>
                                             </button>
                                         </form>
                                     </div>
 
+                                    <!-- Botones de marcación de entrada y refresco -->
                                     <div class="actions d-flex flex-row gap-3">
                                         <button class="btn btn-primary d-flex flex-row gap-2 align-items-center" id="btnMarcarRegistros" title="Marcar todos los registros">
                                             <i class="fa-solid fa-square-check"></i>
@@ -113,7 +115,7 @@
                                             <td><%= emp.getCedula()%></td>
                                             <td><%= emp.getTelefono()%></td>
                                             <td><%= emp.getEmail()%></td>
-                                            <td><%= dateControl.dateToString(emp.getFechaNacimiento())%></td>
+                                            <td><%= dateControl.dateToStringForView(emp.getFechaNacimiento())%></td>
                                             <td><%= emp.getCargo()%></td>
                                             <td><%= emp.getDepartamento()%></td>
                                         </tr>
