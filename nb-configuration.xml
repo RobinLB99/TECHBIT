@@ -21,7 +21,6 @@
         <org-netbeans-modules-web-clientproject-api.js_2e_libs_2e_folder>js/libs</org-netbeans-modules-web-clientproject-api.js_2e_libs_2e_folder>
         <com-github-philippefichet-sonarlint4netbeans.sonarlint-preference-scope>global</com-github-philippefichet-sonarlint4netbeans.sonarlint-preference-scope>
         <com-github-philippefichet-sonarlint4netbeans.extraProperties>{}</com-github-philippefichet-sonarlint4netbeans.extraProperties>
-        <org-netbeans-spi-editor-hints-projects.perProjectHintSettingsEnabled>true</org-netbeans-spi-editor-hints-projects.perProjectHintSettingsEnabled>
         <org-netbeans-modules-css-prep.less_2e_mappings>/less:/css</org-netbeans-modules-css-prep.less_2e_mappings>
         <org-netbeans-modules-css-prep.less_2e_enabled>false</org-netbeans-modules-css-prep.less_2e_enabled>
         <org-netbeans-modules-css-prep.sass_2e_enabled>false</org-netbeans-modules-css-prep.sass_2e_enabled>
