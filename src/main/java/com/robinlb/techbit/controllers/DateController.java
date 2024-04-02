@@ -19,8 +19,13 @@ public class DateController {
         return fecha;
     }
     
-    public String dateToString(Date date) {
+    public String dateToStringForView(Date date) {
         SimpleDateFormat formateador = new SimpleDateFormat("dd/MM/yyyy");
+        return formateador.format(date);
+    }
+    
+    public String dateToStringForInputs(Date date) {
+        SimpleDateFormat formateador = new SimpleDateFormat("yyyy-MM-dd");
         return formateador.format(date);
     }
     
