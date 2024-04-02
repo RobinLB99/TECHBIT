@@ -65,12 +65,10 @@
 
                                     <!-- Botones de marcación de entrada y refresco -->
                                     <div class="actions d-flex flex-row gap-3">
-                                        <button class="btn btn-primary d-flex flex-row gap-2 align-items-center" id="btnMarcarRegistros" title="Marcar todos los registros">
-                                            <i class="fa-solid fa-square-check"></i>
-                                        </button>
-                                        <button class="btn btn-primary d-flex flex-row gap-2 align-items-center" id="btnDesmarcarRegistros" title="Desmarcar todos los registros">
+                                        <label for="checkAll" class="btn btn-primary d-flex flex-row gap-2 align-items-center" title="Marcar todos los registros" id="btnCheckAll">
                                             <i class="fa-regular fa-square-check"></i>
-                                        </button>
+                                        </label>
+                                        <input type="checkbox" name="checkAll" id="checkAll" hidden>
                                         <a href="SvGoToEmployesList" class="btn btn-success d-flex flex-row gap-2 align-items-center" title="Actualizar tabla">
                                             <i class="fa-solid fa-rotate-right"></i>
                                         </a>
@@ -104,11 +102,13 @@
                                     </thead>
                                     <tbody>
                                         <%
+                                            Integer a = 0;
                                             for (Empleado emp : empleados) {
+                                                a++;
                                         %>
                                         <tr>
                                             <td class="form-cheack">
-                                                <input class="form-check-input" type="checkbox" value="<%= emp.getId()%>" name="checkbox" id="flexCheckDefault" style="width: 20px; height: 20px">
+                                                <input class="form-check-input" type="checkbox" value="<%= emp.getId()%>" name="checkbox" id="flexCheckDefault<%=a%>" style="width: 20px; height: 20px">
                                             </td>
                                             <td><%= emp.getNombres()%></td>
                                             <td><%= emp.getApellidos()%></td>
