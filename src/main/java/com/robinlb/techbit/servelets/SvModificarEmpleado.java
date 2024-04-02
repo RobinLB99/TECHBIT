@@ -23,14 +23,14 @@ public class SvModificarEmpleado extends HttpServlet {
             throws ServletException, IOException {
 
     }
-    
+
     /**
-     * 
+     *
      * @param request
      * @param response
      * @throws ServletException
      * @throws IOException
-     * 
+     *
      * Metodo Post para la modificación del registro de empleado.
      */
     @Override
@@ -51,9 +51,9 @@ public class SvModificarEmpleado extends HttpServlet {
         String cargo = (String) request.getParameter("inputCargo");
         String depart = (String) request.getParameter("inputDepartamento");
 
-        Date fecha =  dateControl.formatToDate(stringFecha);
+        Date fecha = dateControl.formatToDate(stringFecha);
         HttpSession mod = request.getSession();
-        
+
         try {
             Empleado empleado = control.verEmpleado(Long.parseLong(stringID));
             empleado.setNombres(nombres);
@@ -63,13 +63,13 @@ public class SvModificarEmpleado extends HttpServlet {
             empleado.setFechaNacimiento(fecha);
             empleado.setCargo(cargo);
             empleado.setDepartamento(depart);
-            
+
             control.actualizarEmpleado(empleado);
-            
+
             mod.setAttribute("empModificado", true);
-            
+
             response.sendRedirect("SvGoToEmployesList");
-            
+
         }
         catch (Exception e) {
             System.out.println(e.getMessage());
