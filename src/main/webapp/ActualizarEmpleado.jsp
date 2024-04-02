@@ -65,7 +65,7 @@
                                     </div>
                                     <div class="col-md-6">
                                         <label for="inputTelefono" class="form-label">N. Telefono</label>
-                                        <input type="tel" class="form-control" id="inputTelefono" name="inputTelefono" value="<%= empleado.getCedula() %>">
+                                        <input type="tel" class="form-control" id="inputTelefono" name="inputTelefono" value="<%= empleado.getTelefono() %>">
                                     </div>
                                     <div class="col-12">
                                         <label for="inputEmail" class="form-label">Email</label>
@@ -76,35 +76,24 @@
                                         <input type="date" class="form-control" id="inputNacimiento" name="inputNacimiento" value="<%= dateControl.dateToStringForInputs(empleado.getFechaNacimiento()) %>" placeholder="">
                                     </div>
                                     <div class="col-md-6">
-                                        <%
-                                            boolean selected1 = (empleado.getCargo().equals("")) ? true : false;
-                                            boolean selected2 = (empleado.getCargo().equals("Ingeniero de Soporte Jr")) ? true : false;
-                                            boolean selected3 = (empleado.getCargo().equals("Ingeniero de Soporte Ssr")) ? true : false;
-                                            boolean selected4 = (empleado.getCargo().equals("Ingeniero de Soporte Sr")) ? true : false;
-                                            boolean selected5 = (empleado.getCargo().equals("Supervisor")) ? true : false;
-                                        %>
                                         <label for="inputCargo" class="form-label">Cargo</label>
+                                        <input type="text" id="textCargo" value="<%= empleado.getCargo() %>" hidden>
                                         <select class="form-select" name="inputCargo" id="inputCargo">
-                                            <option value="" selected="<%= selected1 %>" >Escoja...</option>
-                                            <option value="Ingeniero de Soporte Jr" selected=<%= selected2 %> >Ingeniero de Soporte Jr</option>
-                                            <option value="Ingeniero de Soporte Ssr" selected=<%= selected3 %> >Ingeniero de Soporte Ssr</option>
-                                            <option value="Ingeniero de Soporte Sr" selected=<%= selected4 %> >Ingeniero de Soporte Sr</option>
-                                            <option value="Supervisor" selected=<%= selected5 %> >Supervisor</option>
+                                            <option value="">Escoja...</option>
+                                            <option value="Ingeniero de Soporte Jr">Ingeniero de Soporte Jr</option>
+                                            <option value="Ingeniero de Soporte Ssr">Ingeniero de Soporte Ssr</option>
+                                            <option value="Ingeniero de Soporte Sr">Ingeniero de Soporte Sr</option>
+                                            <option value="Supervisor">Supervisor</option>
                                         </select>
                                     </div>
                                     <div class="col-md-6">
-                                        <%
-                                            boolean selected6 = (empleado.getDepartamento().equals("")) ? true : false;
-                                            boolean selected7 = (empleado.getDepartamento().equals("Soporte N1")) ? true : false;
-                                            boolean selected8 = (empleado.getDepartamento().equals("Soporte N2")) ? true : false;
-                                            boolean selected9 = (empleado.getDepartamento().equals("Soporte N3")) ? true : false;
-                                        %>
                                         <label for="inputDepartamento" class="form-label">Departamento</label>
+                                        <input type="text" id="textDepart" value="<%= empleado.getDepartamento() %>" hidden>
                                         <select class="form-select" name="inputDepartamento" id="inputDepartamento">
-                                            <option value="" selected=<%= selected6 %>  >Escoja...</option>
-                                            <option value="Soporte N1" selected=<%= selected7 %> >Soporte N1</option>
-                                            <option value="Soporte N2" selected=<%= selected8 %> >Soporte N2</option>
-                                            <option value="Soporte N3" selected=<%= selected9 %> >Soporte N3</option>
+                                            <option value="">Escoja...</option>
+                                            <option value="Soporte N1">Soporte N1</option>
+                                            <option value="Soporte N2">Soporte N2</option>
+                                            <option value="Soporte N3">Soporte N3</option>
                                         </select>
                                     </div>
                                     <div class="col-12"></div>
@@ -130,6 +119,7 @@
 
         <%@include file="/components/scripts.jsp" %>
         <script src="assets/js/ValidateFormEmploy.js"></script>
+        <script src="assets/js/autoSelectOption.js"></script>
     </body>
 </html>
 
