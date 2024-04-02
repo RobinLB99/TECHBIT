@@ -4,7 +4,6 @@ import com.robinlb.techbit.controllers.DateController;
 import com.robinlb.techbit.controllers.LogicController;
 import com.robinlb.techbit.model.Empleado;
 import java.io.IOException;
-import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -60,6 +59,7 @@ public class SvModificarEmpleado extends HttpServlet {
             empleado.setApellidos(apellidos);
             empleado.setCedula(cedula);
             empleado.setTelefono(telefono);
+            empleado.setEmail(correo);
             empleado.setFechaNacimiento(fecha);
             empleado.setCargo(cargo);
             empleado.setDepartamento(depart);
