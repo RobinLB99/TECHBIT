@@ -27,6 +27,7 @@ public class SvGoToEmployesList extends HttpServlet {
         LogicController control = new LogicController();
         Integer numNotDel = null;
         Integer lengthArray = null;
+        boolean isMod = false;
 
         /**
          * Persiste la lista de empleados desde la base de datos
@@ -57,6 +58,16 @@ public class SvGoToEmployesList extends HttpServlet {
 
             } catch (Exception a) {System.out.println(a.getMessage());}
 
+            
+            /**
+             * Toma el atributo de sesión para comprobar si se modifico
+             * algún registro de empleado.
+             */
+            try {
+                isMod = (boolean) request.getSession().getAttribute("empModificado");
+            }
+            catch (Exception b) {System.out.println(b.getMessage());}
+            
             /**
              * Redirecciona '/Empleados.jsp' y establece variables según
              * exista registros eliminados de la tabla empleado
@@ -69,6 +80,8 @@ public class SvGoToEmployesList extends HttpServlet {
                 response.sendRedirect("Empleados.jsp?del=true&notDel=true");
             } else if (numNotDel == lengthArray) {
                 response.sendRedirect("Empleados.jsp?del=false&notDel=true");
+            } else if (isMod) {
+                response.sendRedirect("Empleados.jsp?mod=true");
             }
 
         } catch (Exception e) {
