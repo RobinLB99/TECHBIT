@@ -49,7 +49,7 @@
                                 <h5 class="card-title">Datos personales</h5>
 
                                 <!-- Multi Columns Form -->
-                                <form class="row g-3" id="SendEmployForm" action="SvIngresarEmpleado" method="post">
+                                <form class="row g-3" id="SendEmployForm" action="SvModificarEmpleado" method="post">
                                     <div class="col-md-6">
                                         <input type="text" class="form-control" id="inputId" name="inputId" value="<%= empleado.getId() %>" hidden>
                                         <label for="inputNombres" class="form-label">Nombres</label>
