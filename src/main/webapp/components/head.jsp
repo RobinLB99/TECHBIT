@@ -35,6 +35,9 @@
 <!-- Template Main CSS File -->
 <link href="assets/css/style.css" rel="stylesheet">
 
+<script src="assets/js/jquery.min.js"></script>
+<script src="assets/js/jquery.min.map"></script>
+
 <!-- =======================================================
 * Template Name: NiceAdmin
 * Updated: Jan 29 2024 with Bootstrap v5.3.2
