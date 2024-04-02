@@ -13,6 +13,9 @@ import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 import java.util.Date;
 
+/**
+ * Servelet de para la modificación de un registro de empleado.
+ */
 @WebServlet(name = "SvModificarEmpleado", urlPatterns = {"/SvModificarEmpleado"})
 public class SvModificarEmpleado extends HttpServlet {
 
