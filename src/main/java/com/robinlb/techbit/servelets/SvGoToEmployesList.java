@@ -27,7 +27,7 @@ public class SvGoToEmployesList extends HttpServlet {
         LogicController control = new LogicController();
         Integer numNotDel = null;
         Integer lengthArray = null;
-        boolean isMod = false;
+        String isMod = null;
 
         /**
          * Persiste la lista de empleados desde la base de datos
@@ -43,48 +43,60 @@ public class SvGoToEmployesList extends HttpServlet {
              * mediante el atributo de sesión "numNoEliminados"
              */
             try {
-                numNotDel = Integer.parseInt(
-                    (String) request.getSession().getAttribute("numNoEliminados")
-                );
+                String num = (String) request.getSession().getAttribute("numNoEliminados");
+                numNotDel = Integer.parseInt(num);
 
-            } catch (Exception ex) {System.out.println(ex.getMessage());}
+            }
+            catch (Exception ex) {
+                System.out.println(ex.getMessage());
+            }
 
             /**
-             * Toma la longitud del la lista de empleados eliminados
-             * mediante el atributo de sesión "arrIDsForDelLength"
+             * Toma la longitud del la lista de empleados eliminados mediante el
+             * atributo de sesión "arrIDsForDelLength"
              */
             try {
                 lengthArray = (int) request.getSession().getAttribute("arrIDsForDelLength");
 
-            } catch (Exception a) {System.out.println(a.getMessage());}
+            }
+            catch (Exception a) {
+                System.out.println(a.getMessage());
+            }
 
-            
             /**
-             * Toma el atributo de sesión para comprobar si se modifico
-             * algún registro de empleado.
+             * Toma el atributo de sesión para comprobar si se modifico algún
+             * registro de empleado.
              */
             try {
-                isMod = (boolean) request.getSession().getAttribute("empModificado");
+                isMod = (String) request.getSession().getAttribute("empModificado");
             }
-            catch (Exception b) {System.out.println(b.getMessage());}
-            
-            /**
-             * Redirecciona '/Empleados.jsp' y establece variables según
-             * exista registros eliminados de la tabla empleado
-             */
-            if (numNotDel == null) {
-                response.sendRedirect("Empleados.jsp");
-            } else if (numNotDel == 0) {
-                response.sendRedirect("Empleados.jsp?del=true&notDel=false");
-            } else if (numNotDel > 0) {
-                response.sendRedirect("Empleados.jsp?del=true&notDel=true");
-            } else if (numNotDel == lengthArray) {
-                response.sendRedirect("Empleados.jsp?del=false&notDel=true");
-            } else if (isMod) {
-                response.sendRedirect("Empleados.jsp?mod=true");
+            catch (Exception b) {
+                System.out.println(b.getMessage());
             }
 
-        } catch (Exception e) {
+            /**
+             * Redirecciona '/Empleados.jsp' y establece variables según exista
+             * registros eliminados de la tabla empleado
+             */
+            if (numNotDel == null) {
+                if (isMod != null && isMod.equals("true")) {
+                    response.sendRedirect("Empleados.jsp?mod=true");
+                }
+                
+                response.sendRedirect("Empleados.jsp");
+                
+            } else if (numNotDel != null && numNotDel == 0) {
+                response.sendRedirect("Empleados.jsp?del=true&notDel=false");
+                
+            } else if (numNotDel != null && numNotDel > 0) {
+                response.sendRedirect("Empleados.jsp?del=true&notDel=true");
+                
+            } else if (numNotDel != null && numNotDel == lengthArray) {
+                response.sendRedirect("Empleados.jsp?del=false&notDel=true");
+            }
+
+        }
+        catch (Exception e) {
             System.out.println(e.getMessage());
         }
 
