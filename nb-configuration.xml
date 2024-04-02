@@ -31,5 +31,6 @@
         <netbeans.checkstyle.format>true</netbeans.checkstyle.format>
         <netbeans.hint.jdkPlatform>JDK_17</netbeans.hint.jdkPlatform>
         <org-netbeans-modules-maven-j2ee.netbeans_2e_hint_2e_deploy_2e_server>Tomcat</org-netbeans-modules-maven-j2ee.netbeans_2e_hint_2e_deploy_2e_server>
+        <netbeans.compile.on.save>all</netbeans.compile.on.save>
     </properties>
 </project-shared-configuration>
