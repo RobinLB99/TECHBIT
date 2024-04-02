@@ -66,14 +66,14 @@ public class SvModificarEmpleado extends HttpServlet {
 
             control.actualizarEmpleado(empleado);
 
-            mod.setAttribute("empModificado", true);
+            mod.setAttribute("empModificado", "true");
 
             response.sendRedirect("SvGoToEmployesList");
 
         }
         catch (Exception e) {
             System.out.println(e.getMessage());
-            mod.setAttribute("empModificado", false);
+            mod.setAttribute("empModificado", "false");
             response.sendRedirect("SvGoToEmployesList");
         }
 
