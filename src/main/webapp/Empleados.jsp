@@ -77,7 +77,8 @@
 
                                 <hr>
 
-                                <!-- Table with stripped rows -->
+                                <div class="table-responsive">
+                                    <!-- Table with stripped rows -->
                                 <table class="table datatable table-hover">
                                     <%
                                         Collection<Empleado> empleados = (Collection<Empleado>) request.getSession().getAttribute("listaEmpleados");
@@ -125,6 +126,7 @@
                                     </tbody>
                                 </table>
                                 <!-- End Table with stripped rows -->
+                                </div>
 
                             </div>
                         </div>
