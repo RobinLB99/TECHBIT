@@ -17,18 +17,21 @@
             </a>
             <ul id="components-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
                 <li>
-                    <a href="SvGoToIngresarEmpleado">
-                        <i class="bi bi-circle"></i><span>Ingresar</span>
+                    <a href="SvGoToEmployesList">
+                        <i class="bi bi-circle"></i>
+                        <span>Registro</span>
                     </a>
                 </li>
                 <li>
-                    <a href="SvGoToEmployesList">
-                        <i class="bi bi-circle"></i><span>Enlistar personal</span>
+                    <a href="SvGoToIngresarEmpleado">
+                        <i class="bi bi-circle"></i>
+                        <span>Ingreso</span>
                     </a>
                 </li>
                 <li>
                     <a href="#">
-                        <i class="bi bi-circle"></i><span>Usuarios</span>
+                        <i class="bi bi-circle"></i>
+                        <span>Usuarios</span>
                     </a>
                 </li>
             </ul>

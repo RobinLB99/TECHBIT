@@ -29,7 +29,7 @@
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href="Dashboard.jsp">Home</a></li>
                         <li class="breadcrumb-item">Personal</li>
-                        <li class="breadcrumb-item active">Ingresar</li>
+                        <li class="breadcrumb-item active">Ingreso</li>
                     </ol>
                 </nav>
             </div><!-- End Page Title -->
@@ -89,16 +89,10 @@
                                         </select>
                                     </div>
                                     <div class="col-12">
-                                        <!-- <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" id="gridCheck">
-                                            <label class="form-check-label" for="gridCheck">
-                                                Confirmado
-                                            </label>
-                                        </div> -->
                                     </div>
                                     <div class="text-center">
-                                        <button type="submit" class="btn btn-primary">Submit</button>
-                                        <button type="reset" class="btn btn-secondary">Reset</button>
+                                        <button type="submit" class="btn btn-primary">Ingresar</button>
+                                        <button type="reset" class="btn btn-secondary">Limpiar</button>
                                     </div>
                                 </form><!-- End Multi Columns Form -->
 

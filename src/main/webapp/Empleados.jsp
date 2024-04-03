@@ -26,9 +26,11 @@
                 <h1>Personal</h1>
                 <nav>
                     <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="SvGoToDashboard">Home</a></li>
-                        <li class="breadcrumb-item"><a href="#">Personal</a></li>
-                        <li class="breadcrumb-item active">Enlistar personal</li>
+                        <li class="breadcrumb-item">
+                            <a href="SvGoToDashboard">Home</a>
+                        </li>
+                        <li class="breadcrumb-item">Personal</li>
+                        <li class="breadcrumb-item active">Registro</li>
                     </ol>
                 </nav>
             </div><!-- End Page Title -->
