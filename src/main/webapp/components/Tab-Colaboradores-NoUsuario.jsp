@@ -6,9 +6,14 @@
   <!-- Botones de modificacion de entrada de la tabla -->
   <div class="d-flex justify-content-between">
     <div class="actions d-flex flex-row gap-3">
-      <a href="SvGoToIngresarUsuario" class="btn btn-primary d-flex flex-row gap-2 align-items-center" title="Registrar usuario">
-        <i class="fa-solid fa-user-plus"></i>
-      </a>
+      
+      <form action="#" method="post">
+        <input type="hidden" name="idColaboradorSinUsuario">
+        <button class="btn btn-secondary d-flex flex-row gap-2 align-items-center" name="addUser" title="Registrar usuario" disabled>
+          <i class="fa-solid fa-user-plus"></i>
+        </button>
+      </form>
+
     </div>
   </div>
 
@@ -39,7 +44,7 @@
         
         <tr>
           <td class="form-cheack">
-            <input class="form-check-input" type="checkbox" value="<%= empleado.getId() %>" name="checkbox" id="flexCheckDefault<%= empleado.getId() %>" style="width: 20px; height: 20px">
+            <input class="form-check-input" type="radio" value="<%= empleado.getId() %>" name="checkbox" id="flexCheckDefault<%= empleado.getId() %>" style="width: 20px; height: 20px">
           </td>
           <td><%= empleado.getNombres() %></td>
           <td><%= empleado.getApellidos() %></td>
