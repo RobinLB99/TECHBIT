@@ -7,7 +7,7 @@
   <div class="d-flex justify-content-between">
     <div class="actions d-flex flex-row gap-3">
       
-      <form action="#" method="post">
+      <form action="SvGoToOtorgarUsuarioColaborador" method="post">
         <input type="hidden" name="idColaboradorSinUsuario">
         <button class="btn btn-secondary d-flex flex-row gap-2 align-items-center" name="addUser" title="Registrar usuario" disabled>
           <i class="fa-solid fa-user-plus"></i>
