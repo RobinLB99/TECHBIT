@@ -35,7 +35,7 @@ public class SvGoToEmployesList extends HttpServlet {
         try {
             Collection<Empleado> listaEmpleados = control.listaEmpleados();
 
-            HttpSession es = request.getSession();
+            HttpSession es = request.getSession(false);
             es.setAttribute("listaEmpleados", listaEmpleados);
 
             /**
@@ -98,6 +98,7 @@ public class SvGoToEmployesList extends HttpServlet {
         }
         catch (Exception e) {
             System.out.println(e.getMessage());
+            response.sendRedirect("PageError500.jsp");
         }
 
     }
