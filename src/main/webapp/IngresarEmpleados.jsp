@@ -47,7 +47,7 @@
                                         <input type="text" class="form-control" id="inputApellidos" name=inputApellidos>
                                     </div>
                                     <div class="col-md-6">
-                                        <label for="inputCedula" class="form-label">N. Cedula</label>
+                                        <label for="inputCedula" class="form-label">N. Cédula</label>
                                         <input type="text" class="form-control" id="inputCedula" name="inputCedula">
                                     </div>
                                     <div class="col-md-6">
