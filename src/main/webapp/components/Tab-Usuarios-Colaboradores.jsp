@@ -8,7 +8,7 @@
     <div class="actions d-flex flex-row gap-3">
       
       <!-- Botón para restablecer contraseña -->
-      <form action="SvRestablecerPassword" method="post" id="ResetPasswordBtn">
+      <form action="SvGoToRestablecerPassword" method="get" id="ResetPasswordBtn">
         <input type="text" name="idForResetPassword" id="idForResetPassword" hidden>
         <button type="submit" class="btn btn-secondary d-flex flex-row gap-2 align-items-center" id="btnResetPassword" title="Restablecer contraseña" disabled>
           <i class="fa-solid fa-key"></i>
