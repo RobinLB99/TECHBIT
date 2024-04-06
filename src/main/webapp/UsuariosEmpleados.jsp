@@ -74,6 +74,7 @@
 
     <%@include file="components/scripts.jsp" %>
     <script src="assets/js/seleccionarColaboradorSinUsuario.js"></script>
+    <script src="assets/js/seleccionarUsuariosColaboradores.js"></script>
 
   </body>
 
