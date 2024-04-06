@@ -11,11 +11,11 @@
     String rol = usuario.getPrivilegios();
 
     if (usuario.getEmpleado() != null) {
-      realName = usuario.getEmpleado().getNombres() + "" + usuario.getEmpleado().getApellidos();
+      realName = usuario.getEmpleado().getNombres() + " " + usuario.getEmpleado().getApellidos();
     }
 
     if (usuario.getClienteNatural() != null) {
-      realName = usuario.getEmpleado().getNombres() + "" + usuario.getEmpleado().getApellidos();
+      realName = usuario.getEmpleado().getNombres() + " " + usuario.getEmpleado().getApellidos();
     }
 
     if (usuario.getClienteEmpresarial() != null) {
