@@ -24,11 +24,11 @@ public class SvLogout extends HttpServlet {
           throws ServletException, IOException {
     processRequest(request, response);
 
-    response.sendRedirect("Login.jsp");
-
     HttpSession SessionActive = request.getSession(false);
     SessionActive.invalidate();
-
+    
+    response.sendRedirect("Login.jsp");
+    
   }
 
 }
