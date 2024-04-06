@@ -1,14 +1,8 @@
 <%@page import="com.robinlb.techbit.controllers.DateController"%>
 <%@page import="com.robinlb.techbit.model.Empleado"%>
 <%@page contentType="text/html" language="java" pageEncoding="UTF-8"%>
-<%@include file="/components/ServicioComprobaciónSesionActiva.jsp" %>
-<%  Usuario usuario = (Usuario) request.getSession().getAttribute("logUser");
-    String username = (usuario.getNombreUsuario().equals("root"))
-            ? "Administrador"
-            : usuario.getNombreUsuario();
-%>
 <%
-    Empleado empleado = (Empleado) request.getSession().getAttribute("empleadoModificar");
+    Empleado empleado = (Empleado) request.getSession(false).getAttribute("empleadoModificar");
     DateController dateControl = new DateController();
 %>
 <!DOCTYPE html>
@@ -21,12 +15,12 @@
         <meta content="" name="description">
         <meta content="" name="keywords">
 
-        <%@include file="/components/head.jsp" %>
+        <%@include file="components/head.jsp" %>
     </head>
     <body>
-        <%@include file="/components/header.jsp" %>
+        <%@include file="components/header.jsp" %>
 
-        <%@include file="/components/Sidebar.jsp" %>
+        <%@include file="components/Sidebar.jsp" %>
 
         <main id="main" class="main">
             <div class="pagetitle">
@@ -113,11 +107,11 @@
 
         </main>
 
-        <%@include file="/components/Footer.jsp" %>
+        <%@include file="components/Footer.jsp" %>
 
         <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
-        <%@include file="/components/scripts.jsp" %>
+        <%@include file="components/scripts.jsp" %>
         <script src="assets/js/ValidateFormEmploy.js"></script>
         <script src="assets/js/autoSelectOption.js"></script>
     </body>
