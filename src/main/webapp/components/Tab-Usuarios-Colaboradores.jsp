@@ -41,12 +41,8 @@
       <thead>
         <tr>
           <th></th>
-          <th>
-            Usuario
-          </th>
-          <th>
-            Acceso
-          </th>
+          <th>Usuario</th>
+          <th>Acceso</th>
           <th>Propietario</th>
         </tr>
       </thead>
