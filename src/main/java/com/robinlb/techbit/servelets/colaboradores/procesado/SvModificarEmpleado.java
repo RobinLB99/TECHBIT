@@ -22,16 +22,7 @@ public class SvModificarEmpleado extends HttpServlet {
             throws ServletException, IOException {
 
     }
-
-    /**
-     *
-     * @param request
-     * @param response
-     * @throws ServletException
-     * @throws IOException
-     *
-     * Metodo Post para la modificación del registro de empleado.
-     */
+    
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
