@@ -81,7 +81,7 @@ public class SvGoToEmployesList extends HttpServlet {
       if (numNotDel == null) {
         if (isMod != null && isMod.equals("true")) {
           HttpSession m = request.getSession(false);
-          m.removeAttribute("empModificado");
+          m.removeAttribute("empModificado"); // Se elimina el atributo de sesión ya usado, para no lanzar isMod en la siguiente recarga.
           
           response.sendRedirect("Empleados.jsp?mod=true");
           
