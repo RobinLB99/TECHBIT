@@ -51,7 +51,7 @@ public class SvModificarEmpleado extends HttpServlet {
         String depart = (String) request.getParameter("inputDepartamento");
 
         Date fecha = dateControl.formatToDate(stringFecha);
-        HttpSession mod = request.getSession();
+        HttpSession mod = request.getSession(false);
 
         try {
             Empleado empleado = control.verEmpleado(Long.parseLong(stringID));
