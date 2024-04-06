@@ -31,13 +31,14 @@ public class SvGoToModifyEmploy extends HttpServlet {
         try {
             Empleado empleado = control.verEmpleado(id);
             
-            HttpSession emp = request.getSession();
+            HttpSession emp = request.getSession(false);
             emp.setAttribute("empleadoModificar", empleado);
             
             response.sendRedirect("ActualizarEmpleado.jsp");
 
         } catch (Exception e) {
             System.out.println(e.getMessage());
+            response.sendRedirect("PageError500.jsp");
         }
 
     }
