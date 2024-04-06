@@ -44,6 +44,7 @@ public class SvBorrarEmpleado extends HttpServlet {
             } catch (Exception e) {
                 numNotDel += 1;
                 System.out.println(e.getMessage());
+                response.sendRedirect("PageError500.jsp");
             }
             
         }
