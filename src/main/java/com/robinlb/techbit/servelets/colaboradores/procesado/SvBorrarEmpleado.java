@@ -48,10 +48,10 @@ public class SvBorrarEmpleado extends HttpServlet {
             
         }
         
-        HttpSession notDelete = request.getSession();
+        HttpSession notDelete = request.getSession(false);
         notDelete.setAttribute("numNoEliminados", numNotDel);
         
-        HttpSession arrIDsLength = request.getSession();
+        HttpSession arrIDsLength = request.getSession(false);
         arrIDsLength.setAttribute("arrIDsForDelLength", IDs.size());
         
         response.sendRedirect("SvGoToEmployesList");
