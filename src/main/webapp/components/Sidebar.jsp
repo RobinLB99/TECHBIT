@@ -23,7 +23,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="SvGoToIngresarEmpleado">
+                    <a href="IngresarEmpleados.jsp">
                         <i class="bi bi-circle"></i>
                         <span>Ingreso</span>
                     </a>
