@@ -10,7 +10,7 @@ import java.util.Collection;
  * @author Robin
  */
 public class LogicController {
-
+    
     PersistenceController perControl = new PersistenceController();
 
     /**
