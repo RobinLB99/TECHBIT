@@ -3,10 +3,7 @@
 <%
   try {
     Usuario usuario = (Usuario) request.getSession(false).getAttribute("user");
-    String nombreUsuario = (usuario.getNombreUsuario().equals("root"))
-            ? "Administrador"
-            : usuario.getNombreUsuario();
-
+    
     String realName = null;
     String rol = usuario.getPrivilegios();
 
@@ -22,7 +19,7 @@
       realName = usuario.getClienteEmpresarial().getRazonSocial();
     }
     
-    if (realName == null) realName = "Desconocido";
+    if (realName == null) realName = "Admnistrador";
 %>
 <!-- ======= Header ======= -->
 <header id="header" class="header fixed-top d-flex align-items-center">
@@ -48,12 +45,14 @@
 
         <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
           <img src="assets/img/profile-img.jpg" alt="Profile" class="rounded-circle">
-          <span class="d-none d-md-block dropdown-toggle ps-2"><%= nombreUsuario%></span>
+          <span class="d-none d-md-block dropdown-toggle ps-2">
+            <%= realName %>
+          </span>
         </a><!-- End Profile Iamge Icon -->
 
         <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
           <li class="dropdown-header">
-            <h6><%= realName%></h6>
+            <h6><%= usuario.getNombreUsuario() %></h6>
             <span><%= rol%></span>
           </li>
           <li>
