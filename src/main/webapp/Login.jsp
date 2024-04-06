@@ -1,5 +1,4 @@
 <%@page contentType="text/html" language="java" pageEncoding="UTF-8"%>
-<%@include file="/components/ServicioComprobaciónSesionActiva.jsp" %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -11,7 +10,7 @@
         <meta content="" name="description">
         <meta content="" name="keywords">
 
-        <%@include file="./components/head.jsp"%>
+        <%@include file="components/head.jsp"%>
     </head>
 
     <body>
@@ -68,22 +67,9 @@
                                                 <div class="invalid-feedback">Please enter your
                                                     password!</div>
                                             </div>
-                                            <!--
-        <div class="col-12">
-          <div class="form-check">
-            <input class="form-check-input" type="checkbox" name="remember" value="true" id="rememberMe">
-            <label class="form-check-label" for="rememberMe">Remember me</label>
-          </div>
-        </div>
-                                            -->
                                             <div class="col-12">
                                                 <button class="btn btn-primary w-100" type="submit">Login</button>
                                             </div>
-                                            <!--
-        <div class="col-12">
-          <p class="small mb-0">Don't have account? <a href="pages-register.html">Create an account</a></p>
-        </div>
-                                            -->
                                         </form>
 
                                     </div>
@@ -111,7 +97,7 @@
            class="back-to-top d-flex align-items-center justify-content-center"><i
                 class="bi bi-arrow-up-short"></i></a>
 
-        <%@include file="./components/scripts.jsp"%>
+        <%@include file="components/scripts.jsp"%>
     </body>
 
 </html>
