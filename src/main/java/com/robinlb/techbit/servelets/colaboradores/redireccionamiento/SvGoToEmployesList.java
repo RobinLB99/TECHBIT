@@ -80,7 +80,11 @@ public class SvGoToEmployesList extends HttpServlet {
        */
       if (numNotDel == null) {
         if (isMod != null && isMod.equals("true")) {
+          HttpSession m = request.getSession(false);
+          m.removeAttribute("empModificado");
+          
           response.sendRedirect("Empleados.jsp?mod=true");
+          
         } else {
           response.sendRedirect("Empleados.jsp");
         }
