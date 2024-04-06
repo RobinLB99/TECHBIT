@@ -3,7 +3,7 @@
 
   <hr>
 
-  <!-- Botones de modificacion de entrada de la tabla -->
+  <!-- Botones de modificación de entrada de la tabla -->
   <div class="d-flex justify-content-between">
     <div class="actions d-flex flex-row gap-3">
       
@@ -11,7 +11,7 @@
       <form action="SvRestablecerPassword" method="post" id="ResetPasswordBtn">
         <input type="text" name="idForResetPassword" id="idForResetPassword" hidden>
         <button type="submit" class="btn btn-secondary d-flex flex-row gap-2 align-items-center" id="btnResetPassword" title="Restablecer contraseña" disabled>
-          <i class="fa-solid fa-rotate-right"></i>
+          <i class="fa-solid fa-key"></i>
         </button>
       </form>
 
@@ -54,7 +54,7 @@
         
         <tr>
           <td class="form-cheack">
-            <input class="form-check-input" type="checkbox" value="<%= user.getUsuarioId() %>" name="checkbox" id="flexCheckDefault<%= user.getUsuarioId() %>" style="width: 20px; height: 20px">
+            <input class="form-check-input" type="radio" value="<%= user.getUsuarioId() %>" name="checkboxUser" id="flexCheckDefault<%= user.getUsuarioId() %>" style="width: 20px; height: 20px">
           </td>
           <td><%= user.getNombreUsuario() %></td>
           <td><%= user.getPrivilegios() %></td>
