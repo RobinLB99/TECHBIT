@@ -55,10 +55,10 @@ public class SvIngresarEmpleado extends HttpServlet {
         
         try {
             control.crearEmpleado(employ);
-            response.sendRedirect("Empleados.jsp?employ=create");
+            response.sendRedirect("Dashboard.jsp?employ=create");
         } catch (Exception e) {
             System.out.println(e.getMessage());
-            response.sendRedirect("Empleados.jsp?error=true");
+            response.sendRedirect("Dashboard.jsp?error=true");
         }
         
     }
