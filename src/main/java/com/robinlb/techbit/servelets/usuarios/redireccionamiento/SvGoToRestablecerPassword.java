@@ -22,12 +22,13 @@ public class SvGoToRestablecerPassword extends HttpServlet {
   }
 
   /**
-   * Handles the HTTP <code>GET</code> method.
-   *
-   * @param request servlet request
-   * @param response servlet response
-   * @throws ServletException if a servlet-specific error occurs
-   * @throws IOException if an I/O error occurs
+   * Metodo <code>GET</code> que sirve para traer el usuario según el id
+   * obtenido mediante el request request.
+   * 
+   * @param request
+   * @param response
+   * @throws ServletException
+   * @throws IOException 
    */
   @Override
   protected void doGet(HttpServletRequest request, HttpServletResponse response)
