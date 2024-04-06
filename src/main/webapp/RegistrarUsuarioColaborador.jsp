@@ -14,11 +14,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Registro de usuario del colaborador - TechBit</title>
-  <%@include file="/components/head.jsp" %>
+  <%@include file="components/head.jsp" %>
 </head>
 <body>
-  <%@include file="/components/header.jsp" %>
-  <%@include file="/components/Sidebar.jsp" %>
+  <%@include file="components/header.jsp" %>
+  <%@include file="components/Sidebar.jsp" %>
 
   <main id="main" class="main">
     <div class="pagetitle">
@@ -115,12 +115,12 @@
     </section>
 
   </main>
-  <%@include file="/components/Footer.jsp" %>
+  <%@include file="components/Footer.jsp" %>
 
   <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
-  <%@include file="/components/scripts.jsp" %>
-  <script src="./assets/js/validacionRegistroUsuarioColaborador.js"></script>
+  <%@include file="components/scripts.jsp" %>
+  <script src="assets/js/validacionRegistroUsuarioColaborador.js"></script>
 
 </body>
 </html>
