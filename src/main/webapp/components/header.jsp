@@ -1,83 +1,112 @@
+<%@page import="com.robinlb.techbit.model.Usuario"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<% String personalname = (username.equals("Administrador")) ? "Desconocido" : "Otro nombre";%>
-<% String rol = (username.equals("Administrador")) ? "Desconocido" : "Otro puesto";%>
+<%
+  try {
+    Usuario usuario = (Usuario) request.getSession(false).getAttribute("user");
+    String nombreUsuario = (usuario.getNombreUsuario().equals("root"))
+            ? "Administrador"
+            : usuario.getNombreUsuario();
+
+    String realName = null;
+    String rol = usuario.getPrivilegios();
+
+    if (usuario.getEmpleado() != null) {
+      realName = usuario.getEmpleado().getNombres() + "" + usuario.getEmpleado().getApellidos();
+    }
+
+    if (usuario.getClienteNatural() != null) {
+      realName = usuario.getEmpleado().getNombres() + "" + usuario.getEmpleado().getApellidos();
+    }
+
+    if (usuario.getClienteEmpresarial() != null) {
+      realName = usuario.getClienteEmpresarial().getRazonSocial();
+    }
+    
+    if (realName == null) realName = "Desconocido";
+%>
 <!-- ======= Header ======= -->
 <header id="header" class="header fixed-top d-flex align-items-center">
 
-    <div class="d-flex align-items-center justify-content-between">
-        <a href="index.html" class="logo d-flex align-items-center">
-            <img src="assets/img/logo.png" alt="">
-            <span class="d-none d-lg-block">TechBit</span>
+  <div class="d-flex align-items-center justify-content-between">
+    <a href="index.html" class="logo d-flex align-items-center">
+      <img src="assets/img/logo.png" alt="">
+      <span class="d-none d-lg-block">TechBit</span>
+    </a>
+    <i class="bi bi-list toggle-sidebar-btn"></i>
+  </div><!-- End Logo -->
+
+  <nav class="header-nav ms-auto">
+    <ul class="d-flex align-items-center">
+
+      <li class="nav-item d-block d-lg-none">
+        <a class="nav-link nav-icon search-bar-toggle " href="#">
+          <i class="bi bi-search"></i>
         </a>
-        <i class="bi bi-list toggle-sidebar-btn"></i>
-    </div><!-- End Logo -->
+      </li><!-- End Search Icon-->
 
-    <nav class="header-nav ms-auto">
-        <ul class="d-flex align-items-center">
+      <li class="nav-item dropdown pe-3">
 
-            <li class="nav-item d-block d-lg-none">
-                <a class="nav-link nav-icon search-bar-toggle " href="#">
-                    <i class="bi bi-search"></i>
-                </a>
-            </li><!-- End Search Icon-->
+        <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
+          <img src="assets/img/profile-img.jpg" alt="Profile" class="rounded-circle">
+          <span class="d-none d-md-block dropdown-toggle ps-2"><%= nombreUsuario%></span>
+        </a><!-- End Profile Iamge Icon -->
 
-            <li class="nav-item dropdown pe-3">
+        <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
+          <li class="dropdown-header">
+            <h6><%= realName%></h6>
+            <span><%= rol%></span>
+          </li>
+          <li>
+            <hr class="dropdown-divider">
+          </li>
 
-                <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
-                    <img src="assets/img/profile-img.jpg" alt="Profile" class="rounded-circle">
-                    <span class="d-none d-md-block dropdown-toggle ps-2"><%=username%></span>
-                </a><!-- End Profile Iamge Icon -->
+          <li>
+            <a class="dropdown-item d-flex align-items-center" href="#">
+              <i class="bi bi-person"></i>
+              <span>Mi perfil</span>
+            </a>
+          </li>
+          <li>
+            <hr class="dropdown-divider">
+          </li>
 
-                <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
-                    <li class="dropdown-header">
-                        <h6><%=personalname%></h6>
-                        <span><%=rol%></span>
-                    </li>
-                    <li>
-                        <hr class="dropdown-divider">
-                    </li>
+          <li>
+            <a class="dropdown-item d-flex align-items-center" href="#">
+              <i class="bi bi-gear"></i>
+              <span>Configuraciones de la cuenta</span>
+            </a>
+          </li>
+          <li>
+            <hr class="dropdown-divider">
+          </li>
 
-                    <li>
-                        <a class="dropdown-item d-flex align-items-center" href="#">
-                            <i class="bi bi-person"></i>
-                            <span>My Profile</span>
-                        </a>
-                    </li>
-                    <li>
-                        <hr class="dropdown-divider">
-                    </li>
+          <li>
+            <a class="dropdown-item d-flex align-items-center" href="#">
+              <i class="bi bi-question-circle"></i>
+              <span>¿Necesitas ayuda?</span>
+            </a>
+          </li>
+          <li>
+            <hr class="dropdown-divider">
+          </li>
 
-                    <li>
-                        <a class="dropdown-item d-flex align-items-center" href="#">
-                            <i class="bi bi-gear"></i>
-                            <span>Account Settings</span>
-                        </a>
-                    </li>
-                    <li>
-                        <hr class="dropdown-divider">
-                    </li>
+          <form method="post" action="SvLogout">
+            <button type="submit" class="dropdown-item d-flex align-items-center" href="/TechBit/SvLogout&method=post">
+              <i class="bi bi-box-arrow-right"></i>
+              <span>Cerrar sesión</span>
+            </button>
+          </form>
 
-                    <li>
-                        <a class="dropdown-item d-flex align-items-center" href="#">
-                            <i class="bi bi-question-circle"></i>
-                            <span>Need Help?</span>
-                        </a>
-                    </li>
-                    <li>
-                        <hr class="dropdown-divider">
-                    </li>
+        </ul><!-- End Profile Dropdown Items -->
+      </li><!-- End Profile Nav -->
 
-                    <form method="post" action="SvLogout">
-                        <button type="submit" class="dropdown-item d-flex align-items-center" href="/TechBit/SvLogout&method=post">
-                            <i class="bi bi-box-arrow-right"></i>
-                            <span>Sign Out</span>
-                        </button>
-                    </form>
-
-                </ul><!-- End Profile Dropdown Items -->
-            </li><!-- End Profile Nav -->
-
-        </ul>
-    </nav><!-- End Icons Navigation -->
+    </ul>
+  </nav><!-- End Icons Navigation -->
 
 </header><!-- End Header -->
+
+<%
+  } catch (Exception e) {
+    System.out.println(e.getMessage());
+  }
+%>
