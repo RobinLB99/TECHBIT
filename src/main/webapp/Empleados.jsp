@@ -1,14 +1,7 @@
 <%@page import="com.robinlb.techbit.controllers.DateController"%>
 <%@page import="java.util.Collection"%>
 <%@page import="com.robinlb.techbit.model.Empleado"%>
-<%@page import="com.robinlb.techbit.model.Usuario"%>
 <%@page contentType="text/html" language="java" pageEncoding="UTF-8"%>
-<%@include file="/components/ServicioComprobaciónSesionActiva.jsp" %>
-<%  Usuario usuario = (Usuario) request.getSession().getAttribute("logUser");
-    String username = (usuario.getNombreUsuario().equals("root"))
-            ? "Administrador"
-            : usuario.getNombreUsuario();
-%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -16,11 +9,11 @@
         <title>Empleados</title>
         <meta content="" name="description">
         <meta content="" name="keywords">
-        <%@include file="/components/head.jsp" %>
+        <%@include file="components/head.jsp" %>
     </head>
     <body>
-        <%@include file="/components/header.jsp" %>
-        <%@include file="/components/Sidebar.jsp" %>
+        <%@include file="components/header.jsp" %>
+        <%@include file="components/Sidebar.jsp" %>
         <main id="main" class="main">
             <div class="pagetitle">
                 <h1>Personal</h1>
@@ -45,10 +38,10 @@
                                 
                                 <hr>
 
-                                <!-- Botones de modificacion de entrada de la tabla -->
+                                <!-- Botones de modificación de entrada de la tabla -->
                                 <div class="d-flex justify-content-between">
                                     <div class="actions d-flex flex-row gap-3">
-                                        <a href="SvGoToIngresarEmpleado" class="btn btn-primary d-flex flex-row gap-2 align-items-center" title="Ingresar registro">
+                                        <a href="IngresarEmpleados.jsp" class="btn btn-primary d-flex flex-row gap-2 align-items-center" title="Ingresar registro">
                                             <i class="fa-solid fa-floppy-disk"></i>
                                         </a>
                                         <form action="SvBorrarEmpleado" method="post" id="borrarRegistrosEmpleados">
@@ -97,7 +90,7 @@
                                             </th>
                                             <th>Cédula</th>
                                             <th>Teléfono</th>
-                                            <th>Correo Electronico</th>
+                                            <th>Correo Electrónico</th>
                                             <th data-type="date" data-format="YYYY/MM/DD">Fecha Nacimiento</th>
                                             <th>Cargo</th>
                                             <th>Departamento</th>
@@ -138,11 +131,11 @@
             </section>
 
         </main>
-        <%@include file="/components/Footer.jsp" %>
+        <%@include file="components/Footer.jsp" %>
 
         <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
-        <%@include file="/components/scripts.jsp" %>
-        <script src="./assets/js/seleccionarRegistro.js"></script>
+        <%@include file="components/scripts.jsp" %>
+        <script src="assets/js/seleccionarRegistro.js"></script>
     </body>
 </html>
