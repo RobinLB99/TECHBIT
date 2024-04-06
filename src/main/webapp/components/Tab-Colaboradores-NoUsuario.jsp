@@ -26,12 +26,8 @@
       <thead>
         <tr>
           <th></th>
-          <th>
-            Nombres
-          </th>
-          <th>
-            Apellidos
-          </th>
+          <th>Nombres</th>
+          <th>Apellidos</th>
           <th>Cargo</th>
           <th>Departamento</th>
         </tr>
@@ -44,7 +40,7 @@
         
         <tr>
           <td class="form-cheack">
-            <input class="form-check-input" type="radio" value="<%= empleado.getId() %>" name="checkbox" id="flexCheckDefault<%= empleado.getId() %>" style="width: 20px; height: 20px">
+            <input class="form-check-input" type="radio" value="<%= empleado.getId() %>" name="ratioCheckColNotUser" id="flexCheckDefault<%= empleado.getId() %>" style="width: 20px; height: 20px">
           </td>
           <td><%= empleado.getNombres() %></td>
           <td><%= empleado.getApellidos() %></td>
