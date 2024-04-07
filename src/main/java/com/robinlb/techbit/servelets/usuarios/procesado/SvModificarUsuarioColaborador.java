@@ -38,7 +38,7 @@ public class SvModificarUsuarioColaborador extends HttpServlet {
     
     LogicController control = new LogicController();
     
-    Usuario user = (Usuario) request.getSession().getAttribute("usuarioModificar");
+    Usuario user = (Usuario) request.getSession(false).getAttribute("usuarioModificar");
     
     String username = (String) request.getParameter("validationServerUsername");
     String privilegios = (String) request.getParameter("validationServerAccess");
