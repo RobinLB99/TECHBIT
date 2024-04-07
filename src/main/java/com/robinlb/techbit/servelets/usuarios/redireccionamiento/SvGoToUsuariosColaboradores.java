@@ -1,4 +1,4 @@
-package com.robinlb.techbit.servelets.colaboradores.redireccionamiento;
+package com.robinlb.techbit.servelets.usuarios.redireccionamiento;
 
 import com.robinlb.techbit.controllers.LogicController;
 import com.robinlb.techbit.model.Empleado;
