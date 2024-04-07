@@ -42,7 +42,7 @@
                   <%
                     Usuario user = (Usuario) request.getSession(false).getAttribute("usuarioModificar");
                   %>
-                  <form class="row g-3" action="#" method="post" id="formModUser">
+                  <form class="row g-3" action="SvModificarUsuarioColaborador" method="post" id="formModUser">
                     <div class="col-md-4">
                       <hr>
                       <p><i>Datos actuales del usuario:</i></p>
