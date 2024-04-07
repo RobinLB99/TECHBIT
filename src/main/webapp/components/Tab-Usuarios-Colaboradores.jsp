@@ -16,7 +16,7 @@
       </form>
 
       <!-- Botón para modificar usuario -->
-      <form action="SvGotoModifyUser" method="post" id="ModifyUserBtn">
+      <form action="SvGoToModificarUsuario" method="get" id="ModifyUserBtn">
         <input type="text" name="inIdEmMod" id="inIdEmMod" hidden>
         <button type="submit" class="btn btn-secondary d-flex flex-row gap-2 align-items-center" id="btnActualizarRegistro" title="Actualizar registro" disabled>
           <i class="fa-solid fa-user-pen"></i>
