@@ -2,12 +2,6 @@
 <%@page import="com.robinlb.techbit.model.Empleado"%>
 <%@page import="com.robinlb.techbit.model.Usuario"%>
 <%@page contentType="text/html" language="java" pageEncoding="UTF-8"%>
-<%@include file="/components/ServicioComprobaciónSesionActiva.jsp" %>
-<%  Usuario usuario = (Usuario) request.getSession().getAttribute("logUser");
-  String username = (usuario.getNombreUsuario().equals("root"))
-          ? "Administrador"
-          : usuario.getNombreUsuario();
-%>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -44,7 +38,7 @@
             <div class="card-body">
               <h5 class="card-title">Registrar usuario del colaborador</h5>
               <%
-                Empleado colaborador = (Empleado) request.getSession().getAttribute("colaborador");
+                Empleado colaborador = (Empleado) request.getSession(false).getAttribute("colaborador");
               %>
               <form class="row g-3" action="SvAsignarUsuarioColaborador" method="post" id="formCreateUserC">
                 <div class="col-md-4">
