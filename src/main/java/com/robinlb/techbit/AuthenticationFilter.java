@@ -42,7 +42,7 @@ public class AuthenticationFilter implements Filter {
     HttpSession session = httpRequest.getSession(false);
 
     if (session == null || session.getAttribute("user") == null) {
-      if (requestURI.equals("/TechBit/Login.jsp") || requestURI.contains("/Sv") || requestURI.contains(".css") || requestURI.contains(".ttf")) {
+      if (requestURI.equals("/TechBit/Login.jsp") || requestURI.contains("/SvLogin") || requestURI.contains(".css") || requestURI.contains(".ttf")) {
         chain.doFilter(request, response);
       } else {
         httpResponse.sendRedirect("Login.jsp");
