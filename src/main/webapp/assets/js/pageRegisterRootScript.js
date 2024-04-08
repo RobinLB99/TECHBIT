@@ -1,29 +1,27 @@
-document.addEventListener("DOMContentLoaded", function () {
-    const formulario = document.getElementById("form");
-    const password1 = document.getElementById("yourPassword");
-    const password2 = document.getElementById("yourPasswordRepeat");
-    const btnEnviar = document.getElementById("Enviar");
+const formulario = document.querySelector("#formCreateRoot");
+const password1 = document.querySelector("#passwordGroup");
+const password2 = document.querySelector("#repeatePasswordGroup");
 
-    formulario.addEventListener("submit", function (e) {
-        if (password1.value !== password2.value) {
-            e.preventDefault();
-            alert("Las contraseñas no coindicen. Por favor, verique los campos!");
-            password1.classList.add("is-invalid");
-            password2.classList.add("is-invalid");
-            return false;
-        }
-    });
+formulario.addEventListener("submit", function (event) {
+	event.preventDefault();
 
-    // Limpiar clases de validación cuando se modifica el valor de los campos
-    password1.addEventListener("input", function () {
-        password1.classList.remove("is-invalid");
-        password2.classList.remove("is-invalid");
-    });
+	const regExpPassword = /^\S{5,}$/;
 
-    password2.addEventListener("input", function () {
-        password1.classList.remove("is-invalid");
-        password2.classList.remove("is-invalid");
-    });
+	if (regExpPassword.test(password1.children[1].value) == false) {
+		password1.children[1].classList.remove("is-valid");
+		password1.children[1].classList.add("is-invalid");
+	} else {
+		password1.children[1].classList.remove("is-invalid");
+		password1.children[1].classList.add("is-valid");
+
+		if (password2.children[1].value === password1.children[1].value) {
+			password2.children[1].classList.remove("is-invalid");
+			password2.children[1].classList.add("is-valid");
+			formulario.submit();
+		} else {
+			password2.children[1].classList.remove("is-valid");
+			password2.children[1].classList.add("is-invalid");
+		}
+	}
+
 });
-
-

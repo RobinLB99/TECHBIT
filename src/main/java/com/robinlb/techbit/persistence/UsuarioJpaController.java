@@ -151,4 +151,29 @@ public class UsuarioJpaController implements Serializable {
     }
   }
 
+  public Long getUserCount() {
+    EntityManager em = getEntityManager();
+    Long count = 0L;
+
+    try {
+      em.getTransaction().begin();
+
+      Query query = em.createQuery("SELECT COUNT(u) FROM Usuario u");
+      count = (Long) query.getSingleResult();
+
+      em.getTransaction().commit();
+    }
+    catch (Exception ex) {
+      if (em.getTransaction().isActive()) {
+        em.getTransaction().rollback();
+      }
+      ex.printStackTrace();
+    }
+    finally {
+      em.close();
+    }
+
+    return count;
+  }
+
 }

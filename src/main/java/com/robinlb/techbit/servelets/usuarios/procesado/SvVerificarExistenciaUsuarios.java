@@ -1,62 +1,47 @@
 package com.robinlb.techbit.servelets.usuarios.procesado;
 
 import com.robinlb.techbit.controllers.LogicController;
-import com.robinlb.techbit.model.Usuario;
 import java.io.IOException;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import jakarta.servlet.http.HttpSession;
-import java.util.Collection;
 
 /**
- * Se ejecuta al iniciar la aplicación y verifica si existe algún usuario registrado. 
+ * Se ejecuta al iniciar la aplicación y verifica si existe algún usuario
+ * registrado.
  */
 @WebServlet(name = "SvVerificarExistenciaUsuarios", urlPatterns = {"/SvVerificarExistenciaUsuarios"})
 public class SvVerificarExistenciaUsuarios extends HttpServlet {
 
+  protected void processRequest(HttpServletRequest request, HttpServletResponse response)
+          throws ServletException, IOException {
+  }
+
+  @Override
+  protected void doGet(HttpServletRequest request, HttpServletResponse response)
+          throws ServletException, IOException {
+    processRequest(request, response);
+
     LogicController control = new LogicController();
-    
-    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
 
-        HttpSession requestSession = null;
-        String log = (String) request.getSession().getAttribute("session");
+    try {
+      Long countUsers = control.contarUsuarios();
+      System.out.println(countUsers);
+      
+      if (countUsers > 0) {
+        response.sendRedirect("Login.jsp");
         
-        if (log == null) {
-            log = "logoff";
-            requestSession = request.getSession();
-            requestSession.setAttribute("session", log);
-        }
-
-        Collection<Usuario> usuarios = control.listaUsuarios();
-
-        if (usuarios.isEmpty() || usuarios == null) {
-            response.sendRedirect("RegisterRoot.jsp");
-        } else if (log.equals("logon")) {
-            response.sendRedirect("Dashboard.jsp");
-        } else if (log.equals("logoff")) {
-            response.sendRedirect("Login.jsp");
-        }
+      } else {
+        response.sendRedirect("RegistrarRoot.jsp");
+      }
+    }
+    catch (Exception e) {
+      System.out.println(e.getMessage());
+      response.sendRedirect("PageError500.jsp");
     }
 
-    @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        processRequest(request, response);
-    }
-
-    @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        processRequest(request, response);
-    }
-
-    @Override
-    public String getServletInfo() {
-        return "Short description";
-    }// </editor-fold>
+  }
 
 }

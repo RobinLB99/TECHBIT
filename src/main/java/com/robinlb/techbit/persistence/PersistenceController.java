@@ -87,4 +87,8 @@ public class PersistenceController {
     public Collection<Usuario> usersList() {
         return usuarioJpa.findUsuarioEntities();
     }
+    
+    public Long countUsers() {
+      return usuarioJpa.getUserCount();
+    }
 }

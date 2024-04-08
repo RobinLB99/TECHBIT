@@ -11,53 +11,43 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
 /**
- * Registra un usuario root para el primer inicio de sesión de la aplicación 
+ * Registra un usuario root para el primer inicio de sesión de la aplicación
  */
 @WebServlet(name = "SvCreateRoot", urlPatterns = {"/SvCreateRoot"})
 public class SvCreateRoot extends HttpServlet {
-    
+
+  protected void processRequest(HttpServletRequest request, HttpServletResponse response)
+          throws ServletException, IOException {
+
+  }
+
+  @Override
+  protected void doPost(HttpServletRequest request, HttpServletResponse response)
+          throws ServletException, IOException {
+//    processRequest(request, response);
+
     PasswordSecurityService passwordSecure = new PasswordSecurityService();
     LogicController control = new LogicController();
-    
-    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        
+
+    String password = (String) request.getParameter("contraseña");
+    String encryptedPassword = passwordSecure.encrypt(password);
+
+    try {
+      Usuario usuario = new Usuario();
+      usuario.setNombreUsuario("root");
+      usuario.setContraseña(encryptedPassword);
+      usuario.setPrivilegios("Administrador");
+
+      control.crearUsuario(usuario);
+
+      response.sendRedirect("Login.jsp?rootRegistred=true");
+
     }
-    
-    @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        processRequest(request, response);
-        
+    catch (Exception e) {
+      System.out.println(e.getMessage());
+      response.sendRedirect("PageError500.jsp");
     }
-    
-    @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        processRequest(request, response);
-        
-        String password = (String) request.getParameter("contraseña");
-        String encryptedPassword = passwordSecure.encrypt(password);
-        
-        try {
-            Usuario usuario = new Usuario();
-            usuario.setNombreUsuario("root");
-            usuario.setContraseña(encryptedPassword);
-            usuario.setPrivilegios("admin");
-            
-            control.crearUsuario(usuario);
-            
-            response.sendRedirect("Login.jsp?rootRegistred=true");
-            
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
-        }
-        
-    }
-    
-    @Override
-    public String getServletInfo() {
-        return "Short description";
-    }// </editor-fold>
+
+  }
 
 }
