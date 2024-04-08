@@ -10,68 +10,59 @@ import java.util.Collection;
  * @author Robin
  */
 public class LogicController {
-    
-    PersistenceController perControl = new PersistenceController();
 
-    /**
-     *
-     * @param empleado
-     */
-    public void crearEmpleado(Empleado empleado) {
-        perControl.createEmploy(empleado);
-    }
+  PersistenceController perControl = new PersistenceController();
 
-    public void eliminarEmpleado(Long id) {
-        perControl.destroyEmploy(id);
-    }
+  /**
+   *
+   * @param empleado
+   */
+  public void crearEmpleado(Empleado empleado) {
+    perControl.createEmploy(empleado);
+  }
 
-    public void actualizarEmpleado(Empleado empleado) {
-        perControl.updateEmploy(empleado);
-    }
+  public void eliminarEmpleado(Long id) {
+    perControl.destroyEmploy(id);
+  }
 
-    public Empleado verEmpleado(Long id) {
-        return perControl.viewEmploy(id);
-    }
+  public void actualizarEmpleado(Empleado empleado) {
+    perControl.updateEmploy(empleado);
+  }
 
-    public Collection<Empleado> listaEmpleados() {
-        return perControl.employList();
-    }
+  public Empleado verEmpleado(Long id) {
+    return perControl.viewEmploy(id);
+  }
 
-    /**
-     *
-     * @param usuario
-     */
-    public void crearUsuario(Usuario usuario) {
-        perControl.createUser(usuario);
-    }
+  public Collection<Empleado> listaEmpleados() {
+    return perControl.employList();
+  }
 
-    public void eliminarUsuario(Long id) {
-        perControl.destroyUsuario(id);
-    }
+  /**
+   *
+   * @param usuario
+   */
+  public void crearUsuario(Usuario usuario) {
+    perControl.createUser(usuario);
+  }
 
-    public void actualizarUsuario(Usuario usuario) {
-        perControl.updateUser(usuario);
-    }
+  public void eliminarUsuario(Long id) {
+    perControl.destroyUsuario(id);
+  }
 
-    public Usuario verUsuario(Long id) {
-        return perControl.viewUser(id);
-    }
+  public void actualizarUsuario(Usuario usuario) {
+    perControl.updateUser(usuario);
+  }
 
-    public Usuario verUsuarioPorNombreUsuario(String nombreUsuario) {
-        Collection<Usuario> usuarios = perControl.usersList();
-        Usuario usuario = null;
-        
-        for (Usuario u : usuarios) {
-            if (u.getNombreUsuario().equals(nombreUsuario)) {
-                usuario = u;
-                break;
-            }
-        }
-        return usuario;
-    }
+  public Usuario verUsuario(Long id) {
+    return perControl.viewUser(id);
+  }
 
-    public Collection<Usuario> listaUsuarios() {
-        return perControl.usersList();
-    }
+  public Usuario verUsuarioPorNombreUsuario(String nombreUsuario) {    
+    return perControl.viewUserForNameuser(nombreUsuario);
+  }
+
+  public Collection<Usuario> listaUsuarios() {
+    return perControl.usersList();
+  }
 
 }

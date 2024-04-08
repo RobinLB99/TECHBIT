@@ -79,6 +79,10 @@ public class PersistenceController {
     public Usuario viewUser(Long id) {
         return usuarioJpa.findUsuario(id);
     }
+    
+    public Usuario viewUserForNameuser(String username) {
+      return usuarioJpa.findUsuarioForUsername(username);
+    }
 
     public Collection<Usuario> usersList() {
         return usuarioJpa.findUsuarioEntities();
