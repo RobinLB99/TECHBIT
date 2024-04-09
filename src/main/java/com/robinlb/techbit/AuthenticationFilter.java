@@ -54,7 +54,8 @@ public class AuthenticationFilter implements Filter {
               || requestURI.contains(".ttf")
               || requestURI.contains(".woff2")
               || requestURI.contains(".js")
-              || requestURI.contains("index.jsp")) {
+              || requestURI.contains("index.jsp")
+              || requestURI.contains("Main.html")) {
         chain.doFilter(request, response);
 
       } else {
@@ -62,6 +63,13 @@ public class AuthenticationFilter implements Filter {
       }
 
     } else if (requestURI.equals("/TechBit/Login.jsp")
+            || requestURI.contains("index.jsp")
+            || requestURI.contains("Main.html")
+            || requestURI.contains("/RegistrarRoot.jsp")
+            || requestURI.contains("/Login.jsp")
+            || requestURI.contains("/SvLogin")
+            || requestURI.contains("/SvVerificarExistenciaUsuarios")
+            || requestURI.contains("/SvCreateRoot")
             && httpRequest.getSession(false).getAttribute("user") != null) {
       httpResponse.sendRedirect("Dashboard.jsp");
 

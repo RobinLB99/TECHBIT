@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Iniciar sesión</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.gstatic.com" rel="preconnect">
+  <link
+    href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+    rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link type="text/css" href="./assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link type="text/css" href="./assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link type="text/css" href="./assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link type="text/css" href="./assets/vendor/quill/quill.snow.css" rel="stylesheet">
+  <link type="text/css" href="./assets/vendor/quill/quill.bubble.css" rel="stylesheet">
+  <link type="text/css" href="./assets/vendor/remixicon/remixicon.css" rel="stylesheet">
+  <link type="text/css" href="./assets/vendor/simple-datatables/style.css" rel="stylesheet">
+
+  <!-- WebFonts for Fontsawesome -->
+  <link type="font/ttf" href="./assets/webfonts/fa-brands-400.ttf">
+  <link type="font/ttf" href="./assets/webfonts/fa-regular-400.ttf">
+  <link type="font/ttf" href="./assets/webfonts/fa-solid-900.ttf">
+  <link type="font/ttf" href="./assets/webfonts/fa-v4compatibility.ttf">
+
+  <!-- Fontsawesome -->
+  <link type="text/css" href="./assets/css/all.css" rel="stylesheet">
+  <link type="text/css" href="./assets/css/fontawesome.css" rel="stylesheet">
+  <link type="text/css" href="./assets/css/v5-font-face.css" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link type="text/css" href="./assets/css/style.css" rel="stylesheet">
+
+  <script src="./assets/js/jquery.min.js"></script>
+
+</head>
+
+<body>
+  <header id="header" class="header fixed-top d-flex align-items-center">
+
+    <div class="d-flex align-items-center justify-content-between">
+      <a href="index.html" class="logo d-flex align-items-center">
+        <img src="assets/img/logo.png" alt="">
+        <span class="d-none d-lg-block">TechBit</span>
+      </a>
+    </div><!-- End Logo -->
+
+    <nav class="header-nav ms-auto mx-3">
+      <ul class="d-flex align-items-center">
+
+        <li class="nav-item d-block d-lg-non">
+          <div class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#typeLogin">
+            <span>Iniciar sesión</span>
+          </div>
+        </li>
+
+      </ul>
+    </nav><!-- End Icons Navigation -->
+
+  </header><!-- End Header -->
+
+  <!-- Modal - Tipo inicio de sesión -->
+  <div class="modal fade" id="typeLogin" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Iniciar sesión como...</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body d-flex flex-column gap-3 justify-content-center">
+          <span class="mb-0">Colaborador interno</span>
+          <a href="SvVerificarExistenciaUsuarios" type="button" class="btn btn-primary">Iniciar sesión</a>
+          <span>Cliente:</span>
+          <div class="content-fluid d-flex flex-column gap-3">
+            <a type="button" class="btn btn-primary">Iniciar como Empresa</a>
+            <a type="button" class="btn btn-primary">Iniciar como Persona Natural</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Vendor JS Files -->
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Template Main JS File -->
+  <script src="assets/js/main.js"></script>
+
+</body>
+
+</html>

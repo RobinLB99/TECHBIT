@@ -7,7 +7,7 @@
   </head>
   <body>
     <script>
-      window.location.href = "/TechBit/SvVerificarExistenciaUsuarios";
+      window.location.href = "/TechBit/Main.html";
     </script>
   </body>
 </html>
