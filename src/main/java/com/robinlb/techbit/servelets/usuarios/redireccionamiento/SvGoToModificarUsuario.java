@@ -22,7 +22,7 @@ public class SvGoToModificarUsuario extends HttpServlet {
           throws ServletException, IOException {
   }
 
-  // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
+  // <editor-fold defaultstate="collapsed">
   /**
    * Handles the HTTP <code>GET</code> method.
    *
