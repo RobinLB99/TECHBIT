@@ -1,9 +1,11 @@
 package com.robinlb.techbit.persistence;
 
+import com.robinlb.techbit.model.ClienteNatural;
 import com.robinlb.techbit.model.Empleado;
 import com.robinlb.techbit.model.Usuario;
 import com.robinlb.techbit.persistence.exceptions.NonexistentEntityException;
 import java.util.Collection;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.persistence.EntityManagerFactory;
@@ -19,6 +21,7 @@ public class PersistenceController {
 
     EmpleadoJpaController empleadoJpa = new EmpleadoJpaController(emf);
     UsuarioJpaController usuarioJpa = new UsuarioJpaController(emf);
+    ClienteNaturalJpaController clienteJpa = new ClienteNaturalJpaController(emf);
 
     /**
      *
@@ -94,5 +97,26 @@ public class PersistenceController {
     
     public Long countUsersClients() {
       return usuarioJpa.getUserClientCount();
+    }
+    
+    // Cliente natural
+    public void createNaturalClient(ClienteNatural client) {
+      clienteJpa.create(client);
+    }
+    
+    public void deleteNaturalClient(Long id) throws NonexistentEntityException {
+      clienteJpa.destroy(id);
+    }
+    
+    public void editNaturalClient(ClienteNatural client) throws Exception {
+      clienteJpa.edit(client);
+    }
+    
+    public ClienteNatural findNaturalClient(Long id) {
+      return clienteJpa.findClienteNatural(id);
+    }
+    
+    public List<ClienteNatural> findAllNaturalClients() {
+      return clienteJpa.findClienteNaturalEntities();
     }
 }

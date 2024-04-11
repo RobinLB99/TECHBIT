@@ -1,9 +1,12 @@
 package com.robinlb.techbit.controllers;
 
+import com.robinlb.techbit.model.ClienteNatural;
 import com.robinlb.techbit.model.Empleado;
 import com.robinlb.techbit.model.Usuario;
 import com.robinlb.techbit.persistence.PersistenceController;
+import com.robinlb.techbit.persistence.exceptions.NonexistentEntityException;
 import java.util.Collection;
+import java.util.List;
 
 /**
  *
@@ -71,6 +74,29 @@ public class LogicController {
   
   public Long contarUsuariosClientes() {
     return perControl.countUsersClients();
+  }
+  
+  // Clientes
+  public void crearClienteNatural(ClienteNatural cliente) {
+    perControl.createNaturalClient(cliente);
+  }
+  
+  public void eliminarClienteNatural(Long id) 
+          throws NonexistentEntityException {
+    perControl.deleteNaturalClient(id);
+  }
+  
+  public void editarClienteNaural(ClienteNatural cliente)
+          throws Exception {
+    perControl.editNaturalClient(cliente);
+  }
+  
+  public ClienteNatural buscarClienteNatural(Long id) {
+    return perControl.findNaturalClient(id);
+  }
+  
+  public List<ClienteNatural> listaClientesNaturales() {
+    return perControl.findAllNaturalClients();
   }
 
 }
