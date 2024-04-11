@@ -46,7 +46,11 @@ public class AuthenticationFilter implements Filter {
         httpResponse.sendRedirect("index.jsp");
 
       } else if (requestURI.contains("/RegistrarRoot.jsp")
+              || requestURI.contains("/IngresarDatosCliente.jsp")
+              || requestURI.contains("/SvRegistrarCliente")
+              || requestURI.contains("/SvCreateClientUser")
               || requestURI.contains("/Login.jsp")
+              || requestURI.contains("LoginCliente.jsp")
               || requestURI.contains("/SvLogin")
               || requestURI.contains("/SvVerificarExistenciaUsuarios")
               || requestURI.contains("/SvCreateRoot")
@@ -63,6 +67,10 @@ public class AuthenticationFilter implements Filter {
       }
 
     } else if (requestURI.equals("/TechBit/Login.jsp")
+            || requestURI.contains("LoginCliente.jsp")
+            || requestURI.contains("/SvCreateClientUser")
+            || requestURI.contains("/SvRegistrarCliente")
+            || requestURI.contains("/IngresarDatosCliente.jsp")
             || requestURI.contains("index.jsp")
             || requestURI.contains("Main.html")
             || requestURI.contains("/RegistrarRoot.jsp")
