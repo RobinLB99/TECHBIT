@@ -63,6 +63,10 @@ public class LogicController {
   public Usuario verUsuarioPorNombreUsuario(String nombreUsuario) {    
     return perControl.viewUserForNameuser(nombreUsuario);
   }
+  
+  public Usuario buscarUsuarioClienteNaturalPorUsername(String username) {
+    return perControl.findNaturalClientUserForUsername(username);
+  }
 
   public Collection<Usuario> listaUsuarios() {
     return perControl.usersList();
