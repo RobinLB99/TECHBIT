@@ -40,7 +40,8 @@ public class AuthenticationFilter implements Filter {
 
     HttpSession session = httpRequest.getSession(false);
 
-    if (session == null || session.getAttribute("user") == null) {
+    if (session == null || session.getAttribute("user") == null 
+            || session.getAttribute("usuario-cliente") == null) {
 
       if (requestURI.equals("/TechBit/")) {
         httpResponse.sendRedirect("index.jsp");
@@ -71,6 +72,7 @@ public class AuthenticationFilter implements Filter {
             || requestURI.contains("/SvCreateClientUser")
             || requestURI.contains("/SvRegistrarCliente")
             || requestURI.contains("/IngresarDatosCliente.jsp")
+            || requestURI.contains("/SvLoginCliente")
             || requestURI.contains("index.jsp")
             || requestURI.contains("Main.html")
             || requestURI.contains("/RegistrarRoot.jsp")
@@ -81,7 +83,10 @@ public class AuthenticationFilter implements Filter {
             && httpRequest.getSession(false).getAttribute("user") != null) {
       httpResponse.sendRedirect("Dashboard.jsp");
 
-    } else {
+    } else if (requestURI.contains("/SvLoginCliente")
+            && httpRequest.getSession(false).getAttribute("user") != null) {
+      httpResponse.sendRedirect("Dashboard-Cliente.jsp");
+    }else {
       chain.doFilter(request, response);
     }
   }

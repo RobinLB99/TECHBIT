@@ -7,6 +7,10 @@
   </head>
   <body>
     <script>
+      <%
+        request.getSession(false).invalidate();
+        System.out.println(request.getSession(false) == null);
+      %>
       window.location.href = "/TechBit/Main.html";
     </script>
   </body>

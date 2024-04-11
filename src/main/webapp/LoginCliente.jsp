@@ -43,7 +43,7 @@
                         sesión.</p>
                     </div>
 
-                    <form class="row g-3 needs-validation" method="post" action="SvLogin" novalidate>
+                    <form class="row g-3 needs-validation" method="post" action="SvLoginCliente" novalidate>
 
                       <div class="col-12">
                         <label for="yourUsername" class="form-label">Nombre de usuario</label>
@@ -129,6 +129,12 @@
       });
 
     </script>
+    <%
+        request.getSession(false).invalidate();
+        System.out.println(request.getSession(false) == null);
+
+    %>
+    
   </body>
 
 </html>
