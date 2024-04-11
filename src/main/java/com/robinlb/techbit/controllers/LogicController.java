@@ -68,5 +68,9 @@ public class LogicController {
   public Long contarUsuarios() {
     return perControl.countUsers();
   }
+  
+  public Long contarUsuariosClientes() {
+    return perControl.countUsersClients();
+  }
 
 }

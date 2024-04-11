@@ -91,4 +91,8 @@ public class PersistenceController {
     public Long countUsers() {
       return usuarioJpa.getUserCount();
     }
+    
+    public Long countUsersClients() {
+      return usuarioJpa.getUserClientCount();
+    }
 }
