@@ -140,7 +140,7 @@ public class UsuarioJpaController implements Serializable {
   public Usuario findUsuarioClienteNaturalForUsername(String username) {
     EntityManager em = getEntityManager();
     try {
-      TypedQuery<Usuario> query = em.createQuery("SELECT u FROM Usuario u WHERE u.nombre_usuario = :username AND u.clienteNatural IS NOT NULL", Usuario.class);
+      TypedQuery<Usuario> query = em.createQuery("SELECT u FROM Usuario u WHERE u.nombreUsuario = :username AND u.clienteNatural IS NOT NULL", Usuario.class);
       query.setParameter("username", username);
       return query.getSingleResult();
     }
