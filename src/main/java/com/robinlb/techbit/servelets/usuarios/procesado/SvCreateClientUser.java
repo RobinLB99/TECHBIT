@@ -13,7 +13,8 @@ import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 
 /**
- *
+ * Servelet para la creación de usuario cliente.
+ * 
  * @author Robin
  */
 @WebServlet(name = "SvCreateClientUser", urlPatterns = {"/SvCreateClientUser"})
@@ -26,7 +27,10 @@ public class SvCreateClientUser extends HttpServlet {
   // <editor-fold defaultstate="collapsed">
 
   /**
-   * Handles the HTTP <code>POST</code> method.
+   * Metodo HTTP <code>POST</code>.
+   * Crea el objeto Usuario y sus parametros y los guarda en un atributo de
+   * sesión para su posterior uso.
+   * Luego redirige a la pagina de ingreso de datos del cliente.
    *
    * @param request servlet request
    * @param response servlet response
