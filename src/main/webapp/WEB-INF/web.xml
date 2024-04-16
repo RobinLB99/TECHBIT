@@ -1,14 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<web-app  version="6.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="https://jakarta.ee/xml/ns/jakartaee" xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_6_0.xsd">
+<web-app version="6.0" xmlns="https://jakarta.ee/xml/ns/jakartaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_6_0.xsd">
   <session-config>
     <session-timeout>30</session-timeout>
   </session-config>
   <filter>
-    <filter-name>AuthenticationFilter</filter-name>
-    <filter-class>com.robinlb.techbit.AuthenticationFilter</filter-class>
+    <filter-name>AuthenticationFilterColaborador</filter-name>
+    <filter-class>com.robinlb.techbit.AuthenticationFilterColaborador</filter-class>
   </filter>
   <filter-mapping>
-    <filter-name>AuthenticationFilter</filter-name>
-    <url-pattern>/*</url-pattern>
+    <filter-name>AuthenticationFilterColaborador</filter-name>
+    <url-pattern>/Login.jsp</url-pattern>
+    <url-pattern>/Dashboard.jsp</url-pattern>
+    <url-pattern>/Empleados.jsp</url-pattern>
+    <url-pattern>/IngresarEmpleados.jsp</url-pattern>
+    <url-pattern>/UsuariosEmpleados.jsp</url-pattern>
+    <url-pattern>/ActualizarEmpleado.jsp</url-pattern>
+    <url-pattern>/ModificarUsuarioColaborador.jsp</url-pattern>
+    <url-pattern>/UsuariosEmpleados.jsp</url-pattern>
+    <url-pattern>/RestablecerPasswordUsuario.jsp</url-pattern>
+    <url-pattern>/RegistrarUsuarioColaborador.jsp</url-pattern>
   </filter-mapping>
 </web-app>
