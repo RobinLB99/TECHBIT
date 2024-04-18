@@ -43,7 +43,7 @@
             </a>
             <ul id="components-nav1" class="nav-content collapse " data-bs-parent="#sidebar-nav">
                 <li>
-                    <a href="#">
+                    <a href="SvGoToClientesNaturales">
                         <i class="bi bi-circle"></i>
                         <span>Visualizar clientes</span>
                     </a>
