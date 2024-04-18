@@ -53,9 +53,9 @@
       <ul class="d-flex align-items-center">
 
         <li class="nav-item d-block d-lg-non">
-          <a href="SvVerificarExistenciaUsuarios" class="btn btn-primary">
-            <span>Iniciar sesión</span>
-          </a>
+          <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#typeSession">
+            Iniciar sesión
+          </button>
         </li>
 
       </ul>
@@ -68,6 +68,27 @@
 
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
+
+  <!-- Modal - Tipo de inicio de sesión -->
+  <div class="modal fade" id="typeSession" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Iniciar sesión como:</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body row">
+          <div class="col-md-6">
+            <a href="SvVerificarExistenciaUsuarios" class="btn btn-primary" style="width: 100%;">Colaborador</a>
+          </div>
+          <div class="col-md-6">
+            <a href="#" class="btn btn-primary" style="width: 100%;">Cliente</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
 </body>
 
 </html>
