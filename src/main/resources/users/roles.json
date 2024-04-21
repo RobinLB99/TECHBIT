@@ -4,7 +4,7 @@
     "content": [
       {
         "group_name": "Colaboradores",
-        "icon": "fa-regular fa-handshake",
+        "icon": "fa-solid fa-users",
         "options": [
           {
             "name": "Ver colaboradores",
@@ -22,7 +22,7 @@
       },
       {
         "group_name": "Clientes",
-        "icon": "fa-solid fa-person",
+        "icon": "fa-regular fa-handshake",
         "options": [
           {
             "name": "Ver clientes",
