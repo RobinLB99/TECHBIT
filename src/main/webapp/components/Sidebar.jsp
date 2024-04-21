@@ -1,10 +1,7 @@
-<%@page import="java.util.Map"%>
 <%@page import="org.json.JSONObject"%>
+<%@page import="org.json.JSONArray"%>
 <%@page import="java.util.Scanner"%>
 <%@page import="java.io.InputStream"%>
-<%@page import="java.util.Arrays"%>
-<%@page import="org.json.JSONArray"%>
-<%@page import="com.robinlb.techbit.controllers.JSONController"%>
 <%@page contentType="text/html" language="java" pageEncoding="UTF-8"%>
 <!-- ======= Sidebar ======= -->
 <aside id="sidebar" class="sidebar">
@@ -25,13 +22,11 @@
 
         for (int i = 0; i < functions.length(); i++) {
           JSONObject funcion = functions.getJSONObject(i);
-          System.out.println(funcion);
-
       %>
 
       <a class="nav-link collapsed" data-bs-target="#components-nav<%=funcion.getString("group_name")%>" data-bs-toggle="collapse" href="#">
         <div class="d-flex justify-content-center align-items-center" style="width: 25px;">
-          <i class="<%= funcion.getString("icon") %>"></i>
+          <i class="<%= funcion.getString("icon")%>"></i>
         </div>
         <span><%=funcion.getString("group_name")%></span>
         <i class="bi bi-chevron-down ms-auto"></i>
@@ -57,7 +52,7 @@
         }
       %>
     </li>
-<!-- End Components Nav -->
+    <!-- End Components Nav -->
   </ul>
 
 </aside><!-- End Sidebar-->
