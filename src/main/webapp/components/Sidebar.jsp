@@ -30,7 +30,11 @@
       %>
 
       <a class="nav-link collapsed" data-bs-target="#components-nav<%=funcion.getString("group_name")%>" data-bs-toggle="collapse" href="#">
-        <i class="bi bi-menu-button-wide"></i><span><%=funcion.getString("group_name")%></span><i class="bi bi-chevron-down ms-auto"></i>
+        <div class="d-flex justify-content-center align-items-center" style="width: 25px;">
+          <i class="<%= funcion.getString("icon") %>"></i>
+        </div>
+        <span><%=funcion.getString("group_name")%></span>
+        <i class="bi bi-chevron-down ms-auto"></i>
       </a>
       <ul id="components-nav<%=funcion.getString("group_name")%>" class="nav-content collapse " data-bs-parent="#sidebar-nav">
 
