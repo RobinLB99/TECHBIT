@@ -35,11 +35,15 @@
         "icon": "fa-solid fa-ticket",
         "options": [
           {
-            "name": "Ver pendientes",
+            "name": "Pendientes",
             "link": "SvGoToTicketsAsignadosPendientes"
           },
           {
-            "name": "Ver solucionados",
+            "name": "Asignados",
+            "link": "#"
+          },
+          {
+            "name": "Solucionados",
             "link": "SvGoToTicketsAsignadosSolucionados"
           }
         ]
@@ -57,7 +61,7 @@
             "link": "#"
           },
           {
-            "name": "Resueltos",
+            "name": "Solucionados",
             "link": "#"
           }
         ]
