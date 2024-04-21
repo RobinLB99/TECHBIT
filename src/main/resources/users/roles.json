@@ -1,0 +1,60 @@
+[
+  {
+    "type": "Administrador",
+    "content": [
+      {
+        "group_name": "Colaboradores",
+        "options": [
+          {
+            "name": "Ver colaboradores",
+            "link": "SvGoToEmployesList"
+          },
+          {
+            "name": "Ingresar colaborador",
+            "link": "IngresarEmpleados.jsp"
+          },
+          {
+            "name": "Administrar usuarios",
+            "link": "SvGoToUsuariosColaboradores"
+          }
+        ]
+      },
+      {
+        "group_name": "Clientes",
+        "options": [
+          {
+            "name": "Ver clientes",
+            "link": "SvGoToClientesNaturales"
+          }
+        ]
+      },
+      {
+        "group_name": "Tickets",
+        "options": [
+          {
+            "name": "Ver tickets",
+            "link": "SvGoToTickets"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "type": "estandar",
+    "content": [
+      {
+        "group_name": "Tickets",
+        "options": [
+          {
+            "name": "Pendientes",
+            "link": ""
+          },
+          {
+            "name": "Resueltos",
+            "link": ""
+          }
+        ]
+      }
+    ]
+  }
+]
