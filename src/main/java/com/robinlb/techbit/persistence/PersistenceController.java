@@ -123,4 +123,8 @@ public class PersistenceController {
     public List<ClienteNatural> findAllNaturalClients() {
       return clienteJpa.findClienteNaturalEntities();
     }
+    
+    public ClienteNatural findClienteNaturalForNUI(String nui) {
+      return clienteJpa.findClienteNaturalForNUI(nui);
+    }
 }

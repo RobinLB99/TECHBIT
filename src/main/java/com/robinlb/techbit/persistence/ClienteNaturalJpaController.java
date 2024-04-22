@@ -10,6 +10,7 @@ import javax.persistence.EntityNotFoundException;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
 import java.util.List;
+import javax.persistence.TypedQuery;
 
 /**
  *
@@ -124,18 +125,21 @@ public class ClienteNaturalJpaController implements Serializable {
     }
   }
 
-  public int getClienteNaturalCount() {
+  public ClienteNatural findClienteNaturalForNUI(String nui) {
     EntityManager em = getEntityManager();
+
     try {
-      CriteriaQuery cq = em.getCriteriaBuilder().createQuery();
-      Root<ClienteNatural> rt = cq.from(ClienteNatural.class);
-      cq.select(em.getCriteriaBuilder().count(rt));
-      Query q = em.createQuery(cq);
-      return ((Long) q.getSingleResult()).intValue();
+      em.getTransaction().begin();
+
+      TypedQuery<ClienteNatural> query = em.createQuery("SELECT c FROM ClienteNatural c WHERE c.cedula = :cedula", ClienteNatural.class);
+      query.setParameter("cedula", nui);
+      return (ClienteNatural) query.getSingleResult();
+
     }
     finally {
       em.close();
     }
+
   }
-  
+
 }

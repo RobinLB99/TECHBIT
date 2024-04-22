@@ -102,5 +102,9 @@ public class LogicController {
   public List<ClienteNatural> listaClientesNaturales() {
     return perControl.findAllNaturalClients();
   }
+  
+  public ClienteNatural buscarClienteNaturalPorNUI(String nui) {
+    return perControl.findClienteNaturalForNUI(nui);
+  }
 
 }
