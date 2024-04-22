@@ -1,5 +1,4 @@
 <%@page contentType="text/html" language="java" pageEncoding="UTF-8"%>
-<%@include file="/components/ServicioComprobaciónSesionActiva.jsp" %>
 <!DOCTYPE html>
 <html lang="es">
 
