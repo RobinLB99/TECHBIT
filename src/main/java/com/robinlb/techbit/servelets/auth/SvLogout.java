@@ -27,7 +27,7 @@ public class SvLogout extends HttpServlet {
     HttpSession SessionActive = request.getSession(false);
     SessionActive.invalidate();
     
-    response.sendRedirect("Login.jsp");
+    response.sendRedirect("Main.html");
     
   }
 
