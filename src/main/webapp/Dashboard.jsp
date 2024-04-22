@@ -14,7 +14,9 @@
   </head>
 
   <body>
-
+    <%
+      Usuario usuario = (Usuario) request.getSession(false).getAttribute("user");
+    %>
     <%@include file="/components/header.jsp" %>
 
     <%@include file="/components/Sidebar.jsp" %>
