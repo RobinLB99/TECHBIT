@@ -1,3 +1,4 @@
+<%@page import="com.robinlb.techbit.model.Usuario"%>
 <%@page import="org.json.JSONObject"%>
 <%@page import="org.json.JSONArray"%>
 <%@page import="java.util.Scanner"%>
@@ -7,9 +8,13 @@
 <aside id="sidebar" class="sidebar">
 
   <ul class="sidebar-nav" id="sidebar-nav">
-
+    <%
+      String goToDashboard = usuario.getPrivilegios().equals("Cliente") 
+                 ? "C-Dashboard.jsp" : "Dashboard.jsp";
+    %>
     <li class="nav-item">
-      <a class="nav-link collapsed" href="SvGoToDashboard">
+      <a class="nav-link collapsed" 
+         href="<%= goToDashboard %>">
         <i class="bi bi-grid"></i>
         <span>Dashboard</span>
       </a>
