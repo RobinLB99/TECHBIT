@@ -1,9 +1,7 @@
 <%@page import="com.robinlb.techbit.model.Usuario"%>
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page contentType="text/html" pageEncoding="UTF-8" language="java"%>
 <%
   try {
-    Usuario usuario = (Usuario) request.getSession(false).getAttribute("user");
-    
     String realName = null;
     String rol = usuario.getPrivilegios();
 
@@ -18,8 +16,9 @@
     if (usuario.getClienteEmpresarial() != null) {
       realName = usuario.getClienteEmpresarial().getRazonSocial();
     }
-    
-    if (realName == null) realName = "Admnistrador";
+
+    if (realName == null)
+      realName = "Admnistrador";
 %>
 <!-- ======= Header ======= -->
 <header id="header" class="header fixed-top d-flex align-items-center">
@@ -46,13 +45,13 @@
         <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
           <img src="assets/img/profile-img.jpg" alt="Profile" class="rounded-circle">
           <span class="d-none d-md-block dropdown-toggle ps-2">
-            <%= realName %>
+            <%= realName%>
           </span>
         </a><!-- End Profile Iamge Icon -->
 
         <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
           <li class="dropdown-header">
-            <h6><%= usuario.getNombreUsuario() %></h6>
+            <h6><%= usuario.getNombreUsuario()%></h6>
             <span><%= rol%></span>
           </li>
           <li>
@@ -105,7 +104,8 @@
 </header><!-- End Header -->
 
 <%
-  } catch (Exception e) {
+  }
+  catch (Exception e) {
     System.out.println(e.getMessage());
   }
 %>
