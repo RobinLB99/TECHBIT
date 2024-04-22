@@ -1,5 +1,6 @@
 package com.robinlb.techbit.servelets.auth;
 
+import com.robinlb.techbit.controllers.JSONController;
 import com.robinlb.techbit.controllers.LogicController;
 import com.robinlb.techbit.controllers.PasswordSecurityService;
 import com.robinlb.techbit.model.Usuario;
@@ -11,6 +12,8 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
+import org.json.JSONArray;
+import org.json.JSONObject;
 
 /**
  *
@@ -45,41 +48,57 @@ public class SvLoginCliente extends HttpServlet {
   protected void doPost(HttpServletRequest request, HttpServletResponse response)
           throws ServletException, IOException {
     processRequest(request, response);
-
+    
     String username = request.getParameter("nombre_usuario");
     String password = request.getParameter("contraseña");
-
+    
     LogicController control = new LogicController();
     PasswordSecurityService secure = new PasswordSecurityService();
-
+    
     try {
       Usuario usuario = control.verUsuarioPorNombreUsuario(username);
-
-      if (usuario.getEmpleado() != null 
-              || usuario.getClienteEmpresarial() != null) {
+      
+      if (!usuario.getPrivilegios().equals("Cliente")) {
         response.sendRedirect("Login_Cliente.jsp?username=invalid");
         
       } else {
         boolean match = secure.matches(password, usuario.getContraseña());
-
+        
         if (match) {
-
-          HttpSession session = request.getSession();
-          session.setAttribute("client-user", usuario);
-
-          response.sendRedirect("C-Dashboard.jsp");
-
+          
+          try {
+            JSONController jcontrol = new JSONController();
+            JSONArray json = jcontrol.obtenerJSONArray("/users/roles.json");
+            JSONArray funciones = null;
+            
+            for (int i = 0; i < json.length(); i++) {
+              JSONObject object = json.getJSONObject(i);
+              if (object.getString("type").equals("Cliente")) {
+                funciones = object.getJSONArray("content");
+              }
+            }
+            
+            HttpSession session = request.getSession();
+            session.setAttribute("user", usuario);
+            session.setAttribute("functions_sidebar", funciones);
+            
+            response.sendRedirect("C-Dashboard.jsp");
+          }
+          catch (Exception e) {
+            response.sendRedirect("PageError500.jsp");
+          }
+          
         } else {
           response.sendRedirect("Login_Cliente.jsp?password=incorrect");
         }
-
+        
       }
-
+      
     }
     catch (Exception e) {
       response.sendRedirect("Login_Cliente.jsp?username=invalid");
     }
-
+    
   }// </editor-fold>
 
 }
