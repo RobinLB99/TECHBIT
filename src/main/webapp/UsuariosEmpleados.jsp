@@ -13,6 +13,9 @@
   </head>
 
   <body>
+    <%
+      Usuario usuario = (Usuario) request.getSession(false).getAttribute("user");
+    %>
     <%@include file="components/header.jsp" %>
     <%@include file="components/Sidebar.jsp" %>
 
@@ -30,12 +33,11 @@
         </nav>
       </div><!-- End Page Title -->
 
-      
+
       <section class="section">
         <div class="row">
           <div class="col-lg-12">
-            <%
-              Collection<Empleado> colaboresSinUsuario = (Collection<Empleado>) request.getSession().getAttribute("colaboradores-sin-usuario");
+            <%              Collection<Empleado> colaboresSinUsuario = (Collection<Empleado>) request.getSession().getAttribute("colaboradores-sin-usuario");
               Collection<Usuario> usuariosColaboradores = (Collection<Usuario>) request.getSession().getAttribute("usuarios-colaboradores");
             %>
             <div class="card">
@@ -57,7 +59,7 @@
 
                     <!-- Tab Colaboradores sin Usuarios -->
                     <%@include file="/components/Tab-Colaboradores-NoUsuario.jsp" %>
-                    
+
                   </div>
                 </div>
               </div>

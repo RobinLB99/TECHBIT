@@ -12,6 +12,9 @@
   </head>
 
   <body>
+    <%
+      Usuario usuario = (Usuario) request.getSession(false).getAttribute("user");
+    %>
     <%@include file="components/header.jsp" %>
     <%@include file="components/Sidebar.jsp" %>
 
@@ -39,8 +42,7 @@
               <div class="card-body">
                 <h5 class="card-title">Modificación de usuario del colaborador</h5>
                 <div class="container-fluid">
-                  <%
-                    Usuario user = (Usuario) request.getSession(false).getAttribute("usuarioModificar");
+                  <%                    Usuario user = (Usuario) request.getSession(false).getAttribute("usuarioModificar");
                   %>
                   <form class="row g-3" action="SvModificarUsuarioColaborador" method="post" id="formModUser">
                     <div class="col-md-4">
@@ -54,11 +56,11 @@
                       <br>
                       <span class="d-flex flex-row gap-3 align-items-center mt-2">
                         <i class="fa-regular fa-at"></i>
-                        <span><%= user.getNombreUsuario() %></span>
+                        <span><%= user.getNombreUsuario()%></span>
                       </span>
                       <span class="d-flex flex-row gap-3 align-items-center">
                         <i class="fa-solid fa-list-check"></i>
-                        <span><%= user.getPrivilegios() %></span>
+                        <span><%= user.getPrivilegios()%></span>
                       </span>
                     </div>
 
@@ -72,7 +74,7 @@
                         <span class="input-group-text" id="inputGroupPrepend2">
                           <i class="fa-solid fa-at"></i>
                         </span>
-                        <input type="text" class="form-control" id="validationServerUsername" name="validationServerUsername" aria-describedby="inputGroupPrepend3 validationServerUsernameFeedback" value="<%= user.getNombreUsuario() %>" required>
+                        <input type="text" class="form-control" id="validationServerUsername" name="validationServerUsername" aria-describedby="inputGroupPrepend3 validationServerUsernameFeedback" value="<%= user.getNombreUsuario()%>" required>
                         <div id="validationServerUsernameFeedback" class="invalid-feedback">
                           El nombre de usuario debe tener ocho caracteres mínimos, contener al menos una letra mayúscula y al menos un dígito.
                         </div>
@@ -85,7 +87,7 @@
                         <span class="input-group-text" id="inputGroupPrepend3">
                           <i class="fa-solid fa-list-check"></i>
                         </span>
-                        <input type="hidden" name="privilegios" value="<%= user.getPrivilegios() %>">
+                        <input type="hidden" name="privilegios" value="<%= user.getPrivilegios()%>">
                         <select class="form-select" name="validationServerAccess" id="validationServerAccess" required aria-label="select example">
                           <option value="" selected>Seleccione una opción...</option>
                           <option value="Administrador">Administrador</option>

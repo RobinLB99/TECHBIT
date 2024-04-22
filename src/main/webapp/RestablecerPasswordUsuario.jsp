@@ -12,6 +12,9 @@
   </head>
 
   <body>
+    <%
+      Usuario usuario = (Usuario) request.getSession(false).getAttribute("user");
+    %>
     <%@include file="components/header.jsp" %>
     <%@include file="components/Sidebar.jsp" %>
 
@@ -32,7 +35,7 @@
         </nav>
       </div><!-- End Page Title -->
 
-      
+
       <section class="section">
         <div class="row">
           <div class="col-lg-12">
@@ -40,8 +43,7 @@
               <div class="card-body">
                 <h5 class="card-title">Restablecimiento de contraseña</h5>
                 <div class="container-fluid">
-                  <%
-                    Usuario user = (Usuario) request.getSession(false).getAttribute("UserPassReset");
+                  <%                    Usuario user = (Usuario) request.getSession(false).getAttribute("UserPassReset");
                   %>
                   <form class="row g-3" action="SvRestablecerContrase_a" method="post" id="formResetPasswordUser">
                     <div class="col-md-4">
@@ -51,15 +53,15 @@
                         <strong><%=user.getEmpleado().getNombres()%> <%=user.getEmpleado().getApellidos()%></strong>
                       </span>
                       <br>
-                      <span><%= user.getNombreUsuario() %></span>
+                      <span><%= user.getNombreUsuario()%></span>
                       <br>
-                      <span><%= user.getPrivilegios() %></span>
+                      <span><%= user.getPrivilegios()%></span>
                     </div>
-    
+
                     <div class="col-md-5">
                       <hr>
                       <p><i>Nueva contraseña:</i></p>
-                      
+
                       <label for="validationServerPassword" class="form-label mt-3">Contraseña</label>
                       <div class="input-group has-validation">
                         <span class="input-group-text" id="inputGroupPrepend2">
@@ -74,9 +76,9 @@
                           La contraseña debe tener como mínimo cinco caracteres y sin espacios.
                         </div>
                       </div>
-    
+
                     </div>
-    
+
                     <div class="col-12 d-flex justify-content-end">
                       <button class="btn btn-primary" id="guardarUsuarioC" type="submit">Restablecer</button>
                     </div>

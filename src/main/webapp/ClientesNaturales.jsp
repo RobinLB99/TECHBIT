@@ -14,6 +14,9 @@
     <%@include file="components/head.jsp" %>
   </head>
   <body>
+    <%
+      Usuario usuario = (Usuario) request.getSession(false).getAttribute("user");
+    %>
     <%@include file="components/header.jsp" %>
     <%@include file="components/Sidebar.jsp" %>
     <main id="main" class="main">
@@ -55,16 +58,16 @@
 
                   <!-- Botones de marcación de entrada y refresco -->
                   <div class="actions d-flex flex-row gap-3">
-                    
+
                     <!-- <label for="checkAll" class="btn btn-primary d-flex flex-row gap-2 align-items-center" title="Marcar todos los registros" id="btnCheckAll">
                       <i class="fa-regular fa-square-check"></i>
                     </label>
                     <input type="checkbox" name="checkAll" id="checkAll" hidden> -->
-                    
+
                     <a href="SvGoToClientesNaturales" class="btn btn-success d-flex flex-row gap-2 align-items-center" title="Actualizar tabla">
                       <i class="fa-solid fa-rotate-right"></i>
                     </a>
-                    
+
                   </div>
                 </div>
 
