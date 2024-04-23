@@ -32,4 +32,26 @@
     <url-pattern>/Login_Cliente.jsp</url-pattern>
     <url-pattern>/C-Dashboard.jsp</url-pattern>
   </filter-mapping>
+  
+  <!-- Filtros de acceso a servelets dedicados a colaboradores -->
+  <filter>
+    <filter-name>AuthenticationFilterServeletsForColaboradores</filter-name>
+    <filter-class>com.robinlb.techbit.AuthenticationFilterServeletsForColaboradores</filter-class>
+  </filter>
+  <filter-mapping>
+    <filter-name>AuthenticationFilterServeletsForColaboradores</filter-name>
+    <url-pattern>/SvAsignarUsuarioColaborador</url-pattern>
+    <url-pattern>/SvModificarUsuarioColaborador</url-pattern>
+    <url-pattern>/SvRestablecerContraseña</url-pattern>
+    <url-pattern>/SvGoToModificarUsuario</url-pattern>
+    <url-pattern>/SvGoToOtorgarUsuarioColaborador</url-pattern>
+    <url-pattern>/SvGoToRestablecerPassword</url-pattern>
+    <url-pattern>/SvGoToUsuariosColaboradores</url-pattern>
+    <url-pattern>/SvGoToModifyEmploy</url-pattern>
+    <url-pattern>/SvGoToEmployesList</url-pattern>
+    <url-pattern>/SvModificarEmpleado</url-pattern>
+    <url-pattern>/SvIngresarEmpleado</url-pattern>
+    <url-pattern>/SvBorrarEmpleado</url-pattern>
+    <url-pattern>/SvGoToClientesNaturales</url-pattern>
+  </filter-mapping>
 </web-app>
