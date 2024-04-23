@@ -67,5 +67,28 @@
         ]
       }
     ]
+  },
+  {
+    "type": "Cliente",
+    "content": [
+      {
+        "group_name": "Tickets",
+        "icon": "fa-solid fa-ticket",
+        "options": [
+          {
+            "name": "Crear ticket",
+            "link": "#"
+          },
+          {
+            "name": "Pendientes",
+            "link": "#"
+          },
+          {
+            "name": "Solucionados",
+            "link": "#"
+          }
+        ]
+      }
+    ]
   }
 ]
