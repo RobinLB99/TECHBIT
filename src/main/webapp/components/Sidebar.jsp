@@ -9,6 +9,7 @@
 
   <ul class="sidebar-nav" id="sidebar-nav">
     <%
+      // La variable usuario se encuentra declarada en el archivo .jsp principal que contine este componente.
       String goToDashboard = usuario.getPrivilegios().equals("Cliente") 
                  ? "C-Dashboard.jsp" : "Dashboard.jsp";
     %>
