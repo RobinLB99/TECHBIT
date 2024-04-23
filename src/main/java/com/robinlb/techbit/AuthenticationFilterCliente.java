@@ -13,10 +13,10 @@ import jakarta.servlet.http.HttpSession;
 
 /**
  * Filtro de autentificación que permite validar si existe una sesión activa
- * para el acceso a los recursos.
+ * para el acceso a los recursos del cliente.
  *
  */
-public class AuthenticationFilterColaborador implements Filter {
+public class AuthenticationFilterCliente implements Filter {
 
   public void init(FilterConfig fConfig) throws ServletException {
   }
@@ -34,7 +34,7 @@ public class AuthenticationFilterColaborador implements Filter {
    */
   public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
     
-    AuthenticationFilterForClienteLog client_log = new AuthenticationFilterForClienteLog();
+    AuthenticationFilterForColaboradorLog co_log = new AuthenticationFilterForColaboradorLog();
 
     HttpServletRequest httpRequest = (HttpServletRequest) request;
     HttpServletResponse httpResponse = (HttpServletResponse) response;
@@ -44,19 +44,19 @@ public class AuthenticationFilterColaborador implements Filter {
 
     if (session == null || session.getAttribute("user") == null) { // Solo si la sesion es nula o el atributo user sea nulo;
 
-      if (requestURI.equals("/TechBit/Login.jsp")) {
+      if (requestURI.equals("/TechBit/Login_Cliente.jsp")) {
 //        chain.doFilter(request, response);
-        client_log.doFilter(request, response, chain);
+        co_log.doFilter(request, response, chain);
       } else {
-        httpResponse.sendRedirect("Login.jsp");
+        httpResponse.sendRedirect("Login_Cliente.jsp");
       }
 
     } else { // En caso de que la sesion no sea nula o el atributo user no sea nulo
-      if (requestURI.equals("/TechBit/Login.jsp")) {
-        httpResponse.sendRedirect("Dashboard.jsp");
+      if (requestURI.equals("/TechBit/Login_Cliente.jsp")) {
+        httpResponse.sendRedirect("C-Dashboard.jsp");
       } else {
 //        chain.doFilter(request, response);
-        client_log.doFilter(request, response, chain);
+        co_log.doFilter(request, response, chain);
       }
     }
   }

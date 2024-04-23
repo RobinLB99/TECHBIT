@@ -1,5 +1,6 @@
 package com.robinlb.techbit;
 
+import com.robinlb.techbit.model.Usuario;
 import java.io.IOException;
 import jakarta.servlet.Filter;
 import jakarta.servlet.FilterChain;
@@ -13,10 +14,10 @@ import jakarta.servlet.http.HttpSession;
 
 /**
  * Filtro de autentificación que permite validar si existe una sesión activa
- * para el acceso a los recursos.
+ * para el acceso a los recursos del cliente.
  *
  */
-public class AuthenticationFilterColaborador implements Filter {
+public class AuthenticationFilterForClienteLog implements Filter {
 
   public void init(FilterConfig fConfig) throws ServletException {
   }
@@ -33,31 +34,27 @@ public class AuthenticationFilterColaborador implements Filter {
    * @throws ServletException
    */
   public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
-    
-    AuthenticationFilterForClienteLog client_log = new AuthenticationFilterForClienteLog();
 
     HttpServletRequest httpRequest = (HttpServletRequest) request;
     HttpServletResponse httpResponse = (HttpServletResponse) response;
-    String requestURI = httpRequest.getRequestURI();
-
     HttpSession session = httpRequest.getSession(false);
 
-    if (session == null || session.getAttribute("user") == null) { // Solo si la sesion es nula o el atributo user sea nulo;
+    try {
+      Usuario usuario = (Usuario) session.getAttribute("user");
+      String typeUser = usuario.getPrivilegios();
 
-      if (requestURI.equals("/TechBit/Login.jsp")) {
-//        chain.doFilter(request, response);
-        client_log.doFilter(request, response, chain);
-      } else {
-        httpResponse.sendRedirect("Login.jsp");
-      }
+      if (typeUser.equals("Cliente")) {
 
-    } else { // En caso de que la sesion no sea nula o el atributo user no sea nulo
-      if (requestURI.equals("/TechBit/Login.jsp")) {
-        httpResponse.sendRedirect("Dashboard.jsp");
+        httpResponse.sendRedirect("C-Dashboard.jsp");
+
       } else {
-//        chain.doFilter(request, response);
-        client_log.doFilter(request, response, chain);
+
+        chain.doFilter(request, response);
+
       }
+    }
+    catch (Exception e) {
+      chain.doFilter(request, response);
     }
   }
 
