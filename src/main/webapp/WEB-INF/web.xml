@@ -1,35 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app version="6.0" xmlns="https://jakarta.ee/xml/ns/jakartaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_6_0.xsd">
-  <session-config>
-    <session-timeout>30</session-timeout>
-  </session-config>
-  <!--Filtro para recursos de colaboradores-->
-  <filter>
-    <filter-name>AuthenticationFilterColaborador</filter-name>
-    <filter-class>com.robinlb.techbit.AuthenticationFilterColaborador</filter-class>
-  </filter>
-  <filter-mapping>
-    <filter-name>AuthenticationFilterColaborador</filter-name>
-    <url-pattern>/Login.jsp</url-pattern>
-    <url-pattern>/Dashboard.jsp</url-pattern>
-    <url-pattern>/Empleados.jsp</url-pattern>
-    <url-pattern>/IngresarEmpleados.jsp</url-pattern>
-    <url-pattern>/UsuariosEmpleados.jsp</url-pattern>
-    <url-pattern>/ActualizarEmpleado.jsp</url-pattern>
-    <url-pattern>/ModificarUsuarioColaborador.jsp</url-pattern>
-    <url-pattern>/UsuariosEmpleados.jsp</url-pattern>
-    <url-pattern>/RestablecerPasswordUsuario.jsp</url-pattern>
-    <url-pattern>/RegistrarUsuarioColaborador.jsp</url-pattern>
-  </filter-mapping>
-  
-  <!--Filtro para recursos de clientes-->
-  <filter>
-    <filter-name>AuthenticationFilterCliente</filter-name>
-    <filter-class>com.robinlb.techbit.AuthenticationFilterCliente</filter-class>
-  </filter>
-  <filter-mapping>
-    <filter-name>AuthenticationFilterCliente</filter-name>
-    <url-pattern>/Login_Cliente.jsp</url-pattern>
-    <url-pattern>/C-Dashboard.jsp</url-pattern>
-  </filter-mapping>
+    <session-config>
+        <session-timeout>30</session-timeout>
+    </session-config>
+    <!--Filtro para recursos de colaboradores-->
+    <filter>
+        <filter-name>AuthenticationFilterColaborador</filter-name>
+        <filter-class>com.robinlb.techbit.AuthenticationFilterColaborador</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>AuthenticationFilterColaborador</filter-name>
+        <url-pattern>/Login.jsp</url-pattern>
+        <url-pattern>/Dashboard.jsp</url-pattern>
+        <url-pattern>/Empleados.jsp</url-pattern>
+        <url-pattern>/IngresarEmpleados.jsp</url-pattern>
+        <url-pattern>/UsuariosEmpleados.jsp</url-pattern>
+        <url-pattern>/ActualizarEmpleado.jsp</url-pattern>
+        <url-pattern>/ModificarUsuarioColaborador.jsp</url-pattern>
+        <url-pattern>/UsuariosEmpleados.jsp</url-pattern>
+        <url-pattern>/RestablecerPasswordUsuario.jsp</url-pattern>
+        <url-pattern>/RegistrarUsuarioColaborador.jsp</url-pattern>
+    </filter-mapping>
+    
+    <!--Filtro para recursos de clientes-->
+    <filter>
+        <filter-name>AuthenticationFilterCliente</filter-name>
+        <filter-class>com.robinlb.techbit.AuthenticationFilterCliente</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>AuthenticationFilterCliente</filter-name>
+        <url-pattern>/Login_Cliente.jsp</url-pattern>
+        <url-pattern>/C-Dashboard.jsp</url-pattern>
+    </filter-mapping>
 </web-app>
