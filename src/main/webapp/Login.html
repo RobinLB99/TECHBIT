@@ -1,4 +1,3 @@
-<%@page contentType="text/html" language="java" pageEncoding="UTF-8" %>
 <!DOCTYPE html>
 <html lang="es">
 
@@ -10,7 +9,41 @@
     <meta content="" name="description">
     <meta content="" name="keywords">
 
-    <%@include file="components/head.jsp" %>
+    <!-- Favicons -->
+    <link href="assets/img/favicon.png" rel="icon">
+    <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.gstatic.com" rel="preconnect">
+    <link
+      href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+      rel="stylesheet">
+
+    <!-- Vendor CSS Files -->
+    <link type="text/css" href="./assets/vendor/bootstrap/css/bootstrap.min.css"
+          rel="stylesheet">
+    <link type="text/css" href="./assets/vendor/bootstrap-icons/bootstrap-icons.css"
+          rel="stylesheet">
+    <!--    <link type="text/css" href="./assets/vendor/boxicons/css/boxicons.min.css"
+              rel="stylesheet">
+        <link type="text/css" href="./assets/vendor/quill/quill.snow.css" rel="stylesheet">
+        <link type="text/css" href="./assets/vendor/quill/quill.bubble.css" rel="stylesheet">
+        <link type="text/css" href="./assets/vendor/remixicon/remixicon.css" rel="stylesheet">
+        <link type="text/css" href="./assets/vendor/simple-datatables/style.css" rel="stylesheet">-->
+
+    <!-- WebFonts for Fontsawesome -->
+    <link type="font/ttf" href="./assets/webfonts/fa-brands-400.ttf">
+    <link type="font/ttf" href="./assets/webfonts/fa-regular-400.ttf">
+    <link type="font/ttf" href="./assets/webfonts/fa-solid-900.ttf">
+    <link type="font/ttf" href="./assets/webfonts/fa-v4compatibility.ttf">
+
+    <!-- Fontsawesome -->
+    <link type="text/css" href="./assets/css/all.css" rel="stylesheet">
+    <link type="text/css" href="./assets/css/fontawesome.css" rel="stylesheet">
+    <link type="text/css" href="./assets/css/v5-font-face.css" rel="stylesheet">
+
+    <!-- Template Main CSS File -->
+    <link type="text/css" href="./assets/css/style.css" rel="stylesheet">
   </head>
 
   <body>
@@ -43,11 +76,11 @@
                         sesión.</p>
                     </div>
 
-                    <form class="row g-3 needs-validation" method="post" action="SvLoginCliente"
+                    <form class="row g-3 needs-validation" method="post" action="SvLogin"
                           novalidate>
 
                       <div class="col-12">
-                        <label for="yourUsername" class="form-label">Usuario</label>
+                        <label for="yourUsername" class="form-label">Nombre de usuario</label>
                         <div class="input-group has-validation">
                           <span class="input-group-text" id="inputGroupPrepend">
                             <i class="fa-solid fa-at"></i>
@@ -75,15 +108,6 @@
                         </div>
 
                       </div>
-
-                      <div class="col-12">
-                        <span class="d-flex justify-content-center" style="width: 100%;">
-                          <a href="CreateClientAccount.jsp">
-                            Crear una cuenta
-                          </a>
-                        </span>
-                      </div>
-
                       <div class="col-12">
                         <button class="btn btn-primary w-100" type="submit">Login</button>
                       </div>
@@ -113,7 +137,19 @@
     <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
         class="bi bi-arrow-up-short"></i></a>
 
-    <%@include file="components/scripts.jsp" %>
+    <!-- Vendor JS Files -->
+    <script src="assets/vendor/apexcharts/apexcharts.min.js"></script>
+    <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!--<script src="assets/vendor/chart.js/chart.umd.js"></script>
+    <script src="assets/vendor/echarts/echarts.min.js"></script>
+    <script src="assets/vendor/quill/quill.min.js"></script>
+    <script src="assets/vendor/simple-datatables/simple-datatables.js"></script>
+    <script src="assets/vendor/tinymce/tinymce.min.js"></script>
+    <script src="assets/vendor/php-email-form/validate.js"></script>-->
+
+    <!-- Template Main JS File -->
+    <script src="assets/js/main.js"></script>
+    
     <script>
 
       document.addEventListener("DOMContentLoaded", function () {

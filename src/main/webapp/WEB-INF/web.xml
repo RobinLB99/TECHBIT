@@ -10,7 +10,7 @@
   </filter>
   <filter-mapping>
     <filter-name>AuthenticationFilterColaborador</filter-name>
-    <url-pattern>/Login.jsp</url-pattern>
+    <url-pattern>/Login.html</url-pattern>
     <url-pattern>/Dashboard.jsp</url-pattern>
     <url-pattern>/Empleados.jsp</url-pattern>
     <url-pattern>/IngresarEmpleados.jsp</url-pattern>
@@ -29,7 +29,7 @@
   </filter>
   <filter-mapping>
     <filter-name>AuthenticationFilterCliente</filter-name>
-    <url-pattern>/Login_Cliente.jsp</url-pattern>
+    <url-pattern>/Login_Cliente.html</url-pattern>
     <url-pattern>/C-Dashboard.jsp</url-pattern>
   </filter-mapping>
   

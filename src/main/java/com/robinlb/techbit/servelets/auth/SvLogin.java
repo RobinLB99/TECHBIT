@@ -74,13 +74,13 @@ public class SvLogin extends HttpServlet {
         response.sendRedirect("Dashboard.jsp");
 
       } else {
-        response.sendRedirect("Login.jsp?password=incorrect");
+        response.sendRedirect("Login.html?password=incorrect");
       }
 
     }
     catch (Exception e) {
       System.out.println(e.getMessage());
-      response.sendRedirect("Login.jsp?user=false");
+      response.sendRedirect("Login.html?user=false");
     }
 
   }

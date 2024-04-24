@@ -44,11 +44,11 @@ public class AuthenticationFilterColaborador implements Filter {
 
     if (session == null || session.getAttribute("user") == null) { // Solo si la sesion es nula o el atributo user sea nulo;
 
-      if (requestURI.equals("/TechBit/Login.jsp")) {
+      if (requestURI.equals("/TechBit/Login.html")) {
 //        chain.doFilter(request, response);
         client_log.doFilter(request, response, chain);
       } else {
-        httpResponse.sendRedirect("Login.jsp");
+        httpResponse.sendRedirect("Login.html");
       }
 
     } else { // En caso de que la sesion no sea nula o el atributo user no sea nulo
