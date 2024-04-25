@@ -49,10 +49,6 @@ public class Usuario implements Serializable {
   @Column(name = "privilegios")
   private String privilegios;
 
-  @JoinColumn(name = "empresa", referencedColumnName = "cliente_e_id")
-  @OneToOne
-  private ClienteEmpresarial clienteEmpresarial;
-
   @JoinColumn(name = "clienteNatural", referencedColumnName = "id")
   @OneToOne
   private ClienteNatural clienteNatural;
@@ -64,12 +60,11 @@ public class Usuario implements Serializable {
   public Usuario() {
   }
 
-  public Usuario(Long usuarioId, String nombreUsuario, String contraseña, String privilegios, ClienteEmpresarial clienteEmpresarial, ClienteNatural clienteNatural, Empleado empleado) {
+  public Usuario(Long usuarioId, String nombreUsuario, String contraseña, String privilegios, ClienteNatural clienteNatural, Empleado empleado) {
     this.usuarioId = usuarioId;
     this.nombreUsuario = nombreUsuario;
     this.contraseña = contraseña;
     this.privilegios = privilegios;
-    this.clienteEmpresarial = clienteEmpresarial;
     this.clienteNatural = clienteNatural;
     this.empleado = empleado;
   }
@@ -104,14 +99,6 @@ public class Usuario implements Serializable {
 
   public void setPrivilegios(String privilegios) {
     this.privilegios = privilegios;
-  }
-
-  public ClienteEmpresarial getClienteEmpresarial() {
-    return clienteEmpresarial;
-  }
-
-  public void setClienteEmpresarial(ClienteEmpresarial clienteEmpresarial) {
-    this.clienteEmpresarial = clienteEmpresarial;
   }
 
   public ClienteNatural getClienteNatural() {
@@ -152,7 +139,7 @@ public class Usuario implements Serializable {
 
   @Override
   public String toString() {
-    return "Usuario{" + "usuarioId=" + usuarioId + ", nombreUsuario=" + nombreUsuario + ", contrase\u00f1a=" + contraseña + ", privilegios=" + privilegios + ", clienteEmpresarial=" + clienteEmpresarial + ", clienteNatural=" + clienteNatural + ", empleado=" + empleado + '}';
+    return "Usuario{" + "usuarioId=" + usuarioId + ", nombreUsuario=" + nombreUsuario + ", contrase\u00f1a=" + contraseña + ", privilegios=" + privilegios + ", clienteNatural=" + clienteNatural + ", empleado=" + empleado + '}';
   }
 
 }
