@@ -46,7 +46,8 @@ public class TicketSoporte implements Serializable {
 
   @Basic(optional = false)
   @NotNull
-  @Size(min = 1, max = 255)
+  @Lob
+  @Size(min = 1, max = 2147483647)
   @Column(name = "descripcion")
   private String descripcion;
 
@@ -71,13 +72,6 @@ public class TicketSoporte implements Serializable {
   @Column(name = "vencimiento")
   @Temporal(TemporalType.TIMESTAMP)
   private Date vencimiento;
-
-  @Basic(optional = false)
-  @NotNull
-  @Lob
-  @Size(min = 1, max = 2147483647)
-  @Column(name = "comentarios")
-  private String comentarios;
 
   @Basic(optional = false)
   @NotNull
@@ -120,7 +114,7 @@ public class TicketSoporte implements Serializable {
   public TicketSoporte() {
   }
 
-  public TicketSoporte(Long ticketId, String titulo, String descripcion, int prioridad, int estado, Date creacion, Date vencimiento, String comentarios, int categoria, int nivelCalamiento, Date tiempoRespuesta, Date tiempoSolucion, ArchivoAdjunto archivoAdjunto, ClienteNatural clienteNatural, Collection<SolucionRespuesta> solucionRespuesta, Usuario usuario) {
+  public TicketSoporte(Long ticketId, String titulo, String descripcion, int prioridad, int estado, Date creacion, Date vencimiento, int categoria, int nivelCalamiento, Date tiempoRespuesta, Date tiempoSolucion, ArchivoAdjunto archivoAdjunto, ClienteNatural clienteNatural, Collection<SolucionRespuesta> solucionRespuesta, Usuario usuario) {
     this.ticketId = ticketId;
     this.titulo = titulo;
     this.descripcion = descripcion;
@@ -128,7 +122,6 @@ public class TicketSoporte implements Serializable {
     this.estado = estado;
     this.creacion = creacion;
     this.vencimiento = vencimiento;
-    this.comentarios = comentarios;
     this.categoria = categoria;
     this.nivelCalamiento = nivelCalamiento;
     this.tiempoRespuesta = tiempoRespuesta;
@@ -193,14 +186,6 @@ public class TicketSoporte implements Serializable {
 
   public void setVencimiento(Date vencimiento) {
     this.vencimiento = vencimiento;
-  }
-
-  public String getComentarios() {
-    return comentarios;
-  }
-
-  public void setComentarios(String comentarios) {
-    this.comentarios = comentarios;
   }
 
   public int getCategoria() {
@@ -289,7 +274,7 @@ public class TicketSoporte implements Serializable {
 
   @Override
   public String toString() {
-    return "TicketSoporte{" + "ticketId=" + ticketId + ", titulo=" + titulo + ", descripcion=" + descripcion + ", prioridad=" + prioridad + ", estado=" + estado + ", creacion=" + creacion + ", vencimiento=" + vencimiento + ", comentarios=" + comentarios + ", categoria=" + categoria + ", nivelCalamiento=" + nivelCalamiento + ", tiempoRespuesta=" + tiempoRespuesta + ", tiempoSolucion=" + tiempoSolucion + ", archivoAdjunto=" + archivoAdjunto + ", clienteNatural=" + clienteNatural + ", solucionRespuesta=" + solucionRespuesta + ", usuario=" + usuario + '}';
+    return "TicketSoporte{" + "ticketId=" + ticketId + ", titulo=" + titulo + ", descripcion=" + descripcion + ", prioridad=" + prioridad + ", estado=" + estado + ", creacion=" + creacion + ", vencimiento=" + vencimiento + ", categoria=" + categoria + ", nivelCalamiento=" + nivelCalamiento + ", tiempoRespuesta=" + tiempoRespuesta + ", tiempoSolucion=" + tiempoSolucion + ", archivoAdjunto=" + archivoAdjunto + ", clienteNatural=" + clienteNatural + ", solucionRespuesta=" + solucionRespuesta + ", usuario=" + usuario + '}';
   }
 
 }
