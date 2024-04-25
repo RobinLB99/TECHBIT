@@ -13,10 +13,6 @@
       realName = usuario.getEmpleado().getNombres() + " " + usuario.getEmpleado().getApellidos();
     }
 
-    if (usuario.getClienteEmpresarial() != null) {
-      realName = usuario.getClienteEmpresarial().getRazonSocial();
-    }
-
     if (realName == null)
       realName = "Admnistrador";
 %>
