@@ -76,7 +76,7 @@ public class TicketSoporte implements Serializable {
   @Basic(optional = false)
   @NotNull
   @Column(name = "categoria")
-  private int categoria;
+  private String categoria;
 
   @Basic(optional = false)
   @NotNull
@@ -114,7 +114,7 @@ public class TicketSoporte implements Serializable {
   public TicketSoporte() {
   }
 
-  public TicketSoporte(Long ticketId, String titulo, String descripcion, int prioridad, int estado, Date creacion, Date vencimiento, int categoria, int nivelCalamiento, Date tiempoRespuesta, Date tiempoSolucion, ArchivoAdjunto archivoAdjunto, ClienteNatural clienteNatural, Collection<SolucionRespuesta> solucionRespuesta, Usuario usuario) {
+  public TicketSoporte(Long ticketId, String titulo, String descripcion, int prioridad, int estado, Date creacion, Date vencimiento, String categoria, int nivelCalamiento, Date tiempoRespuesta, Date tiempoSolucion, ArchivoAdjunto archivoAdjunto, ClienteNatural clienteNatural, Collection<SolucionRespuesta> solucionRespuesta, Usuario usuario) {
     this.ticketId = ticketId;
     this.titulo = titulo;
     this.descripcion = descripcion;
@@ -188,11 +188,11 @@ public class TicketSoporte implements Serializable {
     this.vencimiento = vencimiento;
   }
 
-  public int getCategoria() {
+  public String getCategoria() {
     return categoria;
   }
 
-  public void setCategoria(int categoria) {
+  public void setCategoria(String categoria) {
     this.categoria = categoria;
   }
 
