@@ -41,34 +41,31 @@ public class TicketSoporte implements Serializable {
   @Basic(optional = false)
   @NotNull
   @Size(min = 1, max = 255)
-  @Column(name = "titulo")
+  @Column(name = "titulo", nullable = false)
   private String titulo;
 
   @Basic(optional = false)
   @NotNull
   @Lob
   @Size(min = 1, max = 2147483647)
-  @Column(name = "descripcion")
+  @Column(name = "descripcion", nullable = false)
   private String descripcion;
 
   @Basic(optional = false)
-  @NotNull
   @Column(name = "prioridad")
   private int prioridad;
 
   @Basic(optional = false)
   @NotNull
-  @Column(name = "estado")
+  @Column(name = "estado", nullable = false)
   private String estado;
 
   @Basic(optional = false)
-  @NotNull
   @Column(name = "creacion")
   @Temporal(TemporalType.TIMESTAMP)
   private Date creacion;
 
   @Basic(optional = false)
-  @NotNull
   @Column(name = "vencimiento")
   @Temporal(TemporalType.TIMESTAMP)
   private Date vencimiento;
@@ -79,18 +76,15 @@ public class TicketSoporte implements Serializable {
   private String categoria;
 
   @Basic(optional = false)
-  @NotNull
   @Column(name = "nivel_calamiento")
   private int nivelCalamiento;
 
   @Basic(optional = false)
-  @NotNull
   @Column(name = "tiempo_respuesta")
   @Temporal(TemporalType.TIME)
   private Date tiempoRespuesta;
 
   @Basic(optional = false)
-  @NotNull
   @Column(name = "tiempo_solucion")
   @Temporal(TemporalType.TIME)
   private Date tiempoSolucion;
@@ -103,11 +97,11 @@ public class TicketSoporte implements Serializable {
   @ManyToOne(optional = false)
   private ClienteNatural clienteNatural;
 
-  @JoinColumn(name = "solucion_respuesta", referencedColumnName = "res_sol_id", nullable = true)
+  @JoinColumn(name = "solucion_respuesta", referencedColumnName = "res_sol_id")
   @OneToMany
   private Collection<SolucionRespuesta> solucionRespuesta;
 
-  @JoinColumn(name = "usuario", referencedColumnName = "usuario_id", nullable = true)
+  @JoinColumn(name = "usuario", referencedColumnName = "usuario_id")
   @ManyToOne(optional = false)
   private Usuario usuario;
 
