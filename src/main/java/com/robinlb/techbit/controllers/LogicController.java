@@ -2,6 +2,7 @@ package com.robinlb.techbit.controllers;
 
 import com.robinlb.techbit.model.ClienteNatural;
 import com.robinlb.techbit.model.Empleado;
+import com.robinlb.techbit.model.TicketSoporte;
 import com.robinlb.techbit.model.Usuario;
 import com.robinlb.techbit.persistence.PersistenceController;
 import com.robinlb.techbit.persistence.exceptions.NonexistentEntityException;
@@ -60,10 +61,10 @@ public class LogicController {
     return perControl.viewUser(id);
   }
 
-  public Usuario verUsuarioPorNombreUsuario(String nombreUsuario) {    
+  public Usuario verUsuarioPorNombreUsuario(String nombreUsuario) {
     return perControl.viewUserForNameuser(nombreUsuario);
   }
-  
+
   public Usuario buscarUsuarioClienteNaturalPorUsername(String username) {
     return perControl.findNaturalClientUserForUsername(username);
   }
@@ -71,40 +72,65 @@ public class LogicController {
   public Collection<Usuario> listaUsuarios() {
     return perControl.usersList();
   }
-  
+
   public Long contarUsuarios() {
     return perControl.countUsers();
   }
-  
+
   public Long contarUsuariosClientes() {
     return perControl.countUsersClients();
   }
-  
+
   // Clientes
   public void crearClienteNatural(ClienteNatural cliente) {
     perControl.createNaturalClient(cliente);
   }
-  
-  public void eliminarClienteNatural(Long id) 
+
+  public void eliminarClienteNatural(Long id)
           throws NonexistentEntityException {
     perControl.deleteNaturalClient(id);
   }
-  
+
   public void editarClienteNaural(ClienteNatural cliente)
           throws Exception {
     perControl.editNaturalClient(cliente);
   }
-  
+
   public ClienteNatural buscarClienteNatural(Long id) {
     return perControl.findNaturalClient(id);
   }
-  
+
   public List<ClienteNatural> listaClientesNaturales() {
     return perControl.findAllNaturalClients();
   }
-  
+
   public ClienteNatural buscarClienteNaturalPorNUI(String nui) {
     return perControl.findClienteNaturalForNUI(nui);
   }
 
+  // Tickets de soporte
+  public void crearTicket(TicketSoporte ticket) {
+    perControl.createTicket(ticket);
+  }
+
+  public void eliminarTicket(Long id) throws NonexistentEntityException {
+    perControl.deleteTicket(id);
+  }
+
+  public void actualizarTicket(TicketSoporte ticket) throws Exception {
+    perControl.updateTicket(ticket);
+  }
+
+  public TicketSoporte buscarTicket(Long id) {
+    return perControl.findTicket(id);
+  }
+  
+  public TicketSoporte buscarTicketPorEstado(String estado) {
+    return (TicketSoporte) perControl.findTicketByEstado(estado);
+  }
+  
+  public List<TicketSoporte> enlistarTickets() {
+    return perControl.findAllTickets();
+  }
+  
 }
