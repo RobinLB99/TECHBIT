@@ -1,5 +1,6 @@
 package com.robinlb.techbit.persistence;
 
+import com.robinlb.techbit.model.ArchivoAdjunto;
 import com.robinlb.techbit.model.ClienteNatural;
 import com.robinlb.techbit.model.Empleado;
 import com.robinlb.techbit.model.TicketSoporte;
@@ -24,6 +25,7 @@ public class PersistenceController {
     UsuarioJpaController usuarioJpa = new UsuarioJpaController(emf);
     ClienteNaturalJpaController clienteJpa = new ClienteNaturalJpaController(emf);
     TicketSoporteJpaController ticketJpa = new TicketSoporteJpaController(emf);
+    ArchivoAdjuntoJpaController archivoJpa = new ArchivoAdjuntoJpaController(emf);
 
     /**
      *
@@ -153,6 +155,15 @@ public class PersistenceController {
     
     public List<TicketSoporte> findAllTickets() {
       return ticketJpa.findTicketSoporteEntities();
+    }
+    
+    // Archivos Adjuntos
+    public void createAdjunto(ArchivoAdjunto adjunto) {
+      archivoJpa.create(adjunto);
+    }
+    
+    public void updateAdjunto(ArchivoAdjunto adjunto) throws Exception {
+      archivoJpa.edit(adjunto);
     }
     
 }
