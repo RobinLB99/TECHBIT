@@ -36,7 +36,6 @@
 <link type="text/css" href="./assets/css/style.css" rel="stylesheet">
 
 <script src="./assets/js/jquery.min.js"></script>
-<script src="./assets/js/jquery.min.map"></script>
 
 <!-- =======================================================
 * Template Name: NiceAdmin
