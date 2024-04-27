@@ -2,6 +2,7 @@ package com.robinlb.techbit.persistence;
 
 import com.robinlb.techbit.model.ClienteNatural;
 import com.robinlb.techbit.model.Empleado;
+import com.robinlb.techbit.model.TicketSoporte;
 import com.robinlb.techbit.model.Usuario;
 import com.robinlb.techbit.persistence.exceptions.NonexistentEntityException;
 import java.util.Collection;
@@ -22,6 +23,7 @@ public class PersistenceController {
     EmpleadoJpaController empleadoJpa = new EmpleadoJpaController(emf);
     UsuarioJpaController usuarioJpa = new UsuarioJpaController(emf);
     ClienteNaturalJpaController clienteJpa = new ClienteNaturalJpaController(emf);
+    TicketSoporteJpaController ticketJpa = new TicketSoporteJpaController(emf);
 
     /**
      *
@@ -127,4 +129,30 @@ public class PersistenceController {
     public ClienteNatural findClienteNaturalForNUI(String nui) {
       return clienteJpa.findClienteNaturalForNUI(nui);
     }
+    
+    // Ticket de soporte
+    public void createTicket(TicketSoporte ticket) {
+     ticketJpa.create(ticket);
+    }
+    
+    public void deleteTicket(Long id) throws NonexistentEntityException {
+      ticketJpa.destroy(id);
+    }
+    
+    public void updateTicket(TicketSoporte ticket) throws Exception {
+      ticketJpa.edit(ticket);
+    }
+    
+    public TicketSoporte findTicket(Long id) {
+      return ticketJpa.findTicketSoporte(id);
+    }
+    
+    public List<TicketSoporte> findTicketByEstado(String estado) {
+      return null;
+    }
+    
+    public List<TicketSoporte> findAllTickets() {
+      return ticketJpa.findTicketSoporteEntities();
+    }
+    
 }
