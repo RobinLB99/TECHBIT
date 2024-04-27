@@ -10,20 +10,15 @@ import org.apache.commons.net.ftp.FTPClient;
  */
 public class FTPController {
 
-  private String server = "localhost";
-  private int port = 21;
-  private String user = "TechBit";
-  private String pass = "123456";
+  private final String  server  = "localhost";
+  private final int     port    = 21;
+  private final String  user    = "TechBit";
+  private final String  pass    = "123456";
 
-  public FTPClient connectServer(FTPClient ftpClient) {
-    try {
-      ftpClient.connect(server, port);
-      ftpClient.login(user, pass);
-      ftpClient.enterLocalPassiveMode();
-    }
-    catch (IOException e) {
-      e.printStackTrace();
-    }
+  public FTPClient connectServer(FTPClient ftpClient) throws IOException{
+    ftpClient.connect(server, port);
+    ftpClient.login(user, pass);
+    ftpClient.enterLocalPassiveMode();
     return ftpClient;
   }
 
