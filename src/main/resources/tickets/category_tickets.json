@@ -31,6 +31,11 @@
     "categoria": "Sistema operativo",
     "descripcion": "Errores o bloqueos en los sistemas operativos."
   },
+  
+  {
+    "categoria": "Computadora",
+    "descripcion": "Errores o bloqueos en los sistemas operativos."
+  },
   {
     "categoria": "Gestión de usuarios",
     "descripcion": "Problemas relacionados con permisos, cuentas bloqueadas o acceso incorrecto."
