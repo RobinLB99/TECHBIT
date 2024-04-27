@@ -1,0 +1,46 @@
+[
+  {
+    "categoria": "Contraseñas",
+    "descripcion": "Usuarios que olvidan sus contraseñas o tienen dificultades para iniciar sesión."
+  },
+  {
+    "categoria": "Impresoras",
+    "descripcion": "Atascos de papel, falta de tinta o problemas de conectividad."
+  },
+  {
+    "categoria": "Datos o archivos",
+    "descripcion": "Eliminación accidental de archivos o fallas en el almacenamiento."
+  },
+  {
+    "categoria": "Software de terceros",
+    "descripcion": "Errores o conflictos generados por aplicaciones y programas de terceros."
+  },
+  {
+    "categoria": "Rendimiento",
+    "descripcion": "Computadoras o dispositivos que funcionan lentamente."
+  },
+  {
+    "categoria": "Dispositivos periféricos",
+    "descripcion": "Mal funcionamiento de teclados, ratones y otros dispositivos periféricos."
+  },
+  {
+    "categoria": "Conectividad",
+    "descripcion": "Dispositivos que no se conectan a Internet o a la red."
+  },
+  {
+    "categoria": "Sistema operativo",
+    "descripcion": "Errores o bloqueos en los sistemas operativos."
+  },
+  {
+    "categoria": "Gestión de usuarios",
+    "descripcion": "Problemas relacionados con permisos, cuentas bloqueadas o acceso incorrecto."
+  },
+  {
+    "categoria": "Equipamiento de la sala de reuniones",
+    "descripcion": "Problemas con proyectores, pantallas o sistemas de audio."
+  },
+  {
+    "categoria": "Ciberseguridad",
+    "descripcion": "Amenazas de seguridad, malware o intentos de phishing."
+  }
+]
