@@ -1,5 +1,6 @@
 package com.robinlb.techbit.controllers;
 
+import com.robinlb.techbit.model.ArchivoAdjunto;
 import com.robinlb.techbit.model.ClienteNatural;
 import com.robinlb.techbit.model.Empleado;
 import com.robinlb.techbit.model.TicketSoporte;
@@ -131,6 +132,16 @@ public class LogicController {
   
   public List<TicketSoporte> enlistarTickets() {
     return perControl.findAllTickets();
+  }
+  
+  
+  // Archivos adjuntos
+  public void crearAdjunto(ArchivoAdjunto adjunto) {
+    perControl.createAdjunto(adjunto);
+  }
+  
+  public void editarAjunto(ArchivoAdjunto adjunto) throws Exception {
+    perControl.updateAdjunto(adjunto);
   }
   
 }
