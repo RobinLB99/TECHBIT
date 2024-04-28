@@ -6,7 +6,6 @@ import com.robinlb.techbit.model.ArchivoAdjunto;
 import com.robinlb.techbit.model.ClienteNatural;
 import com.robinlb.techbit.model.TicketSoporte;
 import com.robinlb.techbit.model.Usuario;
-import java.io.IOException;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.MultipartConfig;
 import jakarta.servlet.annotation.WebServlet;
@@ -14,6 +13,7 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.Part;
+import java.io.IOException;
 import java.io.InputStream;
 import java.util.Date;
 import org.apache.commons.net.ftp.FTP;
@@ -129,7 +129,7 @@ public class SvCrearTicket extends HttpServlet {
 
     }
     catch (Exception e) {
-      System.out.println("Error de coneccion con la base de datos.");
+      System.out.println("Error de conexion con la base de datos.");
       response.sendRedirect("PageError500.jsp");
     }
 
