@@ -44,7 +44,7 @@ public class AuthenticationFilterCliente implements Filter {
 
     if (session == null || session.getAttribute("user") == null) { // Solo si la sesion es nula o el atributo user sea nulo;
 
-      if (requestURI.equals("/TechBit/Login_Cliente.html")) {
+      if (requestURI.equals("/TechBit/Login_Cliente.jsp")) {
 //        chain.doFilter(request, response);
         co_log.doFilter(request, response, chain);
       } else {

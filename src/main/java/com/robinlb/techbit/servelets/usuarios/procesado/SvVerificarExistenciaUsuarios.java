@@ -30,7 +30,7 @@ public class SvVerificarExistenciaUsuarios extends HttpServlet {
       Long countUsers = control.contarUsuarios();
       
       if (countUsers > 0) {
-        response.sendRedirect("Login.html");
+        response.sendRedirect("Login.jsp");
         
       } else {
         response.sendRedirect("RegistrarRoot.html");
