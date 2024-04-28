@@ -49,7 +49,7 @@ public class AuthenticationFilterServeletsForColaboradores implements Filter {
       }
     }
     catch (Exception e) {
-      httpResponse.sendRedirect("Login.html");
+      httpResponse.sendRedirect("Login.jsp");
     }
 
   }

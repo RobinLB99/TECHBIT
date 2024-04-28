@@ -11,8 +11,6 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
-import java.io.InputStream;
-import java.util.Scanner;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
@@ -74,13 +72,13 @@ public class SvLogin extends HttpServlet {
         response.sendRedirect("Dashboard.jsp");
 
       } else {
-        response.sendRedirect("Login.html?password=incorrect");
+        response.sendRedirect("Login.jsp?password=incorrect");
       }
 
     }
     catch (Exception e) {
       System.out.println(e.getMessage());
-      response.sendRedirect("Login.html?user=false");
+      response.sendRedirect("Login.jsp?user=false");
     }
 
   }

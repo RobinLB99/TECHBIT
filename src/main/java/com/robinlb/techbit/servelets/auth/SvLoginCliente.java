@@ -5,7 +5,6 @@ import com.robinlb.techbit.controllers.LogicController;
 import com.robinlb.techbit.controllers.PasswordSecurityService;
 import com.robinlb.techbit.model.Usuario;
 import java.io.IOException;
-import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -59,7 +58,7 @@ public class SvLoginCliente extends HttpServlet {
       Usuario usuario = control.verUsuarioPorNombreUsuario(username);
       
       if (!usuario.getPrivilegios().equals("Cliente")) {
-        response.sendRedirect("Login_Cliente.html?username=invalid");
+        response.sendRedirect("Login_Cliente.jsp?username=invalid");
         
       } else {
         boolean match = secure.matches(password, usuario.getContraseña());
@@ -89,7 +88,7 @@ public class SvLoginCliente extends HttpServlet {
           }
           
         } else {
-          response.sendRedirect("Login_Cliente.html?password=incorrect");
+          response.sendRedirect("Login_Cliente.jsp?password=incorrect");
         }
         
       }

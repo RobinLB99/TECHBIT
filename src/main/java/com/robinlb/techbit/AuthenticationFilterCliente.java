@@ -48,7 +48,7 @@ public class AuthenticationFilterCliente implements Filter {
 //        chain.doFilter(request, response);
         co_log.doFilter(request, response, chain);
       } else {
-        httpResponse.sendRedirect("Login_Cliente.html");
+        httpResponse.sendRedirect("Login_Cliente.jsp");
       }
 
     } else { // En caso de que la sesion no sea nula o el atributo user no sea nulo
