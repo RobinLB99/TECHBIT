@@ -41,9 +41,8 @@ public class AuthenticationFilterForClienteLog implements Filter {
 
     try {
       Usuario usuario = (Usuario) session.getAttribute("user");
-      String typeUser = usuario.getPrivilegios();
 
-      if (typeUser.equals("Cliente")) {
+      if (usuario.getClienteNatural() != null) {
 
         httpResponse.sendRedirect("C-Dashboard.jsp");
 
@@ -52,8 +51,7 @@ public class AuthenticationFilterForClienteLog implements Filter {
         chain.doFilter(request, response);
 
       }
-    }
-    catch (Exception e) {
+    } catch (Exception e) {
       chain.doFilter(request, response);
     }
   }

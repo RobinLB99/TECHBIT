@@ -41,9 +41,7 @@ public class AuthenticationFilterForColaboradorLog implements Filter {
 
     try {
       Usuario usuario = (Usuario) session.getAttribute("user");
-      String typeUser = usuario.getPrivilegios();
-
-      if (typeUser.equals("Administrador") || typeUser.equals("Estandar")) {
+      if (usuario.getClienteNatural() == null) {
 
         httpResponse.sendRedirect("Dashboard.jsp");
 
@@ -52,8 +50,7 @@ public class AuthenticationFilterForColaboradorLog implements Filter {
         chain.doFilter(request, response);
 
       }
-    }
-    catch (Exception e) {
+    } catch (Exception e) {
       chain.doFilter(request, response);
     }
   }
