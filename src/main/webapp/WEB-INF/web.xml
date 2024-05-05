@@ -31,6 +31,7 @@
     <filter-name>AuthenticationFilterCliente</filter-name>
     <url-pattern>/Login_Cliente.jsp</url-pattern>
     <url-pattern>/C-Dashboard.jsp</url-pattern>
+    <url-pattern>/CrearTicket.jsp</url-pattern>
   </filter-mapping>
   
   <!-- Filtros de acceso a servelets dedicados a colaboradores -->
