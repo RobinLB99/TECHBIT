@@ -57,7 +57,7 @@ public class SvLoginCliente extends HttpServlet {
     try {
       Usuario usuario = control.verUsuarioPorNombreUsuario(username);
       
-      if (!usuario.getPrivilegios().equals("Cliente")) {
+      if (usuario.getClienteNatural() == null) {
         response.sendRedirect("Login_Cliente.jsp?username=invalid");
         
       } else {
