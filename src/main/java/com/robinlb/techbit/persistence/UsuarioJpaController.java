@@ -1,5 +1,6 @@
 package com.robinlb.techbit.persistence;
 
+import com.robinlb.techbit.model.Empleado;
 import com.robinlb.techbit.model.Usuario;
 import com.robinlb.techbit.persistence.exceptions.NonexistentEntityException;
 import jakarta.persistence.EntityManager;
@@ -130,6 +131,18 @@ public class UsuarioJpaController implements Serializable {
     try {
       TypedQuery<Usuario> query = em.createQuery("SELECT u FROM Usuario u WHERE u.nombreUsuario = :username", Usuario.class);
       query.setParameter("username", username);
+      return query.getSingleResult();
+    }
+    finally {
+      em.close();
+    }
+  }
+  
+  public Usuario findUsuarioForEmpleado(Empleado empleado) {
+    EntityManager em = getEntityManager();
+    try {
+      TypedQuery<Usuario> query = em.createQuery("SELECT u FROM Usuario u WHERE u.empleado = :employ", Usuario.class);
+      query.setParameter("employ", empleado);
       return query.getSingleResult();
     }
     finally {

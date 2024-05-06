@@ -91,6 +91,10 @@ public class PersistenceController {
       return usuarioJpa.findUsuarioForUsername(username);
     }
     
+    public Usuario viewUserForEmploy(Empleado empleado) {
+      return usuarioJpa.findUsuarioForEmpleado(empleado);
+    }
+    
     public Usuario findNaturalClientUserForUsername(String username) {
       return usuarioJpa.findUsuarioClienteNaturalForUsername(username);
     }
