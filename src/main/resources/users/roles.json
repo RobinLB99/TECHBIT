@@ -51,10 +51,11 @@
     ]
   },
   {
-    "type": "estandar",
+    "type": "Estandar",
     "content": [
       {
         "group_name": "Tickets",
+        "icon": "fa-solid fa-ticket",
         "options": [
           {
             "name": "Pendientes",
