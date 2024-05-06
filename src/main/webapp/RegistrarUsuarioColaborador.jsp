@@ -91,7 +91,7 @@
                       <select class="form-select" name="validationServerAccess" id="validationServerAccess" required aria-label="select example">
                         <option value="" selected>Seleccione una opción...</option>
                         <option value="Administrador">Administrador</option>
-                        <option value="Estándar">Estándar</option>
+                        <option value="Estándar">Estandar</option>
                       </select>
                       <div class="invalid-feedback" id="validationServerAccessFeedback">Opción seleccionada invalida</div>
                     </div>
