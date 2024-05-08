@@ -25,7 +25,7 @@
         "icon": "fa-regular fa-handshake",
         "options": [
           {
-            "name": "listado de usuarios",
+            "name": "Listado de usuarios",
             "link": "SvGoToClientesNaturales"
           },
           {
