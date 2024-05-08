@@ -81,11 +81,11 @@
                     </div>
                   </div>
 
-                  <div class="mb-3">
+                  <!-- <div class="mb-3">
                     <label for="adjunto" class="form-label">Archivo adjunto</label>
                     <input type="file" class="form-control" name="adjunto" id="adjunto" aria-label="file example" required>
                     <div class="invalid-feedback">Debe ingresar un archivo válido</div>
-                  </div>
+                  </div> -->
 
                   <textarea name="description" id="description"></textarea>
 

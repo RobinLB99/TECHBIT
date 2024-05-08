@@ -55,41 +55,41 @@ public class SvCrearTicket extends HttpServlet {
 
     String titulo = request.getParameter("titulo");
     String categoria = request.getParameter("categoria");
-    Part adjunto = request.getPart("adjunto");
+//    Part adjunto = request.getPart("adjunto");
     String descripcion = request.getParameter("description");
 
     try {
       // Conecta al servidor de archivos establecido.
-      FTPClient ftpCliente = ftpCon.connectServer(new FTPClient());
-      ftpCliente.setFileType(FTP.BINARY_FILE_TYPE);
+//      FTPClient ftpCliente = ftpCon.connectServer(new FTPClient());
+//      ftpCliente.setFileType(FTP.BINARY_FILE_TYPE);
 
       // Obtén el InputStream del archivo
-      InputStream inputStream = adjunto.getInputStream();
+//      InputStream inputStream = adjunto.getInputStream();
 
       // Crea el directorio donde el archivo se guarda.
-      String carpeta = new Date().getTime()
-              + "-" + String.valueOf(Math.round(Math.random() * 100));
+//      String carpeta = new Date().getTime()
+//              + "-" + String.valueOf(Math.round(Math.random() * 100));
 
       // Crea el directorio del archivo a guardar
-      ftpCliente.makeDirectory(carpeta);
+//      ftpCliente.makeDirectory(carpeta);
 
       // Cambia los permisos del directorio a lectura y escritura para el propietario.
 //      ftpCliente.doCommand("SITE", "CHMOD 777 " + carpeta);
 
       // Define la ruta en el servidor donde quieres guardar el archivo
-      String serverFilePath = "/" + carpeta + "/" + adjunto.getSubmittedFileName();
+//      String serverFilePath = "/" + carpeta + "/" + adjunto.getSubmittedFileName();
 
       // Sube el archivo al servidor de archivos.
-      boolean done = ftpCon.uploadFile(inputStream, serverFilePath, ftpCliente);
+//      boolean done = ftpCon.uploadFile(inputStream, serverFilePath, ftpCliente);
 
-      if (done) {
+      if (/*done*/true) {
 
         try {
           // Crea el archivo adjunto a enlazar
-          ArchivoAdjunto adFile = new ArchivoAdjunto();
-          adFile.setNombre(adjunto.getSubmittedFileName());
-          adFile.setFtpUrl(serverFilePath);
-          control.crearAdjunto(adFile);
+//          ArchivoAdjunto adFile = new ArchivoAdjunto();
+//          adFile.setNombre(adjunto.getSubmittedFileName());
+//          adFile.setFtpUrl(serverFilePath);
+//          control.crearAdjunto(adFile);
 
           // Crear el ticket de soporte
           TicketSoporte ticket = new TicketSoporte();
@@ -98,7 +98,7 @@ public class SvCrearTicket extends HttpServlet {
           ticket.setCreacion(new Date());
           ticket.setEstado("Activo");
           ticket.setClienteNatural(cliente);
-          ticket.setArchivoAdjunto(adFile);
+//          ticket.setArchivoAdjunto(adFile);
           control.crearTicket(ticket);
 
           // Redirige a la pagina de creacion de ticket
@@ -114,10 +114,10 @@ public class SvCrearTicket extends HttpServlet {
       }
 
       // Cerrar el InputStream
-      inputStream.close();
+//      inputStream.close();
 
       // Cerrar el servidor de archivos
-      ftpCon.disconnectServer(ftpCliente);
+//      ftpCon.disconnectServer(ftpCliente);
 
     } catch (Exception e) {
       // Implementar atributo de sesion para expeficicar el error en la pagina de error
