@@ -72,7 +72,7 @@ public class SvLoginCliente extends HttpServlet {
             
             for (int i = 0; i < json.length(); i++) {
               JSONObject object = json.getJSONObject(i);
-              if (object.getString("type").equals("Cliente")) {
+              if (object.getString("type").equals("Usuarios")) {
                 funciones = object.getJSONArray("content");
               }
             }
