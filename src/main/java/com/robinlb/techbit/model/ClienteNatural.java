@@ -1,15 +1,13 @@
 package com.robinlb.techbit.model;
 
-import jakarta.persistence.Basic;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
-import jakarta.persistence.JoinColumn;
 import jakarta.persistence.NamedQueries;
 import jakarta.persistence.NamedQuery;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Size;
 import java.io.Serializable;
+import java.util.Objects;
 
 /**
  *
@@ -21,31 +19,68 @@ import java.io.Serializable;
   @NamedQuery(name = "ClienteNatural.findAll", query = "SELECT c FROM ClienteNatural c")})
 public class ClienteNatural extends Persona implements Serializable {
 
-  @Basic(optional = false)
   @NotNull
-  @Size(min = 1, max = 10)
-  @Column(name = "estado")
-  private String estado;
+  @Column(name = "Direccion_IP", length = 15, nullable = false)
+  private String ipDirection;
+
+  @NotNull
+  @Column(name = "Direccion_MAC", length = 17, nullable = false)
+  private String macDirection;
 
   public ClienteNatural() {
   }
 
-  public ClienteNatural(String estado, Long id, String nombres, String apellidos, String cedula, String telefono, String email) {
+  public ClienteNatural(String ipDirection, String macDirection, Long id, String nombres, String apellidos, String cedula, String telefono, String email) {
     super(id, nombres, apellidos, cedula, telefono, email);
-    this.estado = estado;
+    this.ipDirection = ipDirection;
+    this.macDirection = macDirection;
   }
 
-  public String getEstado() {
-    return estado;
+  public String getIpDirection() {
+    return ipDirection;
   }
 
-  public void setEstado(String estado) {
-    this.estado = estado;
+  public void setIpDirection(String ipDirection) {
+    this.ipDirection = ipDirection;
+  }
+
+  public String getMacDirection() {
+    return macDirection;
+  }
+
+  public void setMacDirection(String macDirection) {
+    this.macDirection = macDirection;
+  }
+
+  @Override
+  public int hashCode() {
+    int hash = 7;
+    hash = 79 * hash + Objects.hashCode(this.ipDirection);
+    hash = 79 * hash + Objects.hashCode(this.macDirection);
+    return hash;
+  }
+
+  @Override
+  public boolean equals(Object obj) {
+    if (this == obj) {
+      return true;
+    }
+    if (obj == null) {
+      return false;
+    }
+    if (getClass() != obj.getClass()) {
+      return false;
+    }
+    final ClienteNatural other = (ClienteNatural) obj;
+    if (!Objects.equals(this.ipDirection, other.ipDirection)) {
+      return false;
+    }
+    return Objects.equals(this.macDirection, other.macDirection);
   }
 
   @Override
   public String toString() {
-    return "ClienteNatural{" + "estado=" + estado + '}';
+    return "ClienteNatural{ ID: " + super.getId() + ", ipDirection=" + ipDirection + ", macDirection=" + macDirection + '}';
   }
 
 }

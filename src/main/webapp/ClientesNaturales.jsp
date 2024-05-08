@@ -90,7 +90,8 @@
                         <th>Cédula</th>
                         <th>Teléfono</th>
                         <th>Correo Electrónico</th>
-                        <th>Estado</th>
+                        <th>Dirección IP</th>
+                        <th>Dirección MAC</th>
                       </tr>
                     </thead>
                     <tbody>
@@ -108,7 +109,8 @@
                         <td><%= client.getCedula()%></td>
                         <td><%= client.getTelefono()%></td>
                         <td><%= client.getEmail()%></td>
-                        <td><%= client.getEstado()%></td>
+                        <td><%= client.getIpDirection()%></td>
+                        <td><%= client.getMacDirection()%></td>
                       </tr>
                       <%
                         }

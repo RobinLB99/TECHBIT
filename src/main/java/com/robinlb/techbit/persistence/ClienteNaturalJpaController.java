@@ -7,14 +7,14 @@ import jakarta.persistence.EntityManagerFactory;
 import java.io.Serializable;
 import jakarta.persistence.Query;
 import jakarta.persistence.EntityNotFoundException;
+import jakarta.persistence.TypedQuery;
 import jakarta.persistence.criteria.CriteriaQuery;
 import jakarta.persistence.criteria.Root;
 import java.util.List;
-import jakarta.persistence.TypedQuery;
 
 /**
  *
- * @author Robin
+ * @author joel
  */
 public class ClienteNaturalJpaController implements Serializable {
 
@@ -34,8 +34,7 @@ public class ClienteNaturalJpaController implements Serializable {
       em.getTransaction().begin();
       em.persist(clienteNatural);
       em.getTransaction().commit();
-    }
-    finally {
+    } finally {
       if (em != null) {
         em.close();
       }
@@ -49,8 +48,7 @@ public class ClienteNaturalJpaController implements Serializable {
       em.getTransaction().begin();
       clienteNatural = em.merge(clienteNatural);
       em.getTransaction().commit();
-    }
-    catch (Exception ex) {
+    } catch (Exception ex) {
       String msg = ex.getLocalizedMessage();
       if (msg == null || msg.length() == 0) {
         Long id = clienteNatural.getId();
@@ -59,8 +57,7 @@ public class ClienteNaturalJpaController implements Serializable {
         }
       }
       throw ex;
-    }
-    finally {
+    } finally {
       if (em != null) {
         em.close();
       }
@@ -76,14 +73,12 @@ public class ClienteNaturalJpaController implements Serializable {
       try {
         clienteNatural = em.getReference(ClienteNatural.class, id);
         clienteNatural.getId();
-      }
-      catch (EntityNotFoundException enfe) {
+      } catch (EntityNotFoundException enfe) {
         throw new NonexistentEntityException("The clienteNatural with id " + id + " no longer exists.", enfe);
       }
       em.remove(clienteNatural);
       em.getTransaction().commit();
-    }
-    finally {
+    } finally {
       if (em != null) {
         em.close();
       }
@@ -109,8 +104,7 @@ public class ClienteNaturalJpaController implements Serializable {
         q.setFirstResult(firstResult);
       }
       return q.getResultList();
-    }
-    finally {
+    } finally {
       em.close();
     }
   }
@@ -119,27 +113,34 @@ public class ClienteNaturalJpaController implements Serializable {
     EntityManager em = getEntityManager();
     try {
       return em.find(ClienteNatural.class, id);
-    }
-    finally {
+    } finally {
       em.close();
     }
   }
 
-  public ClienteNatural findClienteNaturalForNUI(String nui) {
+  public int getClienteNaturalCount() {
     EntityManager em = getEntityManager();
-
     try {
-      em.getTransaction().begin();
+      CriteriaQuery cq = em.getCriteriaBuilder().createQuery();
+      Root<ClienteNatural> rt = cq.from(ClienteNatural.class);
+      cq.select(em.getCriteriaBuilder().count(rt));
+      Query q = em.createQuery(cq);
+      return ((Long) q.getSingleResult()).intValue();
+    } finally {
+      em.close();
+    }
+  }
 
-      TypedQuery<ClienteNatural> query = em.createQuery("SELECT c FROM ClienteNatural c WHERE c.cedula = :cedula", ClienteNatural.class);
-      query.setParameter("cedula", nui);
-      return (ClienteNatural) query.getSingleResult();
-
+  ClienteNatural findClienteNaturalForNUI(String nui) {
+    EntityManager em = getEntityManager();
+    try {
+      TypedQuery<ClienteNatural> query = em.createQuery("SELECT c FROM ClienteNatural c WHERE c.cedula = :identidad", ClienteNatural.class);
+      query.setParameter("identidad", nui);
+      return query.getSingleResult();
     }
     finally {
       em.close();
     }
-
   }
 
 }
