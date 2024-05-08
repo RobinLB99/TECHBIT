@@ -19,14 +19,14 @@
     <%@include file="components/Sidebar.jsp" %>
     <main id="main" class="main">
       <div class="pagetitle">
-        <h1>Personal</h1>
+        <h1>Técnicos</h1>
         <nav>
           <ol class="breadcrumb">
             <li class="breadcrumb-item">
               <a href="SvGoToDashboard">Home</a>
             </li>
-            <li class="breadcrumb-item">Personal</li>
-            <li class="breadcrumb-item active">Registro</li>
+            <li class="breadcrumb-item">Técnicos</li>
+            <li class="breadcrumb-item active">Listado</li>
           </ol>
         </nav>
       </div><!-- End Page Title -->
@@ -37,7 +37,7 @@
 
             <div class="card" id="card-datatable-empleados">
               <div class="card-body">
-                <h5 class="card-title">Registro de empleados</h5>
+                <h5 class="card-title">Listado de técnicos</h5>
 
                 <hr>
 

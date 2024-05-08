@@ -3,30 +3,34 @@
     "type": "Administrador",
     "content": [
       {
-        "group_name": "Colaboradores",
+        "group_name": "Técnicos",
         "icon": "fa-solid fa-users",
         "options": [
           {
-            "name": "Ver colaboradores",
+            "name": "Listado de tecnicos",
             "link": "SvGoToEmployesList"
           },
           {
-            "name": "Ingresar colaborador",
+            "name": "Ingresar tecnico",
             "link": "IngresarEmpleados.jsp"
           },
           {
-            "name": "Administrar usuarios",
+            "name": "Administrar credenciales",
             "link": "SvGoToUsuariosColaboradores"
           }
         ]
       },
       {
-        "group_name": "Clientes",
+        "group_name": "Usuarios",
         "icon": "fa-regular fa-handshake",
         "options": [
           {
-            "name": "Ver clientes",
+            "name": "listado de usuarios",
             "link": "SvGoToClientesNaturales"
+          },
+          {
+            "name": "Administrar credenciales",
+            "link": "#"
           }
         ]
       },
@@ -70,7 +74,7 @@
     ]
   },
   {
-    "type": "Cliente",
+    "type": "Usuarios",
     "content": [
       {
         "group_name": "Tickets",

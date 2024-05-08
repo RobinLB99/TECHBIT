@@ -7,7 +7,7 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Restablecer contraseña de usuario del colaborador</title>
+    <title>Restablecer contraseña</title>
     <%@include file="components/head.jsp" %>
   </head>
 
@@ -26,9 +26,9 @@
             <li class="breadcrumb-item">
               <a href="SvGoToDashboard">Home</a>
             </li>
-            <li class="breadcrumb-item">Personal</li>
+            <li class="breadcrumb-item">Técnicos</li>
             <li class="breadcrumb-item">
-              <a href="SvGoToUsuariosColaboradores">Usuarios</a>
+              <a href="SvGoToUsuariosColaboradores">Administrar credenciales</a>
             </li>
             <li class="breadcrumb-item active">Restablecer contraseña</li>
           </ol>

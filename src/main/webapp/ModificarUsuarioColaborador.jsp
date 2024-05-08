@@ -7,7 +7,7 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Modificar el usuario del colaborador</title>
+    <title>Modificar credenciales</title>
     <%@include file="components/head.jsp" %>
   </head>
 
@@ -20,17 +20,17 @@
 
     <main id="main" class="main">
       <div class="pagetitle">
-        <h1>Modificar usuario</h1>
+        <h1>Modificar credencial</h1>
         <nav>
           <ol class="breadcrumb">
             <li class="breadcrumb-item">
               <a href="SvGoToDashboard">Home</a>
             </li>
-            <li class="breadcrumb-item">Personal</li>
+            <li class="breadcrumb-item">Técnicos</li>
             <li class="breadcrumb-item">
-              <a href="SvGoToUsuariosColaboradores">Usuarios</a>
+              <a href="SvGoToUsuariosColaboradores">Administrar credenciales</a>
             </li>
-            <li class="breadcrumb-item active">Modificar usuario</li>
+            <li class="breadcrumb-item active">Modificar credencial</li>
           </ol>
         </nav>
       </div><!-- End Page Title -->
@@ -40,7 +40,7 @@
           <div class="col-lg-12">
             <div class="card">
               <div class="card-body">
-                <h5 class="card-title">Modificación de usuario del colaborador</h5>
+                <h5 class="card-title">Modificación de credencial</h5>
                 <div class="container-fluid">
                   <%                    Usuario user = (Usuario) request.getSession(false).getAttribute("usuarioModificar");
                   %>

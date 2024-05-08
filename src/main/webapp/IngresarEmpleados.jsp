@@ -20,12 +20,12 @@
 
     <main id="main" class="main">
       <div class="pagetitle">
-        <h1>Ingreso de personal</h1>
+        <h1>Ingresar técnico
         <nav>
           <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="Dashboard.jsp">Home</a></li>
-            <li class="breadcrumb-item">Personal</li>
-            <li class="breadcrumb-item active">Ingreso</li>
+            <li class="breadcrumb-item">Técnicos</li>
+            <li class="breadcrumb-item active">Ingresar técnico</li>
           </ol>
         </nav>
       </div><!-- End Page Title -->

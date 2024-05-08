@@ -7,7 +7,7 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registro de usuario del colaborador - TechBit</title>
+    <title>Registro de credenciales para técnico - TechBit</title>
     <%@include file="components/head.jsp" %>
   </head>
   <body>
@@ -19,17 +19,17 @@
 
     <main id="main" class="main">
       <div class="pagetitle">
-        <h1>Registro de usuario</h1>
+        <h1>Registro de credencial</h1>
         <nav>
           <ol class="breadcrumb">
             <li class="breadcrumb-item">
               <a href="SvGoToDashboard">Home</a>
             </li>
-            <li class="breadcrumb-item">Personal</li>
+            <li class="breadcrumb-item">Técnicos</li>
             <li class="breadcrumb-item">
-              <a href="SvGoToUsuariosColaboradores">Usuarios</a>
+              <a href="SvGoToUsuariosColaboradores">Administrar credenciales</a>
             </li>
-            <li class="breadcrumb-item active">Registro de usuario</li>
+            <li class="breadcrumb-item active">Registro de credencial</li>
           </ol>
         </nav>
       </div><!-- End Page Title -->
@@ -39,8 +39,9 @@
           <div class="col-lg-12">
             <div class="card">
               <div class="card-body">
-                <h5 class="card-title">Registrar usuario del colaborador</h5>
-                <%                Empleado colaborador = (Empleado) request.getSession(false).getAttribute("colaborador");
+                <h5 class="card-title">Registrar credencial</h5>
+                <%                
+                  Empleado colaborador = (Empleado) request.getSession(false).getAttribute("colaborador");
                 %>
                 <form class="row g-3" action="SvAsignarUsuarioColaborador" method="post" id="formCreateUserC">
                   <div class="col-md-4">

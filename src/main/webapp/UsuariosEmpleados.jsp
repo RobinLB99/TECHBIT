@@ -21,14 +21,14 @@
 
     <main id="main" class="main">
       <div class="pagetitle">
-        <h1>Usuarios</h1>
+        <h1>Credenciales</h1>
         <nav>
           <ol class="breadcrumb">
             <li class="breadcrumb-item">
               <a href="SvGoToDashboard">Home</a>
             </li>
-            <li class="breadcrumb-item">Personal</li>
-            <li class="breadcrumb-item active">Usuarios</li>
+            <li class="breadcrumb-item">Técnicos</li>
+            <li class="breadcrumb-item active">Administrar credenciales</li>
           </ol>
         </nav>
       </div><!-- End Page Title -->
@@ -42,13 +42,13 @@
             %>
             <div class="card">
               <div class="card-body">
-                <h5 class="card-title">Usuarios de los colaboradores</h5>
+                <h5 class="card-title">Credenciales de acceso</h5>
                 <div class="container-fluid">
                   <nav>
                     <div class="nav nav-underline" id="nav-tab" role="tablist">
-                      <button class="nav-link active" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home" type="button" role="tab" aria-controls="nav-home" aria-selected="true">Usuarios registrados</button>
+                      <button class="nav-link active" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home" type="button" role="tab" aria-controls="nav-home" aria-selected="true">Credenciales registrados</button>
 
-                      <button class="nav-link" id="nav-profile-tab" data-bs-toggle="tab" data-bs-target="#nav-profile" type="button" role="tab" aria-controls="nav-profile" aria-selected="false">Colaboradores sin usuario</button>
+                      <button class="nav-link" id="nav-profile-tab" data-bs-toggle="tab" data-bs-target="#nav-profile" type="button" role="tab" aria-controls="nav-profile" aria-selected="false">Técnicos sin credenciales</button>
                     </div>
                   </nav>
 
