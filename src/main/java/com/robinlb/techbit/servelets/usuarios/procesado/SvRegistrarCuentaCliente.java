@@ -58,36 +58,27 @@ public class SvRegistrarCuentaCliente extends HttpServlet {
     try {
 
       ClienteNatural cliente = control.buscarClienteNaturalPorNUI(nui);
-      System.out.println("Cliente existe: " + cliente.toString());
 
       if (cliente != null) {
         Usuario usuario = null;
         try {
           control.verUsuarioPorNombreUsuario(username);
         } catch (Exception a) {
-          usuario = null;
         }
 
         if (usuario == null) {
-          
-          if (!cliente.getEstado().equals("Inactivo")) {
-            usuario = new Usuario();
-            usuario.setNombreUsuario(username);
-            usuario.setContraseña(securePassword);
-            usuario.setPrivilegios("Estandar");
-            usuario.setClienteNatural(cliente);
 
-            try {
-              control.crearUsuario(usuario);
-              response.sendRedirect("Login_Cliente.jsp?account=create");
-            }
-            catch (Exception a) {
-              System.out.println(a.getCause());
-              response.sendRedirect("CreateClientAccount.jsp?create_account=error");
-            }
-            
-          } else {
-            response.sendRedirect("CreateClientAccount.jsp?estado=inactivo");
+          usuario = new Usuario();
+          usuario.setNombreUsuario(username);
+          usuario.setContraseña(securePassword);
+          usuario.setPrivilegios("Estandar");
+          usuario.setClienteNatural(cliente);
+
+          try {
+            control.crearUsuario(usuario);
+            response.sendRedirect("Login_Cliente.jsp?account=create");
+          } catch (Exception a) {
+            response.sendRedirect("CreateClientAccount.jsp?create_account=error");
           }
 
         } else {
@@ -98,8 +89,7 @@ public class SvRegistrarCuentaCliente extends HttpServlet {
         response.sendRedirect("CreateClientAccount.jsp?existe_cliente=false");
       }
 
-    }
-    catch (Exception e) {
+    } catch (Exception e) {
       response.sendRedirect("PageError500.jsp");
     }
 
