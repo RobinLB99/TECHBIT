@@ -112,7 +112,15 @@ public class LogicController {
   public ClienteNatural buscarClienteNaturalPorNUI(String nui) {
     return perControl.findClienteNaturalForNUI(nui);
   }
-
+  
+  public Long contarClientesPorIP(String ip) {
+    return perControl.countClienteNaturalForDirIP(ip);
+  }
+  
+  public Long contarClientePorMAC(String mac) {
+    return perControl.countClienteNaturalForDirMAC(mac);
+  }
+  
   // Tickets de soporte
   public void crearTicket(TicketSoporte ticket) {
     perControl.createTicket(ticket);

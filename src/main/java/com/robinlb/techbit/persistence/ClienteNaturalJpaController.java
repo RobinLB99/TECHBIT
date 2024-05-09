@@ -131,12 +131,36 @@ public class ClienteNaturalJpaController implements Serializable {
     }
   }
 
-  ClienteNatural findClienteNaturalForNUI(String nui) {
+  public ClienteNatural findClienteNaturalForNUI(String nui) {
     EntityManager em = getEntityManager();
     try {
       TypedQuery<ClienteNatural> query = em.createQuery("SELECT c FROM ClienteNatural c WHERE c.cedula = :identidad", ClienteNatural.class);
       query.setParameter("identidad", nui);
       return query.getSingleResult();
+    }
+    finally {
+      em.close();
+    }
+  }
+  
+  public Long countClienteNaturalForDirIP(String dirIP) {
+    EntityManager em = getEntityManager();
+    try {
+      Query query = em.createQuery("SELECT COUNT(c) FROM ClienteNatural c WHERE c.ipDirection = :direccionIP", ClienteNatural.class);
+      query.setParameter("direccionIP", dirIP);
+      return (Long) query.getSingleResult();
+    }
+    finally {
+      em.close();
+    }
+  }
+  
+  public Long countClienteNaturalForDirMAC(String dirMAC) {
+    EntityManager em = getEntityManager();
+    try {
+      Query query = em.createQuery("SELECT COUNT(c) FROM ClienteNatural c WHERE c.macDirection = :direccionMAC", ClienteNatural.class);
+      query.setParameter("direccionMAC", dirMAC);
+      return (Long) query.getSingleResult();
     }
     finally {
       em.close();

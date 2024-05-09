@@ -47,12 +47,9 @@
                 <div class="d-flex justify-content-between">
                   <div class="actions d-flex flex-row gap-3">
 
-                    <form action="#" method="post" id="employModForm">
-                      <input type="text" name="inIdEmMod" id="inIdEmMod" hidden>
-                      <button type="submit" class="btn btn-secondary d-flex flex-row gap-2 align-items-center" id="btnActualizarRegistro" title="Actualizar registro" disabled>
-                        <i class="fa-solid fa-pen-to-square"></i>
-                      </button>
-                    </form>
+                    <a href="AgregarUsuarioFinal.jsp" class="btn btn-primary d-flex flex-row gap-2 align-items-center" title="Ingresar usuario final">
+                      <i class="fa-solid fa-plus"></i>
+                    </a>
 
                   </div>
 

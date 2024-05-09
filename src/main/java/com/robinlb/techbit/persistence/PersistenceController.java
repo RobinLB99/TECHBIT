@@ -136,6 +136,14 @@ public class PersistenceController {
       return clienteJpa.findClienteNaturalForNUI(nui);
     }
     
+    public Long countClienteNaturalForDirIP(String ip) {
+      return clienteJpa.countClienteNaturalForDirIP(ip);
+    }
+    
+    public Long countClienteNaturalForDirMAC(String mac) {
+      return clienteJpa.countClienteNaturalForDirMAC(mac);
+    }
+    
     // Ticket de soporte
     public void createTicket(TicketSoporte ticket) {
      ticketJpa.create(ticket);
