@@ -1,5 +1,6 @@
 package com.robinlb.techbit.persistence;
 
+import com.robinlb.techbit.model.ClienteNatural;
 import com.robinlb.techbit.model.TicketSoporte;
 import com.robinlb.techbit.persistence.exceptions.NonexistentEntityException;
 import jakarta.persistence.EntityManager;
@@ -10,6 +11,7 @@ import jakarta.persistence.EntityNotFoundException;
 import jakarta.persistence.criteria.CriteriaQuery;
 import jakarta.persistence.criteria.Root;
 import java.util.List;
+import org.eclipse.persistence.jpa.JpaHelper;
 
 /**
  *
@@ -33,8 +35,7 @@ public class TicketSoporteJpaController implements Serializable {
       em.getTransaction().begin();
       em.persist(ticketSoporte);
       em.getTransaction().commit();
-    }
-    finally {
+    } finally {
       if (em != null) {
         em.close();
       }
@@ -48,8 +49,7 @@ public class TicketSoporteJpaController implements Serializable {
       em.getTransaction().begin();
       ticketSoporte = em.merge(ticketSoporte);
       em.getTransaction().commit();
-    }
-    catch (Exception ex) {
+    } catch (Exception ex) {
       String msg = ex.getLocalizedMessage();
       if (msg == null || msg.length() == 0) {
         Long id = ticketSoporte.getTicketId();
@@ -58,8 +58,7 @@ public class TicketSoporteJpaController implements Serializable {
         }
       }
       throw ex;
-    }
-    finally {
+    } finally {
       if (em != null) {
         em.close();
       }
@@ -75,14 +74,12 @@ public class TicketSoporteJpaController implements Serializable {
       try {
         ticketSoporte = em.getReference(TicketSoporte.class, id);
         ticketSoporte.getTicketId();
-      }
-      catch (EntityNotFoundException enfe) {
+      } catch (EntityNotFoundException enfe) {
         throw new NonexistentEntityException("The ticketSoporte with id " + id + " no longer exists.", enfe);
       }
       em.remove(ticketSoporte);
       em.getTransaction().commit();
-    }
-    finally {
+    } finally {
       if (em != null) {
         em.close();
       }
@@ -108,8 +105,7 @@ public class TicketSoporteJpaController implements Serializable {
         q.setFirstResult(firstResult);
       }
       return q.getResultList();
-    }
-    finally {
+    } finally {
       em.close();
     }
   }
@@ -118,8 +114,18 @@ public class TicketSoporteJpaController implements Serializable {
     EntityManager em = getEntityManager();
     try {
       return em.find(TicketSoporte.class, id);
+    } finally {
+      em.close();
     }
-    finally {
+  }
+
+  public TicketSoporte findTicketSoporteByClienteNatural(ClienteNatural usuarioFinal) {
+    EntityManager em = getEntityManager();
+    try {
+      Query query = em.createQuery("SELECT t FROM TicketSoporte t WHERE t.clienteNatural = :usuarioFinal");
+      query.setParameter("usuarioFinal", usuarioFinal);
+      return (TicketSoporte) query.getSingleResult();
+    } finally {
       em.close();
     }
   }
@@ -132,10 +138,9 @@ public class TicketSoporteJpaController implements Serializable {
       cq.select(em.getCriteriaBuilder().count(rt));
       Query q = em.createQuery(cq);
       return ((Long) q.getSingleResult()).intValue();
-    }
-    finally {
+    } finally {
       em.close();
     }
   }
-  
+
 }

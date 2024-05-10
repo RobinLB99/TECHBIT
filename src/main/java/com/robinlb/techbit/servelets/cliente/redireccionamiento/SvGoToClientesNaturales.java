@@ -54,11 +54,30 @@ public class SvGoToClientesNaturales extends HttpServlet {
       HttpSession clienteN = request.getSession(false);
       clienteN.setAttribute("clientes-naturales", clientesNaturales);
 
-      response.sendRedirect("ClientesNaturales.jsp");
-      
-    }
-    catch (Exception e) {
-      System.out.println(e.getCause());
+      Integer solicitadosEliminar
+              = (Integer) request.getSession(false).getAttribute("IDsLength");
+      Integer noEliminados = (Integer) request.getSession(false).getAttribute("noEliminados");
+
+      if (solicitadosEliminar != null) {
+        
+        HttpSession e = request.getSession(false);
+        e.removeAttribute("IDsLength");
+        e.removeAttribute("noEliminados");
+        
+        if (noEliminados == solicitadosEliminar) {
+          response.sendRedirect("ClientesNaturales.jsp?no_eliminados=all");
+        }
+
+        if (noEliminados < solicitadosEliminar) {
+          response.sendRedirect("ClientesNaturales.jsp?eliminados=true&no_eliminados=true");
+        }
+
+      } else {
+        response.sendRedirect("ClientesNaturales.jsp");
+
+      }
+
+    } catch (Exception e) {
       response.sendRedirect("PageError500.jsp");
     }
 

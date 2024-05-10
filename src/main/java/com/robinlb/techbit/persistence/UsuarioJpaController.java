@@ -1,5 +1,6 @@
 package com.robinlb.techbit.persistence;
 
+import com.robinlb.techbit.model.ClienteNatural;
 import com.robinlb.techbit.model.Empleado;
 import com.robinlb.techbit.model.Usuario;
 import com.robinlb.techbit.persistence.exceptions.NonexistentEntityException;
@@ -158,6 +159,17 @@ public class UsuarioJpaController implements Serializable {
       return query.getSingleResult();
     }
     finally {
+      em.close();
+    }
+  }
+  
+  public Usuario findUsuarioClienteNaturalForClienteNatural(ClienteNatural usuarioFinal) {
+    EntityManager em = getEntityManager();
+    try {
+      Query query = em.createQuery("SELECT u FROM Usuario u WHERE u.clienteNatural = :finalUser");
+      query.setParameter("finalUser", usuarioFinal);
+      return (Usuario) query.getSingleResult();
+    } finally {
       em.close();
     }
   }

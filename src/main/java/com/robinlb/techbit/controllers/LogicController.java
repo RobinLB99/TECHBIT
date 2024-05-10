@@ -73,6 +73,10 @@ public class LogicController {
   public Usuario buscarUsuarioClienteNaturalPorUsername(String username) {
     return perControl.findNaturalClientUserForUsername(username);
   }
+  
+  public Usuario buscarUsuarioClienteNaturalPorClienteNatural(ClienteNatural usuarioFinal) {
+    return perControl.findNaturalClienteUserForClienteNatural(usuarioFinal);
+  }
 
   public Collection<Usuario> listaUsuarios() {
     return perControl.usersList();
@@ -140,6 +144,10 @@ public class LogicController {
   
   public TicketSoporte buscarTicketPorEstado(String estado) {
     return (TicketSoporte) perControl.findTicketByEstado(estado);
+  }
+  
+  public TicketSoporte buscarTicketPorClienteNatural(ClienteNatural usuarioFinal) {
+    return perControl.findTicketSoporteByClienteNatural(usuarioFinal);
   }
   
   public List<TicketSoporte> enlistarTickets() {

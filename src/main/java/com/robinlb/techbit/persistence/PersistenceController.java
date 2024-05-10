@@ -98,6 +98,10 @@ public class PersistenceController {
     public Usuario findNaturalClientUserForUsername(String username) {
       return usuarioJpa.findUsuarioClienteNaturalForUsername(username);
     }
+    
+    public Usuario findNaturalClienteUserForClienteNatural(ClienteNatural usuarioFinal) {
+      return usuarioJpa.findUsuarioClienteNaturalForClienteNatural(usuarioFinal);
+    }
 
     public Collection<Usuario> usersList() {
         return usuarioJpa.findUsuarioEntities();
@@ -163,6 +167,10 @@ public class PersistenceController {
     
     public List<TicketSoporte> findTicketByEstado(String estado) {
       return null;
+    }
+    
+    public TicketSoporte findTicketSoporteByClienteNatural(ClienteNatural usuarioFinal) {
+      return ticketJpa.findTicketSoporteByClienteNatural(usuarioFinal);
     }
     
     public List<TicketSoporte> findAllTickets() {

@@ -13,6 +13,7 @@
     <class>com.robinlb.techbit.model.UnidadAdquirida</class>
     <class>com.robinlb.techbit.model.Usuario</class>
     <exclude-unlisted-classes>false</exclude-unlisted-classes>
+    <shared-cache-mode>ALL</shared-cache-mode>
     <properties>
       <property name="jakarta.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/db_techbit?serverTimezone=UTC"/>
       <property name="jakarta.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver"/>

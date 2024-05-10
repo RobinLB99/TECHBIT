@@ -51,21 +51,36 @@
                       <i class="fa-solid fa-plus"></i>
                     </a>
 
+                    <form action="SvEliminarUsuarioFinal" method="post" id="borrarRegistrosEmpleados">
+                      <input type="text" name="inIDUserForDelete" id="idForDelete" hidden>
+                      <button type="submit" class="btn btn-secondary d-flex flex-row gap-2 align-items-center" id="btnBorrarRegistro" title="Borrar registro" disabled>
+                        <i class="fa-solid fa-trash"></i>
+                      </button>
+                    </form>
+
+                    <form action="#" method="post" id="employModForm">
+                      <input type="text" name="inIDUserMod" id="inIdEmMod" hidden>
+                      <button type="submit" class="btn btn-secondary d-flex flex-row gap-2 align-items-center" id="btnActualizarRegistro" title="Actualizar registro" disabled>
+                        <i class="fa-solid fa-pen-to-square"></i>
+                      </button>
+                    </form>
+
                   </div>
 
                   <!-- Botones de marcación de entrada y refresco -->
                   <div class="actions d-flex flex-row gap-3">
 
-                    <!-- <label for="checkAll" class="btn btn-primary d-flex flex-row gap-2 align-items-center" title="Marcar todos los registros" id="btnCheckAll">
+                    <label for="checkAll" class="btn btn-primary d-flex flex-row gap-2 align-items-center" title="Marcar todos los registros" id="btnCheckAll">
                       <i class="fa-regular fa-square-check"></i>
                     </label>
-                    <input type="checkbox" name="checkAll" id="checkAll" hidden> -->
+                    <input type="checkbox" name="checkAll" id="checkAll" hidden>
 
                     <a href="SvGoToClientesNaturales" class="btn btn-success d-flex flex-row gap-2 align-items-center" title="Actualizar tabla">
                       <i class="fa-solid fa-rotate-right"></i>
                     </a>
 
                   </div>
+
                 </div>
 
                 <hr>
