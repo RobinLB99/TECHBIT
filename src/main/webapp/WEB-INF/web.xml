@@ -22,6 +22,7 @@
     <url-pattern>/RegistrarUsuarioColaborador.jsp</url-pattern>
     <url-pattern>/AgregarUsuarioFinal.jsp</url-pattern>
     <url-pattern>/ClientesNaturales.jsp</url-pattern>
+    <url-pattern>/ActualizarUsuarioFinal.jsp</url-pattern>
   </filter-mapping>
   
   <!--Filtro para recursos de clientes-->

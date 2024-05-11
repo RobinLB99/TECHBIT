@@ -72,6 +72,15 @@ public class SvGoToClientesNaturales extends HttpServlet {
           response.sendRedirect("ClientesNaturales.jsp?eliminados=true&no_eliminados=true");
         }
 
+      } else if (
+          request.getSession(false).getAttribute("usuarioFinalModificado") != null 
+          && request.getSession(false).getAttribute("usuarioFinalModificado").equals("true")
+              ) {
+        HttpSession a = request.getSession(false);
+        a.removeAttribute("usuarioFinalModificado");
+        
+        response.sendRedirect("ClientesNaturales.jsp?modificado=correct");
+        
       } else {
         response.sendRedirect("ClientesNaturales.jsp");
 

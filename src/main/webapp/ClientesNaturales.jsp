@@ -58,7 +58,7 @@
                       </button>
                     </form>
 
-                    <form action="#" method="post" id="employModForm">
+                    <form action="SvGoToModificarUsuarioFinal" method="get" id="employModForm">
                       <input type="text" name="inIDUserMod" id="inIdEmMod" hidden>
                       <button type="submit" class="btn btn-secondary d-flex flex-row gap-2 align-items-center" id="btnActualizarRegistro" title="Actualizar registro" disabled>
                         <i class="fa-solid fa-pen-to-square"></i>
