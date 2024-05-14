@@ -30,7 +30,7 @@
           },
           {
             "name": "Administrar credenciales",
-            "link": "#"
+            "link": "SvGoToCredencialesUsuariosFinales"
           }
         ]
       },
