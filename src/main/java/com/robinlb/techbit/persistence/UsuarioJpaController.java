@@ -177,8 +177,8 @@ public class UsuarioJpaController implements Serializable {
   public List<Usuario> findAllUsuarioClienteNatural() {
     EntityManager em = getEntityManager();
     try {
-      Query query = em.createQuery("SELECT u FROM Usuario u WHERE u.clienteNatural");
-      return (List<Usuario>) query.getSingleResult();
+      Query query = em.createQuery("SELECT u FROM Usuario u WHERE u.clienteNatural IS NOT NULL");
+      return (List<Usuario>) query.getResultList();
     } finally {
       em.close();
     }
