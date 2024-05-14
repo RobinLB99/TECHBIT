@@ -102,6 +102,10 @@ public class PersistenceController {
   public Usuario findNaturalClienteUserForClienteNatural(ClienteNatural usuarioFinal) {
     return usuarioJpa.findUsuarioClienteNaturalForClienteNatural(usuarioFinal);
   }
+  
+  public List<Usuario> findAllClienteNaturalUser() {
+    return usuarioJpa.findAllUsuarioClienteNatural();
+  }
 
   public Collection<Usuario> usersList() {
     return usuarioJpa.findUsuarioEntities();

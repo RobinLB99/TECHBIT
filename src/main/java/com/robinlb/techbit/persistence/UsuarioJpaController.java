@@ -173,6 +173,16 @@ public class UsuarioJpaController implements Serializable {
       em.close();
     }
   }
+  
+  public List<Usuario> findAllUsuarioClienteNatural() {
+    EntityManager em = getEntityManager();
+    try {
+      Query query = em.createQuery("SELECT u FROM Usuario u WHERE u.clienteNatural");
+      return (List<Usuario>) query.getSingleResult();
+    } finally {
+      em.close();
+    }
+  }
 
   public int getUsuarioCount() {
     EntityManager em = getEntityManager();

@@ -74,6 +74,10 @@ public class LogicController {
     return perControl.findNaturalClientUserForUsername(username);
   }
   
+  public List<Usuario> listarUsuariosClienteNatural() {
+    return perControl.findAllClienteNaturalUser();
+  }
+  
   public Usuario buscarUsuarioClienteNaturalPorClienteNatural(ClienteNatural usuarioFinal) {
     return perControl.findNaturalClienteUserForClienteNatural(usuarioFinal);
   }
