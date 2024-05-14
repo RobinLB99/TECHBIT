@@ -23,6 +23,7 @@
     <url-pattern>/AgregarUsuarioFinal.jsp</url-pattern>
     <url-pattern>/ClientesNaturales.jsp</url-pattern>
     <url-pattern>/ActualizarUsuarioFinal.jsp</url-pattern>
+    <url-pattern>/CredencialesUsuariosFinales</url-pattern>
   </filter-mapping>
   
   <!--Filtro para recursos de clientes-->
@@ -58,5 +59,6 @@
     <url-pattern>/SvBorrarEmpleado</url-pattern>
     <url-pattern>/SvGoToClientesNaturales</url-pattern>
     <url-pattern>/SvIngresarUsuarioFinal</url-pattern>
+    <url-pattern>/SvGoToCredencialesUsuariosFinales</url-pattern>
   </filter-mapping>
 </web-app>
