@@ -97,8 +97,8 @@ public class TicketSoporte implements Serializable {
   @ManyToOne(optional = false)
   private ClienteNatural clienteNatural;
 
-  @JoinColumn(name = "solucion_respuesta", referencedColumnName = "res_sol_id")
   @OneToMany
+  @JoinColumn(name = "solucion_respuesta", referencedColumnName = "res_sol_id")
   private Collection<SolucionRespuesta> solucionRespuesta;
 
   @JoinColumn(name = "usuario", referencedColumnName = "usuario_id")
