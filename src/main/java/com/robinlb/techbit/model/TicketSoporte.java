@@ -70,12 +70,10 @@ public class TicketSoporte implements Serializable {
   @Temporal(TemporalType.TIMESTAMP)
   private Date vencimiento;
 
-  @Basic(optional = false)
   @NotNull
-  @Column(name = "categoria")
+  @Column(name = "categoria", nullable = false)
   private String categoria;
 
-  @Basic(optional = false)
   @Column(name = "nivel_calamiento")
   private int nivelCalamiento;
 
