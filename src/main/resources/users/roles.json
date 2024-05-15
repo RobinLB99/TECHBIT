@@ -39,11 +39,11 @@
         "icon": "fa-solid fa-ticket",
         "options": [
           {
-            "name": "Pendientes",
+            "name": "Sin asignar",
             "link": "#"
           },
           {
-            "name": "Asignados",
+            "name": "Pendientes",
             "link": "#"
           },
           {
