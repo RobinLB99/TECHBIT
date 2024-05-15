@@ -168,6 +168,10 @@ public class PersistenceController {
   public TicketSoporte findTicket(Long id) {
     return ticketJpa.findTicketSoporte(id);
   }
+  
+  public List<TicketSoporte> findTicketsNoAsigment() {
+    return ticketJpa.findTicketSoporteListNoAsignados();
+  }
 
   public List<TicketSoporte> findTicketByEstado(String estado) {
     return null;

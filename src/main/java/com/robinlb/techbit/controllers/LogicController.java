@@ -146,6 +146,10 @@ public class LogicController {
     return perControl.findTicket(id);
   }
   
+  public List<TicketSoporte> buscarTicketsNoAsignados() {
+    return perControl.findTicketsNoAsigment();
+  }
+  
   public TicketSoporte buscarTicketPorEstado(String estado) {
     return (TicketSoporte) perControl.findTicketByEstado(estado);
   }

@@ -130,6 +130,18 @@ public class TicketSoporteJpaController implements Serializable {
     }
   }
 
+  public List<TicketSoporte> findTicketSoporteListNoAsignados() {
+    EntityManager em = getEntityManager();
+    try {
+      Query query = em.createQuery(
+        "SELECT t FROM TicketSoporte t WHERE t.usuario IS NULL AND t.estado = 'Activo'"
+      );
+      return (List<TicketSoporte>) query.getResultList();
+    } finally {
+      em.close();
+    }
+  }
+
   public int getTicketSoporteCount() {
     EntityManager em = getEntityManager();
     try {
