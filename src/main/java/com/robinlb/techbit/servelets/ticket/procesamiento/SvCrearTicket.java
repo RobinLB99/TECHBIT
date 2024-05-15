@@ -48,7 +48,7 @@ public class SvCrearTicket extends HttpServlet {
     processRequest(request, response);
 
     LogicController control = new LogicController();
-    FTPController ftpCon = new FTPController();
+//    FTPController ftpCon = new FTPController();
 
     Usuario usuario = (Usuario) request.getSession(false).getAttribute("user");
     ClienteNatural cliente = usuario.getClienteNatural();
@@ -95,6 +95,7 @@ public class SvCrearTicket extends HttpServlet {
           TicketSoporte ticket = new TicketSoporte();
           ticket.setTitulo(titulo);
           ticket.setDescripcion(descripcion);
+          ticket.setCategoria(categoria);
           ticket.setCreacion(new Date());
           ticket.setEstado("Activo");
           ticket.setClienteNatural(cliente);
