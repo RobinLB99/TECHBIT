@@ -40,7 +40,7 @@
         "options": [
           {
             "name": "Sin asignar",
-            "link": "#"
+            "link": "SvGoToNoAsigmentTickets"
           },
           {
             "name": "Pendientes",

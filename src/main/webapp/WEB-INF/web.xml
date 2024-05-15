@@ -23,7 +23,8 @@
     <url-pattern>/AgregarUsuarioFinal.jsp</url-pattern>
     <url-pattern>/ClientesNaturales.jsp</url-pattern>
     <url-pattern>/ActualizarUsuarioFinal.jsp</url-pattern>
-    <url-pattern>/CredencialesUsuariosFinales</url-pattern>
+    <url-pattern>/CredencialesUsuariosFinales.jsp</url-pattern>
+    <url-pattern>/TicketsNoAsignados.jsp</url-pattern>
   </filter-mapping>
   
   <!--Filtro para recursos de clientes-->
