@@ -10,7 +10,7 @@
     <div class="actions d-flex flex-row gap-3">
       
       <!-- Botón para restablecer contraseña -->
-      <form action="#" method="get" id="ResetPasswordBtn">
+      <form action="#" method="get" id="ResetPasswordBtn" hidden>
         <input type="text" name="idForResetPassword" id="idForResetPassword" hidden>
         <button type="submit" class="btn btn-secondary d-flex flex-row gap-2 align-items-center" id="btnResetPassword" title="Restablecer contraseña" disabled>
           <i class="fa-solid fa-key"></i>
@@ -18,7 +18,7 @@
       </form>
 
       <!-- Botón para modificar usuario -->
-      <form action="#" method="get" id="ModifyUserBtn">
+      <form action="#" method="get" id="ModifyUserBtn" hidden>
         <input type="text" name="inIdEmMod" id="inIdEmMod" hidden>
         <button type="submit" class="btn btn-secondary d-flex flex-row gap-2 align-items-center" id="btnActualizarRegistro" title="Actualizar registro" disabled>
           <i class="fa-solid fa-user-pen"></i>
