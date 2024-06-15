@@ -75,9 +75,9 @@
                             <input type="hidden" name="autor" value="<%= ticket.getClienteNatural().getNombres()%> <%= ticket.getClienteNatural().getApellidos()%>">
                             <input type="hidden" name="descrciption" value="<%= ticket.getDescripcion()%>">
                         </div>
-                        <form action="#" method="get">
-                            <input type="hidden" name="" value="<%= ticket.getTicketId()%>"/>
-                            <button class="btn btn-success" type="submit" title="Asignar">
+                        <form action="SvAsignarTicket" method="post" name="asignarticketform">
+                            <input type="hidden" name="idTicketAsignar_" value="<%= ticket.getTicketId()%>"/>
+                            <button class="btn btn-success" type="submit" title="Asignar" data-bs-toggle="modal" data-bs-target="#confirmarAsignacion">
                                 <i class="fa-solid fa-user-check"></i>
                             </button>
                         </form>
@@ -96,7 +96,7 @@
 </div>
 
 
-<!-- Modal -->
+<!-- Modal de visualización de detalles -->
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -117,4 +117,23 @@
             </div>
         </div>
     </div>
+</div>
+
+<!-- Modal de confirmación de asignación -->
+<div class="modal fade" id="confirmarAsignacion" tabindex="-1" aria-labelledby="confirmarAsignacionLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="confirmarAsignacionLabel">Asignar ticket</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+          <p>¿Desea asignar el ticket a un técnico?</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+        <button type="button" class="btn btn-primary" id="btnasign">Asignar</button>
+      </div>
+    </div>
+  </div>
 </div>
