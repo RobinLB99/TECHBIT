@@ -63,6 +63,7 @@
     <script src="assets/js/seleccionarColaboradorSinUsuario.js"></script>
     <script src="assets/js/seleccionarUsuariosColaboradores.js"></script>
     <script src="assets/js/showdetailsticket.js"></script>
+    <script src="assets/js/confirmar-asignacion.js"></script>
 
   </body>
 
