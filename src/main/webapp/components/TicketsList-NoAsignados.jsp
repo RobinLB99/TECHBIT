@@ -1,3 +1,4 @@
+<%@page import="com.robinlb.techbit.model.Empleado"%>
 <%@page import="com.robinlb.techbit.controllers.DateController"%>
 <%@page import="com.robinlb.techbit.model.TicketSoporte"%>
 <%@page import="java.util.List"%>
@@ -11,19 +12,11 @@
     <div class="d-flex justify-content-between">
         <div class="actions d-flex flex-row gap-3">
 
-            <!-- Botón para restablecer contraseña -->
-            <form action="#" method="get" id="ResetPasswordBtn" hidden>
-                <input type="text" name="idForResetPassword" id="idForResetPassword" hidden>
-                <button type="submit" class="btn btn-secondary d-flex flex-row gap-2 align-items-center" id="btnResetPassword" title="Restablecer contraseña" disabled>
-                    <i class="fa-solid fa-key"></i>
-                </button>
-            </form>
-
-            <!-- Botón para modificar usuario -->
-            <form action="#" method="get" id="ModifyUserBtn" hidden>
-                <input type="text" name="inIdEmMod" id="inIdEmMod" hidden>
-                <button type="submit" class="btn btn-secondary d-flex flex-row gap-2 align-items-center" id="btnActualizarRegistro" title="Actualizar registro" disabled>
-                    <i class="fa-solid fa-user-pen"></i>
+            <!-- Botón para asignar tecnico -->
+            <form action="#" method="post" id="asignTicketMethod">
+                <input type="hidden" name="TicketID_" id="ticketIDSelected" />
+                <button type="submit" class="btn btn-primary d-flex flex-row gap-2 align-items-center" id="btnAsignTech" title="Asignar tecnico al ticket" data-bs-toggle="modal" data-bs-target="#confirmarAsignacion" disabled>
+                    <i class="fa-solid fa-user-gear"></i>
                 </button>
             </form>
         </div>
@@ -44,6 +37,7 @@
 
             <thead>
                 <tr>
+                    <th></th>
                     <th>Tituto</th>
                     <th>Categoria</th>
                     <th>Fecha de creación</th>
@@ -62,11 +56,14 @@
                 %>
 
                 <tr>
+                    <td>
+                        <input type="radio" name="_idTicket" class="form-check-input" value="<%= ticket.getTicketId()%>" style="width: 25px; height: 25px;">
+                    </td>
                     <td><%= ticket.getTitulo()%></td>
                     <td><%= ticket.getCategoria()%></td>
                     <td><%= dateControl.dateToStringForView(ticket.getCreacion())%></td>
                     <td><%= ticket.getClienteNatural().getNombres()%> <%= ticket.getClienteNatural().getApellidos()%></td>
-                    <td class="d-flex flex-row gap-2">
+                    <td class="">
                         <div class="btn btn-primary" name="detail" title="Detalle" data-bs-toggle="modal" data-bs-target="#exampleModal">
                             <i class="fa-solid fa-circle-info"></i>
                             <input type="hidden" name="title" value="<%= ticket.getTitulo()%>">
@@ -75,12 +72,6 @@
                             <input type="hidden" name="autor" value="<%= ticket.getClienteNatural().getNombres()%> <%= ticket.getClienteNatural().getApellidos()%>">
                             <input type="hidden" name="descrciption" value="<%= ticket.getDescripcion()%>">
                         </div>
-                        <form action="SvAsignarTicket" method="post" name="asignarticketform">
-                            <input type="hidden" name="idTicketAsignar_" value="<%= ticket.getTicketId()%>"/>
-                            <button class="btn btn-success" type="submit" title="Asignar" data-bs-toggle="modal" data-bs-target="#confirmarAsignacion">
-                                <i class="fa-solid fa-user-check"></i>
-                            </button>
-                        </form>
                     </td>
                 </tr>
 
@@ -121,19 +112,52 @@
 
 <!-- Modal de confirmación de asignación -->
 <div class="modal fade" id="confirmarAsignacion" tabindex="-1" aria-labelledby="confirmarAsignacionLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h1 class="modal-title fs-5" id="confirmarAsignacionLabel">Asignar ticket</h1>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-          <p>¿Desea asignar el ticket a un técnico?</p>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-        <button type="button" class="btn btn-primary" id="btnasign">Asignar</button>
-      </div>
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="confirmarAsignacionLabel">Asignar ticket</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>¿Selecciona el técnico al que asignarle el ticket?</p>
+                <table class="table datatable table-hover">
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th>Nombres</th>
+                            <th>Apellidos</th>
+                            <th>Cargo</th>
+                            <th>Departamento</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <%
+                            List<Empleado> tecnicosSoporte1 = (List<Empleado>) request.getSession(false).getAttribute("tecnicosSoporte1");
+
+                            for (Empleado tecnicoSoporte1 : tecnicosSoporte1) {
+                        %>
+                        <tr>
+                            <td>
+                                <input class="form-check-input" type="radio" 
+                                       name="id_tecnico_lista" 
+                                       value="<%= tecnicoSoporte1.getId()%>"
+                                       style="width: 25px; height: 25px;" />
+                            </td>
+                            <td><%= tecnicoSoporte1.getNombres()%></td>
+                            <td><%= tecnicoSoporte1.getApellidos()%></td>
+                            <td><%= tecnicoSoporte1.getCargo() %></td>
+                            <td><%= tecnicoSoporte1.getDepartamento() %></td>
+                        </tr>
+                        <%
+                            }
+                        %>
+                    </tbody>
+                </table>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                <button type="button" class="btn btn-primary" id="btnasign">Continuar</button>
+            </div>
+        </div>
     </div>
-  </div>
 </div>
