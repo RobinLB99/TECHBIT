@@ -12,9 +12,9 @@ formAsignTech.addEventListener("submit", (event) => {
 listTickets.forEach(ticket => {
    ticket.addEventListener("change", () => {
       if (ticket.checked) {
-         // TOMAR EL ID DEL TICKET
+         // Tomar el ID del ticket
          idTicketSelected.value = ticket.value;
-         // ACTIVAR EL BOTON DE ASIGNAR
+         // Activar el boton de asignación
          btnAsignTech.disabled = false;
       }
    })
