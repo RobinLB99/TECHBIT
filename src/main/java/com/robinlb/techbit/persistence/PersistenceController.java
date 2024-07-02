@@ -50,6 +50,10 @@ public class PersistenceController {
       Logger.getLogger(PersistenceController.class.getName()).log(Level.SEVERE, null, ex);
     }
   }
+  
+  public List<Empleado> findTecnicoSoportePorCargo(String cargo) {
+      return empleadoJpa.findTecnicoSoportePorCargo(cargo);
+  }
 
   public Empleado viewEmploy(Long id) {
     return empleadoJpa.findEmpleado(id);

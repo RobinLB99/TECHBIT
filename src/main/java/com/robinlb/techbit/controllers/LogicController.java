@@ -33,6 +33,10 @@ public class LogicController {
   public void actualizarEmpleado(Empleado empleado) {
     perControl.updateEmploy(empleado);
   }
+  
+  public List<Empleado> traerTecnicosPorCargo(String cargo) {
+      return perControl.findTecnicoSoportePorCargo(cargo);
+  }
 
   public Empleado verEmpleado(Long id) {
     return perControl.viewEmploy(id);

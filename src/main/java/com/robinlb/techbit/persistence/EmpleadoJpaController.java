@@ -7,6 +7,7 @@ import jakarta.persistence.EntityManagerFactory;
 import java.io.Serializable;
 import jakarta.persistence.Query;
 import jakarta.persistence.EntityNotFoundException;
+import jakarta.persistence.TypedQuery;
 import jakarta.persistence.criteria.CriteriaQuery;
 import jakarta.persistence.criteria.Root;
 import java.util.List;
@@ -122,6 +123,17 @@ public class EmpleadoJpaController implements Serializable {
     finally {
       em.close();
     }
+  }
+  
+  public List<Empleado> findTecnicoSoportePorCargo(String cargo) {
+      EntityManager em = getEntityManager();
+      try {
+          Query query = em.createQuery("SELECT t FROM Empleado.t WHERE t.cargo = :cargo");
+          query.setParameter("cargo", cargo);
+          return (List<Empleado>) query.getResultList();
+      } finally {
+          em.close();
+      }
   }
 
   public int getEmpleadoCount() {
