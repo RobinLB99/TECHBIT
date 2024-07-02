@@ -1,6 +1,7 @@
 package com.robinlb.techbit.servelets.ticket.redireccionamiento;
 
 import com.robinlb.techbit.controllers.LogicController;
+import com.robinlb.techbit.model.Empleado;
 import com.robinlb.techbit.model.TicketSoporte;
 import java.io.IOException;
 import jakarta.servlet.ServletException;
@@ -40,9 +41,11 @@ public class SvGoToNoAsigmentTickets extends HttpServlet {
     
     try {
       List<TicketSoporte> ticketsNoAignados = control.buscarTicketsNoAsignados();
+      List<Empleado> tecnicosSoporte1 = control.traerTecnicosPorCargo("Ingeniero de Soporte Jr");
       
       HttpSession a = request.getSession(false);
       a.setAttribute("TicketsNoAsignados", ticketsNoAignados);
+      a.setAttribute("tecnicosSoporte1", tecnicosSoporte1);
       
       response.sendRedirect("TicketsNoAsignados.jsp");
       
