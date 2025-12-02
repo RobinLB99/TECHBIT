@@ -1,5 +1,6 @@
 /target/
 /tomcat.8080
+/TechBit.iml
 /.idea
 /doc
 .classpath
