@@ -11,7 +11,6 @@ import jakarta.persistence.EntityNotFoundException;
 import jakarta.persistence.criteria.CriteriaQuery;
 import jakarta.persistence.criteria.Root;
 import java.util.List;
-import org.eclipse.persistence.jpa.JpaHelper;
 
 /**
  *

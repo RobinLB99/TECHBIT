@@ -87,8 +87,8 @@ public class TicketSoporte implements Serializable {
   @Temporal(TemporalType.TIME)
   private Date tiempoSolucion;
 
-  @JoinColumn(name = "archivos_adjuntos", referencedColumnName = "files_id", nullable = true)
-  @ManyToOne(optional = false)
+  @JoinColumn(name = "archivos_adjuntos", referencedColumnName = "files_id")
+  @ManyToOne(optional = true)
   private ArchivoAdjunto archivoAdjunto;
 
   @JoinColumn(name = "cliente_natural", referencedColumnName = "id", nullable = false)

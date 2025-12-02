@@ -62,7 +62,7 @@ public class SvRegistrarCuentaCliente extends HttpServlet {
       if (cliente != null) {
         Usuario usuario = null;
         try {
-          control.verUsuarioPorNombreUsuario(username);
+          usuario = control.verUsuarioPorNombreUsuario(username);
         } catch (Exception a) {
         }
 
@@ -78,19 +78,25 @@ public class SvRegistrarCuentaCliente extends HttpServlet {
             control.crearUsuario(usuario);
             response.sendRedirect("Login_Cliente.jsp?account=create");
           } catch (Exception a) {
-            response.sendRedirect("CreateClientAccount.jsp?create_account=error");
+            response.sendRedirect("CreateClientAccount.html?create_account=error");
           }
 
         } else {
-          response.sendRedirect("CreateClientAccount.jsp?existe_usuario=true");
+          response.sendRedirect("CreateClientAccount.html?existe_usuario=true");
         }
 
       } else {
-        response.sendRedirect("CreateClientAccount.jsp?existe_cliente=false");
+        // This part may not be reached if buscarClienteNaturalPorNUI throws an exception
+        response.sendRedirect("CreateClientAccount.html?existe_cliente=false");
       }
 
+    } catch (jakarta.persistence.NoResultException e) {
+        // This catch block handles the specific case where the NUI does not find any client
+        response.sendRedirect("CreateClientAccount.html?existe_cliente=false");
     } catch (Exception e) {
-      response.sendRedirect("PageError500.jsp");
+        // This is a generic catch block for other unexpected errors
+//        System.out.println("Exception: " + e.getMessage());
+        response.sendRedirect("PageError500.jsp");
     }
 
   }// </editor-fold>
