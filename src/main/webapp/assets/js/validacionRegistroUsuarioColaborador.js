@@ -14,29 +14,47 @@ document.addEventListener("DOMContentLoaded", function() {
 
 	// Valida los campos estén ingresados correctamente.
 	formUser.addEventListener("submit", function(event) {
+		// Prevenir el envío automático para hacer la validación manual
 		event.preventDefault();
 
-		let formIsValid = true;
+		// Validar cada campo individualmente
+		const isUsernameValid = usernameRegex.test(username.value);
+		const isPasswordValid = passwordRegex.test(password.value);
+		const isAccessValid = access.value !== "";
 
-		if (!usernameRegex.test(username.value)) {
-			username.classList.add("is-invalid");
-			username.focus();
-			formIsValid = false;
-		} else {
+		// Aplicar o remover clases de validación para feedback visual
+		if (isUsernameValid) {
 			username.classList.remove("is-invalid");
-			formIsValid = true;
-		}
-
-		if (!passwordRegex.test(password.value)) {
-			password.classList.add("is-invalid");
-			formIsValid = false;
-			password.focus();
 		} else {
-			password.classList.remove("is-invalid");
-			formIsValid = true;
+			username.classList.add("is-invalid");
 		}
 
-		if (formIsValid) this.submit();
+		if (isPasswordValid) {
+			password.classList.remove("is-invalid");
+		} else {
+			password.classList.add("is-invalid");
+		}
+
+		if (isAccessValid) {
+			access.classList.remove("is-invalid");
+		} else {
+			access.classList.add("is-invalid");
+		}
+
+		// Si todos los campos son válidos, enviar el formulario
+		if (isUsernameValid && isPasswordValid && isAccessValid) {
+			// Usamos formUser.submit() para evitar la recursión del evento
+			formUser.submit();
+		} else {
+			// Opcional: enfocar el primer campo inválido para guiar al usuario
+			if (!isUsernameValid) {
+				username.focus();
+			} else if (!isPasswordValid) {
+				password.focus();
+			} else if (!isAccessValid) {
+				access.focus();
+			}
+		}
 	});
 
   // Muestra u oculta la contraseña.
