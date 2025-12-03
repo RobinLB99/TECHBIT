@@ -34,39 +34,35 @@ Para obtener instrucciones detalladas sobre cómo clonar, configurar y ejecutar 
 
 #### Creación del Usuario root
 
-![](/home/joel/snap/marktext/9/.config/marktext/images/2025-12-02-16-54-05-Captura%20de%20pantalla%20de%202025-12-02%2016-45-54.png)
+[Imgur](https://i.imgur.com/Xv7EZNy.png)
 
 #### Ingresar como usuario root
 
-![](/home/joel/snap/marktext/9/.config/marktext/images/2025-12-02-16-54-14-Captura%20de%20pantalla%20de%202025-12-02%2016-46-18.png)
+[Imgur](https://i.imgur.com/AfXQW7w.png)
 
 #### Dashboard del usuario root
 
-![](/home/joel/snap/marktext/9/.config/marktext/images/2025-12-02-16-54-22-Captura%20de%20pantalla%20de%202025-12-02%2016-46-39.png)
+[Imgur](https://i.imgur.com/W9I5BCy.png)
 
 #### Formulario de registro del Técnico
 
-![](/home/joel/snap/marktext/9/.config/marktext/images/2025-12-02-16-54-36-Captura%20de%20pantalla%20de%202025-12-02%2016-46-56.png)
+[Imgur](https://i.imgur.com/oWJvqwR.png)
 
 #### Formulario de registro del usuario final
 
-![](/home/joel/snap/marktext/9/.config/marktext/images/2025-12-02-16-54-43-Captura%20de%20pantalla%20de%202025-12-02%2016-47-18.png)
-
-#### Listado de usuarios finales
-
-![](/home/joel/snap/marktext/9/.config/marktext/images/2025-12-02-16-55-05-Captura%20de%20pantalla%20de%202025-12-02%2016-49-28.png)
+[Imgur](https://i.imgur.com/euFVCx1.png)
 
 #### Registrar credenciales del usuario final mediante el C.I.
 
-![](/home/joel/snap/marktext/9/.config/marktext/images/2025-12-02-16-55-11-Captura%20de%20pantalla%20de%202025-12-02%2016-50-20.png)
+[Imgur](https://i.imgur.com/QCFb24S.png)
 
 #### Inicio de sesión del usuario final
 
-![](/home/joel/snap/marktext/9/.config/marktext/images/2025-12-02-16-55-17-Captura%20de%20pantalla%20de%202025-12-02%2016-50-38.png)
+[Imgur](https://i.imgur.com/F1lWKwJ.png)
 
 #### Dashboard del usuario final
 
-![](/home/joel/snap/marktext/9/.config/marktext/images/2025-12-02-16-55-22-Captura%20de%20pantalla%20de%202025-12-02%2016-50-49.png)
+[Imgur](https://i.imgur.com/RTiB3lp.png)
 
 ## Licencia
 
