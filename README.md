@@ -34,35 +34,35 @@ Para obtener instrucciones detalladas sobre cómo clonar, configurar y ejecutar 
 
 #### Creación del Usuario root
 
-[Imgur](https://i.imgur.com/Xv7EZNy.png)
+![Imgur](https://i.imgur.com/Xv7EZNy.png)
 
 #### Ingresar como usuario root
 
-[Imgur](https://i.imgur.com/AfXQW7w.png)
+![Imgur](https://i.imgur.com/AfXQW7w.png)
 
 #### Dashboard del usuario root
 
-[Imgur](https://i.imgur.com/W9I5BCy.png)
+![Imgur](https://i.imgur.com/W9I5BCy.png)
 
 #### Formulario de registro del Técnico
 
-[Imgur](https://i.imgur.com/oWJvqwR.png)
+![Imgur](https://i.imgur.com/oWJvqwR.png)
 
 #### Formulario de registro del usuario final
 
-[Imgur](https://i.imgur.com/euFVCx1.png)
+![Imgur](https://i.imgur.com/euFVCx1.png)
 
 #### Registrar credenciales del usuario final mediante el C.I.
 
-[Imgur](https://i.imgur.com/QCFb24S.png)
+![Imgur](https://i.imgur.com/QCFb24S.png)
 
 #### Inicio de sesión del usuario final
 
-[Imgur](https://i.imgur.com/F1lWKwJ.png)
+![Imgur](https://i.imgur.com/F1lWKwJ.png)
 
 #### Dashboard del usuario final
 
-[Imgur](https://i.imgur.com/RTiB3lp.png)
+![Imgur](https://i.imgur.com/RTiB3lp.png)
 
 ## Licencia
 
