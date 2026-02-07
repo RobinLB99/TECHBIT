@@ -10,5 +10,13 @@ services:
     volumes:
       - mariadb_data:/var/lib/mysql
 
+  app:
+    build: .
+    container_name: techbit-app
+    ports:
+      - "8080:8080"
+    depends_on:
+      - mariadb
+
 volumes:
   mariadb_data:
