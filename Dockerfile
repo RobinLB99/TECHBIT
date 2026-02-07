@@ -1,25 +1,14 @@
-# Stage 1: Build the application
+# Stage 1: Build the WAR file
 FROM maven:3.9-eclipse-temurin-21 AS build
-
 WORKDIR /app
-
-# Copy the Maven project files
 COPY pom.xml .
 COPY src ./src
-
-# Build the application
 RUN mvn clean package -DskipTests
 
-# Stage 2: Run the application
-FROM eclipse-temurin:21-jre-alpine-3.23
+# Stage 2: Deploy the WAR to a Tomcat server
+FROM tomcat:10.1-jre21-temurin-noble
+COPY --from=build /app/target/TechBit-1.0.0.war /usr/local/tomcat/webapps/TechBit.war
 
-WORKDIR /app
-
-# Copy the executable JAR from the build stage
-COPY --from=build /app/target/TechBit-1.0.0.jar ./app.jar
-
-# Expose the port the application runs on
+# Expose Tomcat's default port
 EXPOSE 8080
-
-# Command to run the application
-ENTRYPOINT ["java", "-jar", "app.jar"]
+# No need for an ENTRYPOINT here, Tomcat image handles it
