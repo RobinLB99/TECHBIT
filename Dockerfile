@@ -10,5 +10,6 @@ FROM tomcat:10.1-jre21-temurin-noble
 COPY --from=build /app/target/TechBit-1.0.0.war /usr/local/tomcat/webapps/ROOT.war
 
 # Expose Tomcat's default port
+ENV CATALINA_OPTS="-DDB_HOST=${DB_HOST} -DDB_PORT=${DB_PORT} -DDB_NAME=${DB_NAME} -DDB_USER=${DB_USER} -DDB_PASSWORD=${DB_PASSWORD}"
 EXPOSE 8080
 # No need for an ENTRYPOINT here, Tomcat image handles it
