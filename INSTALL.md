@@ -61,6 +61,14 @@ Este comando realizará las siguientes acciones:
 
 Verás los logs de ambos servicios en tu terminal. Esto puede tardar unos minutos la primera vez.
 
+Si prefieres ejecutar los servicios en segundo plano y luego ver los logs de forma interactiva, puedes usar:
+
+```bash
+docker compose up --build -d
+docker compose logs -f
+```
+
+
 ## 3. Acceder a la Aplicación
 
 Una vez que Docker Compose haya terminado de iniciar los servicios, la aplicación estará disponible.
