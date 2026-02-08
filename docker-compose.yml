@@ -1,12 +1,12 @@
 services:
   mariadb:
     image: mariadb:12.1.2-ubi10
-    container_name: techbit-mariadb
+    container_name: ${DB_HOST}
     environment:
-      MARIADB_ROOT_PASSWORD: "@RootPasswordSecure123"
-      MARIADB_DATABASE: techbit_db
+      MARIADB_ROOT_PASSWORD: ${DB_ROOT_PASSWORD}
+      MARIADB_DATABASE: ${DB_NAME}
     ports:
-      - "3306:3306"
+      - "${DB_PORT}:3306"
     volumes:
       - mariadb_data:/var/lib/mysql
 
@@ -17,6 +17,12 @@ services:
       - "8080:8080"
     depends_on:
       - mariadb
+    environment:
+      DB_HOST: ${DB_HOST}
+      DB_PORT: ${DB_PORT}
+      DB_USER: ${DB_USER}
+      DB_PASSWORD: ${DB_PASSWORD}
+      DB_NAME: ${DB_NAME}
 
 volumes:
   mariadb_data:
