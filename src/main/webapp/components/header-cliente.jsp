@@ -1,8 +1,8 @@
 <%@page import="com.robinlb.techbit.model.Usuario"%>
 <%@page contentType="text/html" pageEncoding="UTF-8" language="java"%>
 <%
-  String realName = 
-          usuario.getClienteNatural().getNombres() + " " + 
+  String realName =
+          usuario.getClienteNatural().getNombres() + " " +
           usuario.getClienteNatural().getApellidos();
   String rol = usuario.getPrivilegios();
 %>
@@ -76,7 +76,7 @@
           </li>
 
           <form method="post" action="SvLogout">
-            <button type="submit" class="dropdown-item d-flex align-items-center" href="/TechBit/SvLogout&method=post">
+            <button type="submit" class="dropdown-item d-flex align-items-center" href="/SvLogout&method=post">
               <i class="bi bi-box-arrow-right"></i>
               <span>Cerrar sesión</span>
             </button>
