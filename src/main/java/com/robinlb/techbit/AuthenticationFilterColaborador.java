@@ -1,6 +1,5 @@
 package com.robinlb.techbit;
 
-import java.io.IOException;
 import jakarta.servlet.Filter;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.FilterConfig;
@@ -10,6 +9,7 @@ import jakarta.servlet.ServletResponse;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
+import java.io.IOException;
 
 /**
  * Filtro de autentificación que permite validar si existe una sesión activa
@@ -18,8 +18,7 @@ import jakarta.servlet.http.HttpSession;
  */
 public class AuthenticationFilterColaborador implements Filter {
 
-  public void init(FilterConfig fConfig) throws ServletException {
-  }
+  public void init(FilterConfig fConfig) throws ServletException {}
 
   /**
    * El metodo doFilter, valida si existe una sesión activa. Redirege a Login en
@@ -32,9 +31,13 @@ public class AuthenticationFilterColaborador implements Filter {
    * @throws IOException
    * @throws ServletException
    */
-  public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
-    
-    AuthenticationFilterForClienteLog client_log = new AuthenticationFilterForClienteLog();
+  public void doFilter(
+    ServletRequest request,
+    ServletResponse response,
+    FilterChain chain
+  ) throws IOException, ServletException {
+    AuthenticationFilterForClienteLog client_log =
+      new AuthenticationFilterForClienteLog();
 
     HttpServletRequest httpRequest = (HttpServletRequest) request;
     HttpServletResponse httpResponse = (HttpServletResponse) response;
@@ -42,26 +45,26 @@ public class AuthenticationFilterColaborador implements Filter {
 
     HttpSession session = httpRequest.getSession(false);
 
-    if (session == null || session.getAttribute("user") == null) { // Solo si la sesion es nula o el atributo user sea nulo;
+    String contextPath = httpRequest.getContextPath();
+    String loginPageURI = contextPath + "/Login.jsp";
+    String dashboardPageURI = contextPath + "/Dashboard.jsp";
 
-      if (requestURI.equals("/TechBit/Login.jsp")) {
-//        chain.doFilter(request, response);
-        client_log.doFilter(request, response, chain);
+    if (session == null || session.getAttribute("user") == null) {
+      // User is NOT authenticated
+      if (requestURI.equals(loginPageURI)) {
+        chain.doFilter(request, response); // Allow Login.jsp to be rendered for unauthenticated users
       } else {
-        httpResponse.sendRedirect("Login.jsp");
+        httpResponse.sendRedirect(loginPageURI); // Redirect to Login.jsp if trying to access protected resource
       }
-
-    } else { // En caso de que la sesion no sea nula o el atributo user no sea nulo
-      if (requestURI.equals("/TechBit/Login.jsp")) {
-        httpResponse.sendRedirect("Dashboard.jsp");
+    } else {
+      // User IS authenticated
+      if (requestURI.equals(loginPageURI)) {
+        httpResponse.sendRedirect(dashboardPageURI); // Redirect to Dashboard.jsp if authenticated and trying to access login page
       } else {
-//        chain.doFilter(request, response);
-        client_log.doFilter(request, response, chain);
+        chain.doFilter(request, response); // Allow access to protected resources for authenticated users
       }
     }
   }
 
-  public void destroy() {
-  }
-
+  public void destroy() {}
 }
