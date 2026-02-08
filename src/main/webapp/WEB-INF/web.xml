@@ -1,6 +1,17 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<web-app version="6.0" xmlns="https://jakarta.ee/xml/ns/jakartaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_6_0.xsd">
-  
+<?xml version="1.0" encoding="UTF-8" ?>
+<web-app
+  version="6.0"
+  xmlns="https://jakarta.ee/xml/ns/jakartaee"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_6_0.xsd"
+>
+
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>Main.html</welcome-file>
+  </welcome-file-list>
+
   <!-- Filtro para forzar la codificación de caracteres a UTF-8 -->
   <filter>
     <filter-name>CharacterEncodingFilter</filter-name>
@@ -10,14 +21,15 @@
     <filter-name>CharacterEncodingFilter</filter-name>
     <url-pattern>/*</url-pattern>
   </filter-mapping>
-  
+
   <session-config>
     <session-timeout>30</session-timeout>
   </session-config>
   <!--Filtro para recursos de colaboradores-->
   <filter>
     <filter-name>AuthenticationFilterColaborador</filter-name>
-    <filter-class>com.robinlb.techbit.AuthenticationFilterColaborador</filter-class>
+    <filter-class
+    >com.robinlb.techbit.AuthenticationFilterColaborador</filter-class>
   </filter>
   <filter-mapping>
     <filter-name>AuthenticationFilterColaborador</filter-name>
@@ -37,7 +49,7 @@
     <url-pattern>/CredencialesUsuariosFinales.jsp</url-pattern>
     <url-pattern>/TicketsNoAsignados.jsp</url-pattern>
   </filter-mapping>
-  
+
   <!--Filtro para recursos de clientes-->
   <filter>
     <filter-name>AuthenticationFilterCliente</filter-name>
@@ -49,11 +61,12 @@
     <url-pattern>/C-Dashboard.jsp</url-pattern>
     <url-pattern>/CrearTicket.jsp</url-pattern>
   </filter-mapping>
-  
+
   <!-- Filtros de acceso a servelets dedicados a colaboradores -->
   <filter>
     <filter-name>AuthenticationFilterServeletsForColaboradores</filter-name>
-    <filter-class>com.robinlb.techbit.AuthenticationFilterServeletsForColaboradores</filter-class>
+    <filter-class
+    >com.robinlb.techbit.AuthenticationFilterServeletsForColaboradores</filter-class>
   </filter>
   <filter-mapping>
     <filter-name>AuthenticationFilterServeletsForColaboradores</filter-name>
