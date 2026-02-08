@@ -21,23 +21,33 @@ import java.util.logging.Logger;
 public class PersistenceController {
 
   static {
+    System.out.println("DEBUG: Iniciando bloque estático de PersistenceController para configurar propiedades DB.");
     // Read environment variables and set them as system properties
     Map<String, String> env = System.getenv();
-    if (env.containsKey("DB_HOST")) {
-      System.setProperty("DB_HOST", env.get("DB_HOST"));
-    }
-    if (env.containsKey("DB_PORT")) {
-      System.setProperty("DB_PORT", env.get("DB_PORT"));
-    }
-    if (env.containsKey("DB_NAME")) {
-      System.setProperty("DB_NAME", env.get("DB_NAME"));
-    }
-    if (env.containsKey("DB_USER")) {
-      System.setProperty("DB_USER", env.get("DB_USER"));
-    }
-    if (env.containsKey("DB_PASSWORD")) {
-      System.setProperty("DB_PASSWORD", env.get("DB_PASSWORD"));
-    }
+    String dbHost = env.get("DB_HOST");
+    String dbPort = env.get("DB_PORT");
+    String dbName = env.get("DB_NAME");
+    String dbUser = env.get("DB_USER");
+    String dbPassword = env.get("DB_PASSWORD");
+
+    System.out.println("DEBUG: Env DB_HOST = " + dbHost);
+    System.out.println("DEBUG: Env DB_PORT = " + dbPort);
+    System.out.println("DEBUG: Env DB_NAME = " + dbName);
+    System.out.println("DEBUG: Env DB_USER = " + dbUser);
+    System.out.println("DEBUG: Env DB_PASSWORD = " + (dbPassword != null ? "[SET]" : "[NOT SET]")); // Evitar logear la contraseña real
+
+    if (dbHost != null) { System.setProperty("DB_HOST", dbHost); }
+    if (dbPort != null) { System.setProperty("DB_PORT", dbPort); }
+    if (dbName != null) { System.setProperty("DB_NAME", dbName); }
+    if (dbUser != null) { System.setProperty("DB_USER", dbUser); }
+    if (dbPassword != null) { System.setProperty("DB_PASSWORD", dbPassword); }
+
+    System.out.println("DEBUG: Propiedad de Sistema DB_HOST = " + System.getProperty("DB_HOST"));
+    System.out.println("DEBUG: Propiedad de Sistema DB_PORT = " + System.getProperty("DB_PORT"));
+    System.out.println("DEBUG: Propiedad de Sistema DB_NAME = " + System.getProperty("DB_NAME"));
+    System.out.println("DEBUG: Propiedad de Sistema DB_USER = " + System.getProperty("DB_USER"));
+    System.out.println("DEBUG: Propiedad de Sistema DB_PASSWORD = " + (System.getProperty("DB_PASSWORD") != null ? "[SET]" : "[NOT SET]"));
+    System.out.println("DEBUG: Bloque estático de PersistenceController finalizado.");
   }
 
   EntityManagerFactory emf = Persistence.createEntityManagerFactory(
