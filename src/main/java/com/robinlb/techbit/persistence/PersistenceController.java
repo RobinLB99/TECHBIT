@@ -50,9 +50,16 @@ public class PersistenceController {
     System.out.println("DEBUG: Bloque estático de PersistenceController finalizado.");
   }
 
-  EntityManagerFactory emf = Persistence.createEntityManagerFactory(
-    "com.robinlb_TechBit_war_1.0.0PU"
-  );
+  Map<String, String> jpaProperties = new HashMap<>();
+  { // Bloque inicializador de instancia para popular jpaProperties
+      jpaProperties.put("jakarta.persistence.jdbc.url", "jdbc:postgresql://" + System.getProperty("DB_HOST") + ":" + System.getProperty("DB_PORT") + "/" + System.getProperty("DB_NAME") + "?serverTimezone=UTC");
+      jpaProperties.put("jakarta.persistence.jdbc.user", System.getProperty("DB_USER"));
+      jpaProperties.put("jakarta.persistence.jdbc.password", System.getProperty("DB_PASSWORD"));
+      jpaProperties.put("jakarta.persistence.jdbc.driver", "org.postgresql.Driver");
+      jpaProperties.put("jakarta.persistence.schema-generation.database.action", "create-or-extend-tables");
+  }
+
+  EntityManagerFactory emf = Persistence.createEntityManagerFactory("com.robinlb_TechBit_war_1.0.0PU", jpaProperties);
 
   EmpleadoJpaController empleadoJpa = new EmpleadoJpaController(emf);
   UsuarioJpaController usuarioJpa = new UsuarioJpaController(emf);
