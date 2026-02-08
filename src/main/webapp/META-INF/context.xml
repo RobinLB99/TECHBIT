@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Context>
+  <Resource
+    name="jdbc/techbit_db"
+    auth="Container"
+    type="javax.sql.DataSource"
+    driverClassName="org.postgresql.Driver"
+    url="jdbc:postgresql://${env.DB_HOST}:${env.DB_PORT}/${env.DB_NAME}?serverTimezone=UTC"
+    username="${env.DB_USER}"
+    password="${env.DB_PASSWORD}"
+    maxTotal="20"
+    maxIdle="10"
+    maxWaitMillis="-1"
+  />
+</Context>

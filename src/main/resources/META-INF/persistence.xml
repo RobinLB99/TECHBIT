@@ -20,17 +20,8 @@
     <exclude-unlisted-classes>false</exclude-unlisted-classes>
     <properties>
       <property
-        name="jakarta.persistence.jdbc.url"
-        value="jdbc:postgresql://${ENV{DB_HOST}}:${ENV{DB_PORT}}/${ENV{DB_NAME}}?serverTimezone=UTC"
-      />
-      <property name="jakarta.persistence.jdbc.user" value="${ENV{DB_USER}}" />
-      <property
-        name="jakarta.persistence.jdbc.driver"
-        value="org.postgresql.Driver"
-      />
-      <property
-        name="jakarta.persistence.jdbc.password"
-        value="${ENV{DB_PASSWORD}}"
+        name="jakarta.persistence.jtaDataSource"
+        value="jdbc/techbit_db"
       />
       <property
         name="jakarta.persistence.schema-generation.database.action"
