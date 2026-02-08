@@ -1,16 +1,16 @@
-# Guía de Instalación de TECHBIT
+# Guía de Instalación y Ejecución de TECHBIT
 
-Esta guía te ayudará a instalar y ejecutar el proyecto TECHBIT en tu entorno de desarrollo local.
+Esta guía te ayudará a instalar y ejecutar el proyecto TECHBIT en tu entorno de desarrollo local utilizando Docker Compose.
 
 ## 1. Prerrequisitos
 
 Asegúrate de tener instaladas las siguientes herramientas:
 
 -   **Git:** Para clonar el repositorio.
--   **JDK 21:** Java Development Kit, versión 21.
--   **Docker y Docker Compose:** Para ejecutar el servicio de la base de datos.
+-   **Docker y Docker Compose:** Para construir y ejecutar la aplicación y su base de datos.
+-   **JDK 21 (Opcional):** Solo si necesitas construir la aplicación manualmente o ejecutar pruebas fuera del contenedor Docker. La imagen Docker ya incluye un JDK.
 
-## 2. Pasos de Instalación
+## 2. Pasos de Instalación y Ejecución
 
 ### 2.1. Clonar el Repositorio
 
@@ -23,49 +23,50 @@ cd TECHBIT
 
 *(Reemplaza `https://github.com/tu-usuario/TECHBIT.git` con la URL real del repositorio)*
 
-### 2.2. Iniciar la Base de Datos
+### 2.2. Configurar Variables de Entorno
 
-El proyecto utiliza MariaDB como base de datos, la cual se gestiona a través de Docker.
+El proyecto utiliza variables de entorno para la configuración de la base de datos.
 
-1.  Abre una terminal en la raíz del proyecto.
-2.  Ejecuta el siguiente comando para iniciar el contenedor de MariaDB en segundo plano:
+1.  Copia el archivo de ejemplo `.env.example` a un nuevo archivo llamado `.env` en la raíz del proyecto:
 
     ```bash
-    docker-compose up -d
+    cp .env.example .env
     ```
 
-Esto iniciará un servicio de MariaDB en el puerto `3306`. La base de datos se llamará `techbit_db` y la contraseña del usuario `root` será `@RootPasswordSecure123`, según lo configurado en `docker-compose.yml`.
+2.  Edita el archivo `.env` y configura los valores según sea necesario para tu entorno (puedes mantener los valores por defecto si no tienes requisitos específicos).
 
-### 2.3. Construir la Aplicación
+    ```
+    DB_HOST=mariadb
+    DB_PORT=3306
+    DB_USER=root
+    DB_PASSWORD=@RootPasswordSecure123
+    DB_NAME=techbit_db
+    ```
 
-El proyecto utiliza Maven. Usa el Maven Wrapper (`mvnw`) incluido para compilar y empaquetar la aplicación.
+### 2.3. Iniciar la Aplicación con Docker Compose
 
-En la raíz del proyecto, ejecuta:
+Docker Compose se encargará de construir la imagen de la aplicación, iniciar el servicio de la base de datos (MariaDB) y desplegar la aplicación en un servidor Tomcat.
 
-```bash
-./mvnw clean install
-```
-
-Este comando limpiará compilaciones anteriores, compilará el código y creará un archivo JAR ejecutable (uber-jar) en el directorio `target/`.
-
-## 3. Ejecutar la Aplicación
-
-Una vez que la base de datos esté en funcionamiento y el proyecto se haya compilado, puedes iniciar la aplicación.
-
-Ejecuta el siguiente comando desde la raíz del proyecto:
+En la raíz del proyecto, ejecuta el siguiente comando:
 
 ```bash
-java -jar target/TechBit-1.0.0.jar
+docker-compose up --build
 ```
 
-Verás un mensaje en la consola indicando que el servidor se ha iniciado:
+Este comando realizará las siguientes acciones:
+-   Leerá el archivo `.env` para cargar las variables de entorno.
+-   Construirá la imagen Docker de la aplicación Java, compilando el código y generando el WAR.
+-   Creará e iniciará un contenedor para la base de datos MariaDB.
+-   Creará e iniciará un contenedor para la aplicación Tomcat con tu WAR desplegado.
 
-```
-Servidor Tomcat embebido iniciado en el puerto: 8080
-```
+Verás los logs de ambos servicios en tu terminal. Esto puede tardar unos minutos la primera vez.
 
-## 4. Acceder a la Aplicación
+## 3. Acceder a la Aplicación
+
+Una vez que Docker Compose haya terminado de iniciar los servicios, la aplicación estará disponible.
 
 Abre tu navegador web y navega a la siguiente URL para acceder a la aplicación:
 
-**http://localhost:8080/TechBit**
+**http://localhost:8080/**
+
+Si necesitas detener los servicios, puedes hacerlo con `docker-compose down`. Si además deseas eliminar los volúmenes de datos persistentes de la base de datos (por ejemplo, para empezar con una base de datos limpia), usa `docker-compose down -v`. Puedes ejecutar estos comandos en la misma terminal donde ejecutaste `docker-compose up` (o en una nueva terminal si lo ejecutaste con `-d`).
