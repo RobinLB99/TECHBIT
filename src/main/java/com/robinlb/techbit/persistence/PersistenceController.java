@@ -10,6 +10,7 @@ import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
 import java.util.Collection;
 import java.util.List;
+import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -19,182 +20,224 @@ import java.util.logging.Logger;
  */
 public class PersistenceController {
 
-    EntityManagerFactory emf = Persistence.createEntityManagerFactory("com.robinlb_TechBit_war_1.0.0PU");
-
-    EmpleadoJpaController empleadoJpa = new EmpleadoJpaController(emf);
-    UsuarioJpaController usuarioJpa = new UsuarioJpaController(emf);
-    ClienteNaturalJpaController clienteJpa = new ClienteNaturalJpaController(emf);
-    TicketSoporteJpaController ticketJpa = new TicketSoporteJpaController(emf);
-    ArchivoAdjuntoJpaController archivoJpa = new ArchivoAdjuntoJpaController(emf);
-
-    /**
-     *
-     * @param empleado
-     */
-    public void createEmploy(Empleado empleado) {
-        empleadoJpa.create(empleado);
+  static {
+    // Read environment variables and set them as system properties
+    Map<String, String> env = System.getenv();
+    if (env.containsKey("DB_HOST")) {
+      System.setProperty("DB_HOST", env.get("DB_HOST"));
     }
-
-    public void destroyEmploy(Long id) {
-        try {
-            empleadoJpa.destroy(id);
-        } catch (NonexistentEntityException ex) {
-            Logger.getLogger(PersistenceController.class.getName()).log(Level.SEVERE, null, ex);
-        }
+    if (env.containsKey("DB_PORT")) {
+      System.setProperty("DB_PORT", env.get("DB_PORT"));
     }
-
-    public void updateEmploy(Empleado empleado) {
-        try {
-            empleadoJpa.edit(empleado);
-        } catch (Exception ex) {
-            Logger.getLogger(PersistenceController.class.getName()).log(Level.SEVERE, null, ex);
-        }
+    if (env.containsKey("DB_NAME")) {
+      System.setProperty("DB_NAME", env.get("DB_NAME"));
     }
-
-    public List<Empleado> findTecnicoSoportePorCargo(String cargo) {
-        return empleadoJpa.findTecnicoSoportePorCargo(cargo);
+    if (env.containsKey("DB_USER")) {
+      System.setProperty("DB_USER", env.get("DB_USER"));
     }
-
-    public Empleado viewEmploy(Long id) {
-        return empleadoJpa.findEmpleado(id);
+    if (env.containsKey("DB_PASSWORD")) {
+      System.setProperty("DB_PASSWORD", env.get("DB_PASSWORD"));
     }
+  }
 
-    public Collection<Empleado> employList() {
-        return empleadoJpa.findEmpleadoEntities();
-    }
+  EntityManagerFactory emf = Persistence.createEntityManagerFactory(
+    "com.robinlb_TechBit_war_1.0.0PU"
+  );
 
-    /**
-     *
-     * @param usuario
-     */
-    public void createUser(Usuario usuario) {
-        usuarioJpa.create(usuario);
-    }
+  EmpleadoJpaController empleadoJpa = new EmpleadoJpaController(emf);
+  UsuarioJpaController usuarioJpa = new UsuarioJpaController(emf);
+  ClienteNaturalJpaController clienteJpa = new ClienteNaturalJpaController(emf);
+  TicketSoporteJpaController ticketJpa = new TicketSoporteJpaController(emf);
+  ArchivoAdjuntoJpaController archivoJpa = new ArchivoAdjuntoJpaController(emf);
 
-    public void destroyUsuario(Long id) {
-        try {
-            usuarioJpa.destroy(id);
-        } catch (NonexistentEntityException ex) {
-            Logger.getLogger(PersistenceController.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }
+  /**
+   *
+   * @param empleado
+   */
+  public void createEmploy(Empleado empleado) {
+    empleadoJpa.create(empleado);
+  }
 
-    public void updateUser(Usuario usuario) {
-        try {
-            usuarioJpa.edit(usuario);
-        } catch (Exception ex) {
-            Logger.getLogger(PersistenceController.class.getName()).log(Level.SEVERE, null, ex);
-        }
+  public void destroyEmploy(Long id) {
+    try {
+      empleadoJpa.destroy(id);
+    } catch (NonexistentEntityException ex) {
+      Logger.getLogger(PersistenceController.class.getName()).log(
+        Level.SEVERE,
+        null,
+        ex
+      );
     }
+  }
 
-    public Usuario viewUser(Long id) {
-        return usuarioJpa.findUsuario(id);
+  public void updateEmploy(Empleado empleado) {
+    try {
+      empleadoJpa.edit(empleado);
+    } catch (Exception ex) {
+      Logger.getLogger(PersistenceController.class.getName()).log(
+        Level.SEVERE,
+        null,
+        ex
+      );
     }
+  }
 
-    public Usuario viewUserForNameuser(String username) {
-        return usuarioJpa.findUsuarioForUsername(username);
-    }
+  public List<Empleado> findTecnicoSoportePorCargo(String cargo) {
+    return empleadoJpa.findTecnicoSoportePorCargo(cargo);
+  }
 
-    public Usuario viewUserForEmploy(Empleado empleado) {
-        return usuarioJpa.findUsuarioForEmpleado(empleado);
-    }
+  public Empleado viewEmploy(Long id) {
+    return empleadoJpa.findEmpleado(id);
+  }
 
-    public Usuario findNaturalClientUserForUsername(String username) {
-        return usuarioJpa.findUsuarioClienteNaturalForUsername(username);
-    }
+  public Collection<Empleado> employList() {
+    return empleadoJpa.findEmpleadoEntities();
+  }
 
-    public Usuario findNaturalClienteUserForClienteNatural(ClienteNatural usuarioFinal) {
-        return usuarioJpa.findUsuarioClienteNaturalForClienteNatural(usuarioFinal);
-    }
+  /**
+   *
+   * @param usuario
+   */
+  public void createUser(Usuario usuario) {
+    usuarioJpa.create(usuario);
+  }
 
-    public List<Usuario> findAllClienteNaturalUser() {
-        return usuarioJpa.findAllUsuarioClienteNatural();
+  public void destroyUsuario(Long id) {
+    try {
+      usuarioJpa.destroy(id);
+    } catch (NonexistentEntityException ex) {
+      Logger.getLogger(PersistenceController.class.getName()).log(
+        Level.SEVERE,
+        null,
+        ex
+      );
     }
+  }
 
-    public Collection<Usuario> usersList() {
-        return usuarioJpa.findUsuarioEntities();
+  public void updateUser(Usuario usuario) {
+    try {
+      usuarioJpa.edit(usuario);
+    } catch (Exception ex) {
+      Logger.getLogger(PersistenceController.class.getName()).log(
+        Level.SEVERE,
+        null,
+        ex
+      );
     }
+  }
 
-    public Long countUsers() {
-        return usuarioJpa.getUserCount();
-    }
+  public Usuario viewUser(Long id) {
+    return usuarioJpa.findUsuario(id);
+  }
 
-    public Long countUsersClients() {
-        return usuarioJpa.getUserClientCount();
-    }
+  public Usuario viewUserForNameuser(String username) {
+    return usuarioJpa.findUsuarioForUsername(username);
+  }
 
-    // Cliente natural
-    public void createNaturalClient(ClienteNatural client) {
-        clienteJpa.create(client);
-    }
+  public Usuario viewUserForEmploy(Empleado empleado) {
+    return usuarioJpa.findUsuarioForEmpleado(empleado);
+  }
 
-    public void deleteNaturalClient(Long id) throws NonexistentEntityException {
-        clienteJpa.destroy(id);
-    }
+  public Usuario findNaturalClientUserForUsername(String username) {
+    return usuarioJpa.findUsuarioClienteNaturalForUsername(username);
+  }
 
-    public void editNaturalClient(ClienteNatural client) throws Exception {
-        clienteJpa.edit(client);
-    }
+  public Usuario findNaturalClienteUserForClienteNatural(
+    ClienteNatural usuarioFinal
+  ) {
+    return usuarioJpa.findUsuarioClienteNaturalForClienteNatural(usuarioFinal);
+  }
 
-    public ClienteNatural findNaturalClient(Long id) {
-        return clienteJpa.findClienteNatural(id);
-    }
+  public List<Usuario> findAllClienteNaturalUser() {
+    return usuarioJpa.findAllUsuarioClienteNatural();
+  }
 
-    public List<ClienteNatural> findAllNaturalClients() {
-        return clienteJpa.findClienteNaturalEntities();
-    }
+  public Collection<Usuario> usersList() {
+    return usuarioJpa.findUsuarioEntities();
+  }
 
-    public ClienteNatural findClienteNaturalForNUI(String nui) {
-        return clienteJpa.findClienteNaturalForNUI(nui);
-    }
+  public Long countUsers() {
+    return usuarioJpa.getUserCount();
+  }
 
-    public Long countClienteNaturalForDirIP(String ip) {
-        return clienteJpa.countClienteNaturalForDirIP(ip);
-    }
+  public Long countUsersClients() {
+    return usuarioJpa.getUserClientCount();
+  }
 
-    public Long countClienteNaturalForDirMAC(String mac) {
-        return clienteJpa.countClienteNaturalForDirMAC(mac);
-    }
+  // Cliente natural
+  public void createNaturalClient(ClienteNatural client) {
+    clienteJpa.create(client);
+  }
 
-    // Ticket de soporte
-    public void createTicket(TicketSoporte ticket) {
-        ticketJpa.create(ticket);
-    }
+  public void deleteNaturalClient(Long id) throws NonexistentEntityException {
+    clienteJpa.destroy(id);
+  }
 
-    public void deleteTicket(Long id) throws NonexistentEntityException {
-        ticketJpa.destroy(id);
-    }
+  public void editNaturalClient(ClienteNatural client) throws Exception {
+    clienteJpa.edit(client);
+  }
 
-    public void updateTicket(TicketSoporte ticket) throws Exception {
-        ticketJpa.edit(ticket);
-    }
+  public ClienteNatural findNaturalClient(Long id) {
+    return clienteJpa.findClienteNatural(id);
+  }
 
-    public TicketSoporte findTicket(Long id) {
-        return ticketJpa.findTicketSoporte(id);
-    }
+  public List<ClienteNatural> findAllNaturalClients() {
+    return clienteJpa.findClienteNaturalEntities();
+  }
 
-    public List<TicketSoporte> findTicketsNoAsigment() {
-        return ticketJpa.findTicketSoporteListNoAsignados();
-    }
+  public ClienteNatural findClienteNaturalForNUI(String nui) {
+    return clienteJpa.findClienteNaturalForNUI(nui);
+  }
 
-    public List<TicketSoporte> findTicketByEstado(String estado) {
-        return null;
-    }
+  public Long countClienteNaturalForDirIP(String ip) {
+    return clienteJpa.countClienteNaturalForDirIP(ip);
+  }
 
-    public TicketSoporte findTicketSoporteByClienteNatural(ClienteNatural usuarioFinal) {
-        return ticketJpa.findTicketSoporteByClienteNatural(usuarioFinal);
-    }
+  public Long countClienteNaturalForDirMAC(String mac) {
+    return clienteJpa.countClienteNaturalForDirMAC(mac);
+  }
 
-    public List<TicketSoporte> findAllTickets() {
-        return ticketJpa.findTicketSoporteEntities();
-    }
+  // Ticket de soporte
+  public void createTicket(TicketSoporte ticket) {
+    ticketJpa.create(ticket);
+  }
 
-    // Archivos Adjuntos
-    public void createAdjunto(ArchivoAdjunto adjunto) {
-        archivoJpa.create(adjunto);
-    }
+  public void deleteTicket(Long id) throws NonexistentEntityException {
+    ticketJpa.destroy(id);
+  }
 
-    public void updateAdjunto(ArchivoAdjunto adjunto) throws Exception {
-        archivoJpa.edit(adjunto);
-    }
+  public void updateTicket(TicketSoporte ticket) throws Exception {
+    ticketJpa.edit(ticket);
+  }
+
+  public TicketSoporte findTicket(Long id) {
+    return ticketJpa.findTicketSoporte(id);
+  }
+
+  public List<TicketSoporte> findTicketsNoAsigment() {
+    return ticketJpa.findTicketSoporteListNoAsignados();
+  }
+
+  public List<TicketSoporte> findTicketByEstado(String estado) {
+    return null;
+  }
+
+  public TicketSoporte findTicketSoporteByClienteNatural(
+    ClienteNatural usuarioFinal
+  ) {
+    return ticketJpa.findTicketSoporteByClienteNatural(usuarioFinal);
+  }
+
+  public List<TicketSoporte> findAllTickets() {
+    return ticketJpa.findTicketSoporteEntities();
+  }
+
+  // Archivos Adjuntos
+  public void createAdjunto(ArchivoAdjunto adjunto) {
+    archivoJpa.create(adjunto);
+  }
+
+  public void updateAdjunto(ArchivoAdjunto adjunto) throws Exception {
+    archivoJpa.edit(adjunto);
+  }
 }
